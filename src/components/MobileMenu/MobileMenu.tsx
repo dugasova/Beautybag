@@ -8,8 +8,11 @@ import { SlSocialInstagram } from "react-icons/sl";
 import { SlSocialFacebook } from "react-icons/sl";
 import { TiSocialPinterest } from "react-icons/ti";
 import { SlSocialYoutube } from "react-icons/sl";
+import { FiSun, FiMoon } from "react-icons/fi";
 import { UserAuth } from '../../context/AuthContext';
 import { useHeaderNav } from '../../hooks/useHeaderNav';
+import { useTheme } from '../../context/ThemeContext';
+import { motion } from 'framer-motion';
 
 interface MobileMenuProps {
   onClose: () => void;
@@ -20,6 +23,7 @@ export default function MobileMenu({ onClose }: MobileMenuProps) {
   const { t } = useTranslation();
   const { user, logOut } = UserAuth();
   const { navItems, toggleLanguage, langLabel } = useHeaderNav();
+  const { theme, toggleTheme } = useTheme();
   const handleNavigate = (path: string) => {
     navigate(path);
     onClose();
@@ -84,7 +88,21 @@ export default function MobileMenu({ onClose }: MobileMenuProps) {
               >
                 {langLabel}
               </Button>
-
+              <button
+                type="button"
+                className="theme-toggle"
+                onClick={toggleTheme}
+                aria-label={t(theme === 'dark' ? 'header.lightMode' : 'header.darkMode')}
+                aria-pressed={theme === 'dark'}
+              >
+                <motion.span
+                  className="theme-toggle-thumb"
+                  animate={{ x: theme === 'dark' ? 22 : 0 }}
+                  transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                >
+                  {theme === 'dark' ? <FiMoon /> : <FiSun />}
+                </motion.span>
+              </button>
             </div>
           </div>
           <div className='nav-list'>
