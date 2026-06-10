@@ -25,83 +25,92 @@ export default function Header() {
       console.error(error);
     }
   }
+
+  const handleMenuButtonKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setIsMenuOpen(true);
+    }
+  }
+
   return (
-    <>
-      <div className='header-wrapper'>
-        <header className='header container'>
-          <div className='logo'>
-            <NavLink to="/">
-              <img src={logo} alt="logo" className='logo-img' />
-            </NavLink>
-          </div>
-          <div className='nav'>
-            <ul className='nav-list'>
-              {navItems.map((item) => (
-                <li key={item.id} className='nav-item'>
-                  <NavLink
-                    to={item.path}
-                    className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
-                  >
-                    {item.label}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className='actions'>
-            <Button
-              className='language-btn-custom'
-              variant="secondary"
-              size="sm"
-              onClick={toggleLanguage}
-            >
-              {langLabel}
-            </Button>
-            {user?.email ? (
-              <>
-                <Button
-                  variant="primary"
-                  size="sm"
-                  onClick={() => handleNavigate('/account')}
+    <div className='header-wrapper'>
+      <header className='header container'>
+        <div className='logo'>
+          <NavLink to="/">
+            <img src={logo} alt="logo" className='logo-img' />
+          </NavLink>
+        </div>
+        <div className='nav'>
+          <ul className='nav-list'>
+            {navItems.map((item) => (
+              <li key={item.id} className='nav-item'>
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
                 >
-                  {t('header.account')}
-                </Button>
-                <Button
-                  variant="primary"
-                  size="sm"
-                  onClick={handleLogout}
-                >
-                  {t('header.logout')}
-                </Button>
-              </>
-            ) : (
-              <>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => handleNavigate('/login')}
-                >
-                  {t('header.login')}
-                </Button>
-                <Button
-                  variant="primary"
-                  size="sm"
-                  onClick={() => handleNavigate('/register')}
-                >
-                  {t('header.signup')}
-                </Button>
-              </>
-            )}
-            {/* mobile menu button */}
-            <FiAlignLeft
-              className="mobile-menu-button"
-              onClick={() => setIsMenuOpen(true)}
-            />
-            {isMenuOpen && <MobileMenu onClose={() => setIsMenuOpen(false)} />}
-          </div>
-          <Subheader />
-        </header >
-      </div>
-    </>
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className='actions'>
+          <Button
+            className='language-btn-custom'
+            variant="secondary"
+            size="sm"
+            onClick={toggleLanguage}
+          >
+            {langLabel}
+          </Button>
+          {user?.email ? (
+            <>
+              <Button
+                variant="primary"
+                size="sm"
+                onClick={() => handleNavigate('/account')}
+              >
+                {t('header.account')}
+              </Button>
+              <Button
+                variant="primary"
+                size="sm"
+                onClick={handleLogout}
+              >
+                {t('header.logout')}
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => handleNavigate('/login')}
+              >
+                {t('header.login')}
+              </Button>
+              <Button
+                variant="primary"
+                size="sm"
+                onClick={() => handleNavigate('/register')}
+              >
+                {t('header.signup')}
+              </Button>
+            </>
+          )}
+          <FiAlignLeft
+            className="mobile-menu-button"
+            role="button"
+            tabIndex={0}
+            aria-label={t('header.openMenu', 'Open menu')}
+            onClick={() => setIsMenuOpen(true)}
+            onKeyDown={handleMenuButtonKeyDown}
+          />
+          {isMenuOpen && <MobileMenu onClose={() => setIsMenuOpen(false)} />}
+        </div>
+        <Subheader />
+      </header>
+    </div>
   )
 }

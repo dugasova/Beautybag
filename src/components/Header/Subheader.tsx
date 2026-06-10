@@ -74,7 +74,7 @@ export default function Subheader() {
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.5, opacity: 0 }}
-                className='wishlist-count'
+                className='badge-count'
               >
                 {wishList.length}
               </motion.span>
@@ -98,7 +98,7 @@ export default function Subheader() {
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.5, opacity: 0 }}
-                className='cart-count'
+                className='badge-count'
               >
                 {cartList.length}
               </motion.span>

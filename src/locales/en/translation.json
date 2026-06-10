@@ -10,7 +10,8 @@
         "login": "Log In",
         "signup": "Sign Up",
         "account": "Account",
-        "logout": "Logout"
+        "logout": "Logout",
+        "openMenu": "Open menu"
     },
     "contact": {
         "title": "Contact Us",
