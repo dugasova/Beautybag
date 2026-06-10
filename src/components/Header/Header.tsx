@@ -8,35 +8,22 @@ import { UserAuth } from '../../context/AuthContext';
 import { useState } from 'react';
 import { FiAlignLeft } from "react-icons/fi";
 import MobileMenu from '../MobileMenu/MobileMenu';
+import { useHeaderNav } from '../../hooks/useHeaderNav';
 
 export default function Header() {
   const navigate = useNavigate();
   const { user, logOut } = UserAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useTranslation();
+  const { navItems, handleNavigate, toggleLanguage, langLabel } = useHeaderNav();
 
   const handleLogout = async () => {
     try {
       await logOut();
       navigate('/');
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
-  }
-
-  const { t } = useTranslation();
-  const { i18n } = useTranslation();
-  const navItems = [
-    { id: 1, label: t('navigation.promotions', 'Promotions'), path: '/promotions' },
-    { id: 2, label: t('navigation.delivery', 'Delivery and payments'), path: '/delivery' },
-    { id: 3, label: t('navigation.contact', 'Contact'), path: '/contact' },
-  ]
-  const handleNavigate = (path: string) => {
-    navigate(path);
-  }
-  const toggleLanguage = () => {
-    const currentLang = i18n.language || 'en';
-    const newLang = currentLang.startsWith('en') ? 'uk' : 'en';
-    i18n.changeLanguage(newLang);
   }
   return (
     <>
@@ -68,7 +55,7 @@ export default function Header() {
               size="sm"
               onClick={toggleLanguage}
             >
-              {i18n.language?.startsWith('en') ? 'UK' : 'EN'}
+              {langLabel}
             </Button>
             {user?.email ? (
               <>

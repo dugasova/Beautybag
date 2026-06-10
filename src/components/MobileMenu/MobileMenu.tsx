@@ -8,6 +8,8 @@ import { SlSocialInstagram } from "react-icons/sl";
 import { SlSocialFacebook } from "react-icons/sl";
 import { TiSocialPinterest } from "react-icons/ti";
 import { SlSocialYoutube } from "react-icons/sl";
+import { UserAuth } from '../../context/AuthContext';
+import { useHeaderNav } from '../../hooks/useHeaderNav';
 
 interface MobileMenuProps {
   onClose: () => void;
@@ -16,19 +18,20 @@ interface MobileMenuProps {
 export default function MobileMenu({ onClose }: MobileMenuProps) {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { i18n } = useTranslation();
-  const navItems = [
-    { id: 1, label: t('navigation.promotions', 'Promotions'), path: '/promotions' },
-    { id: 2, label: t('navigation.delivery', 'Delivery and payments'), path: '/delivery' },
-    { id: 3, label: t('navigation.contact', 'Contact'), path: '/contact' },
-  ]
+  const { user, logOut } = UserAuth();
+  const { navItems, toggleLanguage, langLabel } = useHeaderNav();
   const handleNavigate = (path: string) => {
     navigate(path);
+    onClose();
   }
-  const toggleLanguage = () => {
-    const currentLang = i18n.language || 'en';
-    const newLang = currentLang.startsWith('en') ? 'uk' : 'en';
-    i18n.changeLanguage(newLang);
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      navigate('/');
+      onClose();
+    } catch (error) {
+      console.error(error);
+    }
   }
   return (
     <>
@@ -39,19 +42,47 @@ export default function MobileMenu({ onClose }: MobileMenuProps) {
               <img src={logo} alt="logo" className='logo-img' />
             </div>
             <div>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => handleNavigate('/login')}
-              >
-                {t('header.login')}
-              </Button>
+              {user?.email ? (
+                <>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => handleNavigate('/account')}
+                  >
+                    {t('header.account')}
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleLogout}
+                  >
+                    {t('header.logout')}
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => handleNavigate('/login')}
+                  >
+                    {t('header.login')}
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => handleNavigate('/register')}
+                  >
+                    {t('header.signup')}
+                  </Button>
+                </>
+              )}
               <Button
                 variant="outline"
                 size="sm"
                 onClick={toggleLanguage}
               >
-                {i18n.language?.startsWith('en') ? 'UK' : 'EN'}
+                {langLabel}
               </Button>
 
             </div>

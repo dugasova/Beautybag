@@ -1,79 +1,79 @@
  .header-wrapper {
-     width: 100%;
-     background-color: var(--color-white);
-     display: flex;
-     justify-content: center;
-     align-items: center;
+   width: 100%;
+   background-color: var(--color-white);
+   display: flex;
+   justify-content: center;
+   align-items: center;
  }
 
  .header {
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: space-between;
-     align-items: center;
-     align-self: center;
-     padding: 1rem;
-     background-color: var(--color-white);
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+   align-self: center;
+   padding: 1rem;
+   background-color: var(--color-white);
  }
 
  .logo {
-     display: flex;
-     align-items: center;
+   display: flex;
+   align-items: center;
  }
 
  .logo-img {
-     max-height: 70px;
-     width: auto;
+   max-height: 70px;
+   width: auto;
  }
 
  .nav-list {
-     display: flex;
-     gap: 1rem;
+   display: flex;
+   gap: 1rem;
  }
 
  .nav-link {
-     text-decoration: none;
-     color: var(--color-text);
-     font-weight: 500;
-     transition: color 0.3s ease;
-     padding-bottom: 2px;
-     border-bottom: 2px solid transparent;
+   text-decoration: none;
+   color: var(--color-text);
+   font-weight: 500;
+   transition: color 0.3s ease;
+   padding-bottom: 2px;
+   border-bottom: 2px solid transparent;
  }
 
  .nav-link:hover {
-     color: var(--color-purple-100);
+   color: var(--color-purple-100);
  }
 
  .nav-link.active {
-     color: var(--color-purple-100);
-     border-bottom: 2px solid var(--color-purple-100);
+   color: var(--color-purple-100);
+   border-bottom: 2px solid var(--color-purple-100);
  }
 
  .nav-item {
-     cursor: pointer;
+   cursor: pointer;
  }
 
  .actions {
-     display: flex;
-     gap: 1rem;
+   display: flex;
+   gap: 1rem;
  }
 
  .mobile-menu-button {
-     display: none;
-     font-size: 24px;
-     cursor: pointer;
+   display: none;
+   font-size: 24px;
+   cursor: pointer;
  }
 
  @media (max-width: 700px) {
-     .nav {
-         display: none;
-     }
+   .nav {
+     display: none;
+   }
 
-     .actions > button {
-         display: none;
-     }
+   .actions>button {
+     display: none;
+   }
 
-     .mobile-menu-button {
-         display: block;
-     }
+   .mobile-menu-button {
+     display: block;
+   }
  }

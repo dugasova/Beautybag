@@ -10,8 +10,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setIsSearchModalOpen } from '../../store/features/search/slice';
 import type { RootState } from '../../store/store';
 import { UserAuth } from '../../context/AuthContext';
+import { useTranslation } from 'react-i18next';
 
 export default function Subheader() {
+  const { t } = useTranslation();
   const { user } = UserAuth();
   const wishList = useSelector((state: RootState) => state.wishList.wishList);
   const cartList = useSelector((state: RootState) => state.cartList.cartList);
@@ -27,6 +29,13 @@ export default function Subheader() {
     navigate(path);
   }
 
+  const handleNavigateKeyDown = (e: React.KeyboardEvent, path: string) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleNavigate(path);
+    }
+  }
+
   return (
     <div className='subheader'>
       <button className='subheader-search-btn' onClick={handleOpenSearch}>
@@ -39,11 +48,25 @@ export default function Subheader() {
         <p className='subheader-message'>Beauty with love</p>
       </div>
       <div className='subheader-right'>
-        <div className='subheader-icons' onClick={() => handleNavigate(user?.email ? '/account' : '/login')}>
-          <img src={authorizedIcon} alt="authorized" className='authorized-icon' />
+        <div
+          className='subheader-icons'
+          role="button"
+          tabIndex={0}
+          aria-label={user?.email ? t('header.account') : t('header.login')}
+          onClick={() => handleNavigate(user?.email ? '/account' : '/login')}
+          onKeyDown={(e) => handleNavigateKeyDown(e, user?.email ? '/account' : '/login')}
+        >
+          <img src={authorizedIcon} alt="" className='authorized-icon' />
         </div>
-        
-        <div className='subheader-icons wishlist-icons' onClick={() => handleNavigate('/wishlist')}>
+
+        <div
+          className='subheader-icons wishlist-icons'
+          role="button"
+          tabIndex={0}
+          aria-label={t('wishlist.title')}
+          onClick={() => handleNavigate('/wishlist')}
+          onKeyDown={(e) => handleNavigateKeyDown(e, '/wishlist')}
+        >
           <AnimatePresence mode='popLayout'>
             {wishList.length > 0 && (
               <motion.span 
@@ -57,10 +80,17 @@ export default function Subheader() {
               </motion.span>
             )}
           </AnimatePresence>
-          <img src={favoriteIcon} alt="favorite" className='favorite-icon' />
+          <img src={favoriteIcon} alt="" className='favorite-icon' />
         </div>
 
-        <div className='subheader-icons cart-icons' onClick={() => handleNavigate('/cart')}>
+        <div
+          className='subheader-icons cart-icons'
+          role="button"
+          tabIndex={0}
+          aria-label={t('cart.title')}
+          onClick={() => handleNavigate('/cart')}
+          onKeyDown={(e) => handleNavigateKeyDown(e, '/cart')}
+        >
           <AnimatePresence mode='popLayout'>
             {cartList.length > 0 && (
               <motion.span 
@@ -74,7 +104,7 @@ export default function Subheader() {
               </motion.span>
             )}
           </AnimatePresence>
-          <img src={cartIcon} alt="cart" className='cart-icon' />
+          <img src={cartIcon} alt="" className='cart-icon' />
         </div>
       </div>
     </div >
