@@ -13,7 +13,7 @@
 .mobile-menu {
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: var(--color-white);
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -41,13 +41,13 @@
 
 .mobile-menu .nav-link {
   text-decoration: none;
-  color: #333;
+  color: var(--color-text);
   font-size: 1.2rem;
   font-weight: 500;
 }
 
 .mobile-menu .nav-link.active {
-  color: #b58ed6;
+  color: var(--color-purple-100);
 }
 
 .mobile-menu-close-btn {
@@ -56,7 +56,7 @@
   right: 1.5rem;
   font-size: 24px;
   cursor: pointer;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .social-icons {
@@ -66,6 +66,6 @@
 }
 
 .social-icon {
-  color: #333;
+  color: var(--color-text);
   cursor: pointer;
 }

@@ -18,7 +18,7 @@
     justify-content: space-between;
     margin-bottom: 40px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .checkout-steps-indicator .step {
@@ -28,19 +28,19 @@
 }
 
 .checkout-steps-indicator .step.active {
-    color: #a855f7;
+    color: var(--color-purple-300);
 }
 
 .checkout-step-content h2 {
     margin-bottom: 24px;
     font-size: 24px;
-    color: #1e293b;
+    color: var(--color-heading);
 }
 
 .saved-addresses-selector {
     margin-bottom: 30px;
     padding-bottom: 24px;
-    border-bottom: 1px dashed #e2e8f0;
+    border-bottom: 1px dashed var(--color-border);
 }
 
 .saved-addresses-selector h3 {
@@ -57,7 +57,7 @@
 
 .saved-address-chip {
     padding: 10px 16px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--color-border);
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -68,13 +68,13 @@
 }
 
 .saved-address-chip:hover {
-    border-color: #a855f7;
+    border-color: var(--color-purple-300);
     background: #f5f3ff;
 }
 
 .saved-address-chip strong {
     font-size: 13px;
-    color: #a855f7;
+    color: var(--color-purple-300);
     text-transform: uppercase;
 }
 
@@ -107,7 +107,7 @@
 
 .form-group input {
     padding: 12px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     outline: none;
     transition: border-color 0.2s;
@@ -137,14 +137,14 @@
     align-items: center;
     gap: 12px;
     padding: 16px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .payment-option.active {
-    border-color: #a855f7;
+    border-color: var(--color-purple-300);
     background-color: #f5f3ff;
 }
 
@@ -167,7 +167,7 @@
 
 .review-items {
     margin-top: 24px;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid var(--color-border);
     padding-top: 20px;
 }
 
@@ -180,7 +180,7 @@
 .total-row {
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 2px solid #e2e8f0;
+    border-top: 2px solid var(--color-border);
     display: flex;
     justify-content: space-between;
     font-size: 20px;

@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color: #fff;
+    background-color: var(--color-white);
     border-radius: 12px;
     padding: 15px;
     box-sizing: border-box;
@@ -28,7 +28,7 @@
 .product-name {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #333;
+    color: var(--color-text);
     margin-bottom: 5px;
     text-align: center;
 }
@@ -50,7 +50,7 @@
 .product-price {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #333;
+    color: var(--color-text);
 }
 
 .product-price.old {
@@ -137,12 +137,12 @@
 
 .product-favorite:hover {
     transform: scale(1.1);
-    background-color: #fff;
+    background-color: var(--color-white);
 }
 
 .product-favorite.active .favorite-icon-svg {
-    fill: #a169d3;
-    stroke: #6a3e90;
+    fill: var(--color-purple-200);
+    stroke: var(--color-purple-600);
 }
 
 .favorite-icon-svg {

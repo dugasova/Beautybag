@@ -1,7 +1,7 @@
 .base-form {
     width: 100%;
     max-width: 400px;
-    background: #ffffff;
+    background: var(--color-white);
     padding: 2.5rem;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
@@ -13,7 +13,7 @@
 
 .form-title {
     font-size: 2.5rem;
-    color: #333;
+    color: var(--color-text);
     margin-top: 3rem;
     margin-bottom: 0.5rem;
     text-align: center;

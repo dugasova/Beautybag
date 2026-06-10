@@ -1,7 +1,7 @@
 /* Base Button Styles */
 .button {
-  --btn-bg: #333;
-  --btn-color: #fff;
+  --btn-bg: var(--color-text);
+  --btn-color: var(--color-white);
   --btn-border: transparent;
   --btn-padding: 0.75rem 1.5rem;
   --btn-font-size: 1rem;
@@ -46,22 +46,22 @@
 
 /* Variants */
 .button-primary {
-  --btn-bg: #8e2de2;
+  --btn-bg: var(--color-purple-400);
   --btn-hover-bg: #7b1fa2;
 }
 
 .button-secondary {
-  --btn-bg: #f5f5f5;
-  --btn-color: #333;
+  --btn-bg: var(--color-bg);
+  --btn-color: var(--color-text);
   --btn-hover-bg: #e0e0e0;
 }
 
 .button-outline {
   --btn-bg: transparent;
-  --btn-color: #333;
-  --btn-border: #333;
-  --btn-hover-bg: #333;
-  --btn-hover-color: #fff;
+  --btn-color: var(--color-text);
+  --btn-border: var(--color-text);
+  --btn-hover-bg: var(--color-text);
+  --btn-hover-color: var(--color-white);
 }
 
 .button-outline:hover:not(:disabled) {
@@ -70,7 +70,7 @@
 
 .button-ghost {
   --btn-bg: transparent;
-  --btn-color: #333;
+  --btn-color: var(--color-text);
   --btn-hover-bg: rgba(0, 0, 0, 0.05);
 }
 
@@ -101,6 +101,6 @@
 }
 
 .button-purple {
-  --btn-bg: #a169d3;
+  --btn-bg: var(--color-purple-200);
   --btn-hover-bg: #71518d;
 }

@@ -1,5 +1,5 @@
 .skeleton {
-  background-color: #e2e8f0;
+  background-color: var(--color-border);
   border-radius: 8px;
   display: inline-block;
   overflow: hidden;

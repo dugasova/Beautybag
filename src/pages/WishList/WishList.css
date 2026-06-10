@@ -19,7 +19,7 @@
   display: block;
   width: 60px;
   height: 4px;
-  background: #a855f7;
+  background: var(--color-purple-300);
   /* Matching the purple theme */
   margin: 10px auto 0;
   border-radius: 2px;
@@ -34,7 +34,7 @@
 }
 
 .wishlist-item {
-  background: #ffffff;
+  background: var(--color-white);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -100,7 +100,7 @@
 .wishlist-price {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #a855f7;
+  color: var(--color-purple-300);
   margin: 5px 0;
 }
 
@@ -145,7 +145,7 @@
 
 .wishlist-empty h1 {
   font-size: 2rem;
-  color: #333;
+  color: var(--color-text);
   margin-bottom: 10px;
 }
 
@@ -159,7 +159,7 @@
   justify-content: center;
   margin-top: 40px;
   padding-top: 20px;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--color-border);
 }
 
 .clear-wishlist-btn {
@@ -182,7 +182,7 @@
   height: 80px;
   margin: 20px 0;
   opacity: 0.8;
-  color: #a855f7;
+  color: var(--color-purple-300);
   fill: currentColor;
   animation: float 3s ease-in-out infinite;
 }

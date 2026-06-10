@@ -1,3 +1,18 @@
+:root {
+  --color-white: #fff;
+  --color-text: #333;
+  --color-heading: #1e293b;
+  --color-bg: #f5f5f5;
+  --color-border: #e2e8f0;
+
+  --color-purple-100: #b58ed6;
+  --color-purple-200: #a169d3;
+  --color-purple-300: #a855f7;
+  --color-purple-400: #8e2de2;
+  --color-purple-500: #7c3aed;
+  --color-purple-600: #6a3e90;
+}
+
 *,
 ::after,
 ::before {
@@ -15,8 +30,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.6;
   font-size: 16px;
   width: 100%;

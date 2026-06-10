@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     gap: 24px;
     align-items: flex-end;
-    background: #fff;
+    background: var(--color-white);
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -34,7 +34,7 @@
 }
 
 .filter-select:focus {
-    border-color: #a855f7;
+    border-color: var(--color-purple-300);
 }
 
 .price-inputs {
@@ -53,7 +53,7 @@
 }
 
 .price-inputs input:focus {
-    border-color: #a855f7;
+    border-color: var(--color-purple-300);
 }
 
 .rating-filter {

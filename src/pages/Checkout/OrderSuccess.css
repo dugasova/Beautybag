@@ -21,7 +21,7 @@
     width: 80px;
     height: 80px;
     background-color: #f5f3ff;
-    color: #a855f7;
+    color: var(--color-purple-300);
     font-size: 40px;
     display: flex;
     justify-content: center;
@@ -32,7 +32,7 @@
 
 .order-success-container h1 {
     font-size: 28px;
-    color: #1e293b;
+    color: var(--color-heading);
     margin-bottom: 16px;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .order-id strong {
-    color: #a855f7;
+    color: var(--color-purple-300);
 }
 
 .success-msg {

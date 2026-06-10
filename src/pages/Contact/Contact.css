@@ -15,7 +15,7 @@
 
 .contact-title {
     font-size: 3rem;
-    color: #333;
+    color: var(--color-text);
     margin-bottom: 1rem;
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
@@ -30,7 +30,7 @@
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 4rem;
-    background: #fff;
+    background: var(--color-white);
     padding: 3rem;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
@@ -44,11 +44,11 @@
 
 .info-item h3 {
     font-size: 1.2rem;
-    color: #333;
+    color: var(--color-text);
     margin-bottom: 0.75rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    color: #8e2de2;
+    color: var(--color-purple-400);
 }
 
 .info-item p {
@@ -71,7 +71,7 @@
 }
 
 .social-links span:hover {
-    color: #8e2de2;
+    color: var(--color-purple-400);
 }
 
 .contact-form {
@@ -104,8 +104,8 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #8e2de2;
-    background-color: #fff;
+    border-color: var(--color-purple-400);
+    background-color: var(--color-white);
     box-shadow: 0 0 10px rgba(142, 45, 226, 0.1);
     outline: none;
 }
