@@ -43,7 +43,7 @@ export default function ProductItem({ product }: { product: IProduct }) {
         return <span key={i} className="star star-half">★</span>;
       }
       return (
-        <span key={i} className="star" style={{ color: isFullStar ? '#f59e0b' : '#d1d5db' }}>
+        <span key={i} className={`star ${isFullStar ? 'filled' : ''}`}>
           ★
         </span>
       );

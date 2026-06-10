@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
+import './Products.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCategoryFilter, setCategoryFilter } from '../../store/features/search/slice';
 import type { RootState } from '../../store/store';

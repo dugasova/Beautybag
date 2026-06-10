@@ -93,8 +93,8 @@
 
 /* Colors specifically for your Beauty brand */
 .button-accent {
-  --btn-bg: #e18888;
-  --btn-hover-bg: #d17777;
+  --btn-bg: var(--color-accent);
+  --btn-hover-bg: var(--color-accent-hover);
 }
 
 .button-purple {
