@@ -24,27 +24,33 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-content">
-        <ul className="footer-section">
-          <li><Link className='footer-link' to="/delivery">{t('footer.aboutDelivery')}</Link></li>
-          <li><Link className='footer-link' to="/products">{t('footer.aboutProducts')}</Link></li>
-
-        </ul>
-        <ul className="footer-section">
-          <li><Link className='footer-link' to="/articles">{t('footer.articles')}</Link></li>
-          <li><Link className='footer-link' to="/special-offers">{t('footer.specialOffers')}</Link></li>
-          <li><Link className='footer-link' to="/beautybag-premium">{t('footer.beautybagPremium')}</Link></li>
-        </ul>
-        <ul className="footer-section">
-          <li><Link className='footer-link' to="/beautybag-rewards">{t('footer.beautybagRewards')}</Link></li>
-          <li><Link className='footer-link' to="/terms-of-use">{t('footer.termsOfUse')}</Link></li>
-          <li><Link className='footer-link' to="/returns-and-exchanges">{t('footer.returnsAndExchanges')}</Link></li>
-        </ul>
-        <ul className="footer-section">
-          <li><Link className='footer-link' to="/about-us">{t('footer.aboutUs')}</Link></li>
-          <li><Link className='footer-link' to="/contact">{t('footer.contact')}</Link></li>
-          <li><Link className='footer-link' to="/privacy-policy">{t('footer.privacyPolicy')}</Link></li>
-          <li><Link className='footer-link' to="/affiliate-program">{t('footer.affiliateProgram')}</Link></li>
-        </ul>
+        <div className="footer-section">
+          <h3 className="footer-section-title">{t('footer.shopTitle')}</h3>
+          <ul>
+            <li><Link className='footer-link' to="/products">{t('footer.aboutProducts')}</Link></li>
+            <li><Link className='footer-link' to="/special-offers">{t('footer.specialOffers')}</Link></li>
+            <li><Link className='footer-link' to="/beautybag-premium">{t('footer.beautybagPremium')}</Link></li>
+            <li><Link className='footer-link' to="/beautybag-rewards">{t('footer.beautybagRewards')}</Link></li>
+          </ul>
+        </div>
+        <div className="footer-section">
+          <h3 className="footer-section-title">{t('footer.helpTitle')}</h3>
+          <ul>
+            <li><Link className='footer-link' to="/delivery">{t('footer.aboutDelivery')}</Link></li>
+            <li><Link className='footer-link' to="/returns-and-exchanges">{t('footer.returnsAndExchanges')}</Link></li>
+            <li><Link className='footer-link' to="/terms-of-use">{t('footer.termsOfUse')}</Link></li>
+            <li><Link className='footer-link' to="/privacy-policy">{t('footer.privacyPolicy')}</Link></li>
+          </ul>
+        </div>
+        <div className="footer-section">
+          <h3 className="footer-section-title">{t('footer.companyTitle')}</h3>
+          <ul>
+            <li><Link className='footer-link' to="/about-us">{t('footer.aboutUs')}</Link></li>
+            <li><Link className='footer-link' to="/contact">{t('footer.contact')}</Link></li>
+            <li><Link className='footer-link' to="/articles">{t('footer.articles')}</Link></li>
+            <li><Link className='footer-link' to="/affiliate-program">{t('footer.affiliateProgram')}</Link></li>
+          </ul>
+        </div>
       </div>
       <div className="footer-bottom">
         <p className='footer-section-copyright'><Link className='footer-link' to="/copyright">© {new Date().getFullYear()} {t('footer.copyright')}</Link></p>
