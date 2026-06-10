@@ -1,0 +1,187 @@
+{
+    "navigation": {
+        "promotions": "Акції",
+        "delivery": "Доставка та оплата",
+        "contact": "Контакти",
+        "home": "Головна"
+    },
+    "header": {
+        "login": "Увійти",
+        "signup": "Зареєструватися",
+        "account": "Акаунт",
+        "logout": "Вийти"
+    },
+    "contact": {
+        "title": "Зв'яжіться з нами",
+        "subtitle": "Ми хотіли б почути вас. Надішліть нам повідомлення!",
+        "form": {
+            "name": "Повне ім'я",
+            "email": "Електронна пошта",
+            "subject": "Тема",
+            "message": "Повідомлення",
+            "send": "Надіслати повідомлення"
+        }
+    },
+    "login": {
+        "title": "Увійти",
+        "subtitle": "Ласкаво просимо назад! Введіть свої дані для входу.",
+        "form": {
+            "email": "Email",
+            "password": "Пароль",
+            "submit": "Увійти",
+            "redirectLink": "Немає акаунта?"
+        },
+        "validation": {
+            "invalidEmail": "Невірний email",
+            "passwordMin": "Пароль повинен містити щонайменше 6 символів",
+            "passwordMax": "Пароль повинен містити не більше 12 символів"
+        }
+    },
+    "account": {
+        "title": "Акаунт",
+        "orders": "Ваші замовлення",
+        "noOrders": "Замовлень не знайдено.",
+        "name": "Ім'я"
+    },
+    "register": {
+        "title": "Зареєструватися",
+        "subtitle": "Ласкаво просимо! Введіть свої дані для реєстрації.",
+        "form": {
+            "email": "Email",
+            "password": "Пароль",
+            "submit": "Зареєструватися",
+            "redirectLink": "Вже маєте акаунт?"
+        },
+        "validation": {
+            "invalidEmail": "Невірний email",
+            "passwordMin": "Пароль повинен містити щонайменше 6 символів",
+            "passwordMax": "Пароль повинен містити не більше 12 символів"
+        }
+    },
+    "wishlist": {
+        "title": "Ваші улюблені товари",
+        "empty": "Ваш список бажань порожній",
+        "emptyMessage": "Додайте кілька товарів до обраного, щоб побачити їх тут!",
+        "clear": "Очистити список бажань",
+        "addToCart": "Додати до кошика",
+        "removeFromWishList": "Видалити з списку бажань",
+        "backToProducts": "Повернутися до товарів"
+    },
+    "cart": {
+        "title": "Ваш кошик",
+        "empty": "Ваш кошик порожній",
+        "emptyMessage": "Додайте кілька товарів до кошика, щоб побачити їх тут!",
+        "clear": "Очистити кошик",
+        "addToCart": "Додати до кошика",
+        "removeFromCart": "Видалити з кошика",
+        "backToProducts": "Повернутися до товарів",
+        "items": "шт",
+        "unit": "шт",
+        "subtotal": "Всього",
+        "moveToWishlist": "Додати до обраного",
+        "checkout": "Оформити замовлення",
+        "loginToOrder": "Будь ласка, увійдіть, щоб оформити замовлення",
+        "orderSuccess": "Замовлення успішно оформлено!",
+        "orderError": "Помилка при оформленні замовлення",
+        "totalPrice": "Загальна вартість"
+    },
+    "products": {
+        "shampoo": {
+            "name": "Шампунь",
+            "description": "Шампунь для всіх типів волосся"
+        },
+        "conditioner": {
+            "name": "Кондиціонер",
+            "description": "Кондиціонер для всіх типів волосся"
+        },
+        "hairMask": {
+            "name": "Маска для волосся",
+            "description": "Маска для всіх типів волосся"
+        },
+        "hairRinse": {
+            "name": "Ополіскувач",
+            "description": "Ополіскувач для всіх типів волосся"
+        },
+        "hairLotion": {
+            "name": "Лосьйон для волосся",
+            "description": "Лосьйон для всіх типів волосся"
+        },
+        "hairOil": {
+            "name": "Олія для волосся",
+            "description": "Олія для всіх типів волосся"
+        },
+        "hairSerum": {
+            "name": "Сироватка для волосся",
+            "description": "Сироватка для всіх типів волосся"
+        },
+        "hairCream": {
+            "name": "Крем для волосся",
+            "description": "Крем для всіх типів волосся"
+        },
+        "hairSpray": {
+            "name": "Спрей для волосся",
+            "description": "Спрей для всіх типів волосся"
+        },
+        "hairKeratin": {
+            "name": "Кератин для волосся",
+            "description": "Кератин для всіх типів волосся"
+        }
+    },
+    "search": {
+        "placeholder": "Пошук...",
+        "noResults": "Результатів не знайдено"
+    },
+    "product": {
+        "notFound": "Товар не знайдено",
+        "backToProducts": "Повернутися до товарів",
+        "inStock": "В наявності",
+        "addToCart": "Додати до кошика",
+        "removeFromWishList": "Видалити з списку бажань",
+        "home": "Головна"
+    },
+    "promotions": {
+        "title": "Акції",
+        "empty": "Акцій не знайдено",
+        "emptyMessage": "Додайте кілька товарів до акцій, щоб побачити їх тут!",
+        "clear": "Очистити акції",
+        "addToCart": "Додати до кошика",
+        "removeFromWishList": "Видалити з списку бажань",
+        "backToProducts": "Повернутися до товарів"
+    },
+    "footer": {
+        "subscribe": "Будьте першими, хто дізнається про знижки та нові продукти!",
+        "subscribePlaceholder": "Введіть свій email",
+        "subscribeBtn": "Підписатися",
+        "aboutDelivery": "Про доставку",
+        "aboutProducts": "Про продукти",
+        "articles": "Статті",
+        "specialOffers": "Спеціальні пропозиції",
+        "beautybagPremium": "Beautybag PREMIUM",
+        "beautybagRewards": "Beautybag Rewards",
+        "termsOfUse": "Умови використання",
+        "returnsAndExchanges": "Повернення та обмін",
+        "aboutUs": "Про нас",
+        "contact": "Контакти",
+        "privacyPolicy": "Політика конфіденційності",
+        "affiliateProgram": "Партнерська програма",
+        "copyright": "Beautybag. Всі права захищені."
+    },
+    "filters": {
+        "sortBy": "Сортувати за",
+        "default": "За замовчуванням",
+        "priceAsc": "Ціна: від низької до високої",
+        "priceDesc": "Ціна: від високої до низької",
+        "ratingDesc": "Найкращі",
+        "priceRange": "Ціновий діапазон",
+        "minRating": "Мінімальна оцінка",
+        "reset": "Скинути фільтри",
+        "apply": "Застосувати фільтри"
+    },
+    "details": {
+        "name": "Ім'я",
+        "lastName": "Прізвище",
+        "phone": "Телефон",
+        "city": "Місто",
+        "address": "Адреса"
+    }
+}

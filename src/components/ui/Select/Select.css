@@ -1,0 +1,111 @@
+.select-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.custom-dropdown {
+    position: relative;
+    width: 200px;
+}
+
+.dropdown-trigger {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: white;
+}
+
+.dropdown-trigger:hover {
+    background-color: #f9f9f9;
+}
+
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    margin-top: 4px;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 10;
+}
+
+/* Show options on hover of the wrapper containing the trigger and the list */
+.custom-dropdown:hover .dropdown-options {
+    display: block;
+}
+
+/* Prevent options from disappearing immediately by adding hover target on them as well */
+.dropdown-options:hover {
+    display: block;
+}
+
+.dropdown-options li {
+    padding: 0.5rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.dropdown-options li:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-options li:first-child {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.dropdown-options li:last-child {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+/* Nested dropdown styles */
+.dropdown-options-nested {
+    position: absolute;
+    top: 0;
+    left: 100%; /* Show to the right of the parent option */
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 20;
+}
+
+/* Show nested options when parent li is hovered */
+.dropdown-options li:hover > .dropdown-options-nested {
+    display: block;
+}
+
+.dropdown-options-nested li {
+    padding: 0.5rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.dropdown-options-nested li:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-options-nested li:first-child {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.dropdown-options-nested li:last-child {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}

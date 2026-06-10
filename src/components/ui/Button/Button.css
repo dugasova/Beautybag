@@ -1,0 +1,106 @@
+/* Base Button Styles */
+.button {
+  --btn-bg: #333;
+  --btn-color: #fff;
+  --btn-border: transparent;
+  --btn-padding: 0.75rem 1.5rem;
+  --btn-font-size: 1rem;
+  --btn-radius: 0.5rem;
+  --btn-transition: all 0.2s ease;
+  --btn-hover-bg: #444;
+  --btn-active-scale: 0.98;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: var(--btn-padding);
+  font-size: var(--btn-font-size);
+  font-weight: 600;
+  border-radius: var(--btn-radius);
+  border: 1px solid var(--btn-border);
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  cursor: pointer;
+  transition: var(--btn-transition);
+  outline: none;
+  font-family: inherit;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.button:hover:not(:disabled) {
+  background-color: var(--btn-hover-bg);
+  transform: translateY(-1px);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(var(--btn-active-scale));
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+/* Variants */
+.button-primary {
+  --btn-bg: #8e2de2;
+  --btn-hover-bg: #7b1fa2;
+}
+
+.button-secondary {
+  --btn-bg: #f5f5f5;
+  --btn-color: #333;
+  --btn-hover-bg: #e0e0e0;
+}
+
+.button-outline {
+  --btn-bg: transparent;
+  --btn-color: #333;
+  --btn-border: #333;
+  --btn-hover-bg: #333;
+  --btn-hover-color: #fff;
+}
+
+.button-outline:hover:not(:disabled) {
+  color: var(--btn-hover-color);
+}
+
+.button-ghost {
+  --btn-bg: transparent;
+  --btn-color: #333;
+  --btn-hover-bg: rgba(0, 0, 0, 0.05);
+}
+
+/* Sizes */
+.button-sm {
+  --btn-padding: 0.5rem 1rem;
+  --btn-font-size: 0.875rem;
+}
+
+.button-lg {
+  --btn-padding: 1rem 2rem;
+  --btn-font-size: 1.125rem;
+}
+
+/* Shapes */
+.button-pill {
+  --btn-radius: 50px;
+}
+
+.button-square {
+  --btn-radius: 0;
+}
+
+/* Colors specifically for your Beauty brand */
+.button-accent {
+  --btn-bg: #e18888;
+  --btn-hover-bg: #d17777;
+}
+
+.button-purple {
+  --btn-bg: #a169d3;
+  --btn-hover-bg: #71518d;
+}

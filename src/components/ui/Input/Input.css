@@ -1,0 +1,30 @@
+.input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: none;
+    border-bottom: 1px solid #eee;
+    background-color: transparent;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+    color: #333;
+}
+
+.input::placeholder {
+    color: #bbb;
+}
+
+.input:focus {
+    background-color: #fff;
+    border-bottom: 1px solid #8e2de2;
+}
+
+.input.has-error {
+    border-bottom: 1px solid #ff4d4d;
+}
+
+.input.has-error:focus {
+    box-shadow: 0 0 0 4px rgba(255, 77, 77, 0.1);
+}
+
+/* Specific icon placement or variations could go here */

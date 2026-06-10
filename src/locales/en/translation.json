@@ -1,0 +1,188 @@
+{
+    "navigation": {
+        "promotions": "Promotions",
+        "delivery": "Delivery and payments",
+        "contact": "Contact",
+        "home": "Home",
+        "category": "Category"
+    },
+    "header": {
+        "login": "Log In",
+        "signup": "Sign Up",
+        "account": "Account",
+        "logout": "Logout"
+    },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "We would love to hear from you. Send us a message!",
+        "form": {
+            "name": "Full Name",
+            "email": "Email Address",
+            "subject": "Subject",
+            "message": "Message",
+            "send": "Send Message"
+        }
+    },
+    "login": {
+        "title": "Log In",
+        "subtitle": "Welcome back! Please enter your details to sign in.",
+        "form": {
+            "email": "Email Address",
+            "password": "Password",
+            "submit": "Log In",
+            "redirectLink": "Don't have an account?"
+        },
+        "validation": {
+            "invalidEmail": "Invalid email",
+            "passwordMin": "Password must be at least 6 characters long",
+            "passwordMax": "Password must be at most 12 characters long"
+        }
+    },
+    "register": {
+        "title": "Sign Up",
+        "subtitle": "Welcome! Please enter your details to sign up.",
+        "form": {
+            "email": "Email Address",
+            "password": "Password",
+            "submit": "Sign Up",
+            "redirectLink": "Already have an account?"
+        },
+        "validation": {
+            "invalidEmail": "Invalid email",
+            "passwordMin": "Password must be at least 6 characters long",
+            "passwordMax": "Password must be at most 12 characters long"
+        }
+    },
+    "account": {
+        "title": "Account",
+        "orders": "Your Orders",
+        "noOrders": "No orders found.",
+        "name": "Name"
+    },
+    "wishlist": {
+        "title": "Your Favorites",
+        "empty": "Your wishlist is empty",
+        "emptyMessage": "Add some products to your favorites to see them here!",
+        "clear": "Clear WishList",
+        "addToCart": "Add to cart",
+        "removeFromWishList": "Remove from wishlist",
+        "backToProducts": "Back to products"
+    },
+    "cart": {
+        "title": "Your Cart",
+        "empty": "Your cart is empty",
+        "emptyMessage": "Add some products to your cart to see them here!",
+        "clear": "Clear Cart",
+        "addToCart": "Add to cart",
+        "removeFromCart": "Remove from cart",
+        "backToProducts": "Back to products",
+        "items": "items",
+        "unit": "unit",
+        "subtotal": "Subtotal",
+        "moveToWishlist": "Move to Wishlist",
+        "checkout": "Place Order",
+        "loginToOrder": "Please login to place an order",
+        "orderSuccess": "Order placed successfully!",
+        "orderError": "Failed to place order",
+        "totalPrice": "Total Price"
+    },
+    "products": {
+        "shampoo": {
+            "name": "Shampoo",
+            "description": "Shampoo for all hair types"
+        },
+        "conditioner": {
+            "name": "Conditioner",
+            "description": "Conditioner for all hair types"
+        },
+        "hairMask": {
+            "name": "Hair Mask",
+            "description": "Hair mask for all hair types"
+        },
+        "hairRinse": {
+            "name": "Hair Rinse",
+            "description": "Hair rinse for all hair types"
+        },
+        "hairLotion": {
+            "name": "Hair Lotion",
+            "description": "Hair lotion for all hair types"
+        },
+        "hairOil": {
+            "name": "Hair Oil",
+            "description": "Hair oil for all hair types"
+        },
+        "hairSerum": {
+            "name": "Hair Serum",
+            "description": "Hair serum for all hair types"
+        },
+        "hairCream": {
+            "name": "Hair Cream",
+            "description": "Hair cream for all hair types"
+        },
+        "hairSpray": {
+            "name": "Hair Spray",
+            "description": "Hair spray for all hair types"
+        },
+        "hairKeratin": {
+            "name": "Hair Keratin",
+            "description": "Hair keratin for all hair types"
+        }
+    },
+    "search": {
+        "placeholder": "Search...",
+        "noResults": "No results found"
+    },
+    "product": {
+        "notFound": "Product not found",
+        "backToProducts": "Back to products",
+        "inStock": "In Stock",
+        "addToCart": "Add to cart",
+        "removeFromWishList": "Remove from wishlist",
+        "home": "Home"
+    },
+    "promotions": {
+        "title": "Promotions",
+        "empty": "No promotions found",
+        "emptyMessage": "Add some products to your promotions to see them here!",
+        "clear": "Clear Promotions",
+        "addToCart": "Add to cart",
+        "removeFromWishList": "Remove from wishlist",
+        "backToProducts": "Back to products"
+    },
+    "footer": {
+        "subscribe": "Be the first to know about sales and new products!",
+        "subscribePlaceholder": "Enter your email",
+        "subscribeBtn": "Subscribe",
+        "aboutDelivery": "About delivery",
+        "aboutProducts": "About products",
+        "articles": "Articles",
+        "specialOffers": "Special offers",
+        "beautybagPremium": "Beautybag PREMIUM",
+        "beautybagRewards": "Beautybag Rewards",
+        "termsOfUse": "Terms of use",
+        "returnsAndExchanges": "Returns and exchanges",
+        "aboutUs": "About us",
+        "contact": "Contact",
+        "privacyPolicy": "Privacy policy",
+        "affiliateProgram": "Affiliate program",
+        "copyright": "Beautybag. All rights reserved."
+    },
+    "filters": {
+        "sortBy": "Sort By",
+        "default": "Default",
+        "priceAsc": "Price: Low to High",
+        "priceDesc": "Price: High to Low",
+        "ratingDesc": "Top Rated",
+        "priceRange": "Price Range",
+        "minRating": "Min Rating",
+        "reset": "Reset Filters",
+        "apply": "Apply Filters"
+    },
+    "details": {
+        "name": "Name",
+        "lastName": "Last Name",
+        "phone": "Phone",
+        "city": "City",
+        "address": "Address"
+    }
+}

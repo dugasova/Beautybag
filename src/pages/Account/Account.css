@@ -1,0 +1,458 @@
+/* ═══════════════════════════════════════
+   Account Page — Full Styles
+═══════════════════════════════════════ */
+
+.account-page {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
+.account-container {
+  max-width: 860px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+}
+
+/* ─── Header ─────────────────────────── */
+
+.account-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.account-avatar-wrap {
+  flex-shrink: 0;
+}
+
+.account-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #a855f7;
+}
+
+.account-avatar-placeholder {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 4px;
+}
+
+.account-email {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* ─── Tabs ───────────────────────────── */
+
+.account-tabs {
+  display: flex;
+  gap: 4px;
+  background: #f1f5f9;
+  border-radius: 14px;
+  padding: 5px;
+  margin-bottom: 32px;
+}
+
+.acc-tab {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.acc-tab:hover {
+  color: #a855f7;
+}
+
+.acc-tab.active {
+  background: white;
+  color: #a855f7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Orders Tab ─────────────────────── */
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.order-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px 24px;
+  transition: all 0.25s ease;
+}
+
+.order-card:hover {
+  border-color: #a855f7;
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.07);
+}
+
+.order-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed #e2e8f0;
+  flex-wrap: wrap;
+}
+
+.order-id {
+  font-family: monospace;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  flex: 1;
+}
+
+.order-date {
+  font-weight: 600;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* Status badges */
+.order-status {
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.status-shipped {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.status-delivered {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.order-items {
+  margin-bottom: 14px;
+}
+
+.order-item-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.order-footer {
+  text-align: right;
+  font-size: 1rem;
+  color: #a855f7;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.no-orders {
+  text-align: center;
+  color: #94a3b8;
+  padding: 50px 0;
+  font-style: italic;
+}
+
+/* ─── Profile Tab ────────────────────── */
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.avatar-upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.avatar-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #a855f7;
+  transition: opacity 0.2s;
+}
+
+.avatar-upload-area:hover .avatar-preview,
+.avatar-upload-area:hover .avatar-placeholder-lg {
+  opacity: 0.8;
+}
+
+.avatar-placeholder-lg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: white;
+  font-size: 38px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.avatar-hint {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.profile-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profile-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.profile-field input {
+  padding: 11px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  color: #1e293b;
+}
+
+.profile-field input:focus {
+  border-color: #a855f7;
+}
+
+.readonly-field {
+  background: #f8fafc !important;
+  color: #94a3b8 !important;
+  cursor: not-allowed;
+}
+
+.save-btn {
+  padding: 12px 32px;
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.save-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ─── Addresses Tab ──────────────────── */
+
+.addresses-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.addresses-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.address-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 18px 20px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.address-card:hover {
+  border-color: #a855f7;
+}
+
+.address-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a855f7;
+  margin-bottom: 8px;
+}
+
+.address-card p {
+  font-size: 0.9rem;
+  color: #475569;
+  margin: 2px 0;
+}
+
+.delete-addr-btn {
+  margin-top: 12px;
+  padding: 5px 14px;
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.delete-addr-btn:hover {
+  background: #fecaca;
+}
+
+.add-addr-btn {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background: white;
+  border: 2px dashed #a855f7;
+  border-radius: 12px;
+  color: #a855f7;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-addr-btn:hover {
+  background: #f5f3ff;
+}
+
+.address-form {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+}
+
+.address-form h3 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+.addr-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.addr-form-grid .full {
+  grid-column: span 2;
+}
+
+.addr-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.cancel-btn {
+  padding: 10px 24px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.cancel-btn:hover {
+  border-color: #94a3b8;
+}
+
+/* ─── Responsive ─────────────────────── */
+
+@media (max-width: 640px) {
+  .account-container {
+    padding: 24px 16px;
+  }
+
+  .account-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .account-tabs {
+    flex-direction: column;
+  }
+
+  .addr-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .addr-form-grid .full {
+    grid-column: span 1;
+  }
+
+  .save-btn {
+    width: 100%;
+  }
+}

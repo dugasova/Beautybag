@@ -1,0 +1,82 @@
+.navigation {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+.navigation-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    /* Anchor for the full-width menu */
+}
+
+.navigation-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure parent items don't trap the absolute mega-menu with their own relatives */
+.navigation-item {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 10px 0;
+}
+
+.navigation-item:hover {
+    color: #e18888;
+    /* Just an example color for premium feel */
+}
+
+/* Mega menu wrapper spans the full 1200px (width of .navigation-container) */
+.menu-list-nested-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #f5f5f5;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    border-top: 1px solid #eee;
+    padding: 30px;
+}
+
+.menu-list-nested {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns for even distribution */
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item-nested {
+    padding: 8px 12px;
+    font-size: 16px;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.menu-item-nested:hover {
+    background-color: #f8f8f8;
+    color: #ff4d4d;
+    padding-left: 18px;
+    /* Subtle micro-animation */
+}
