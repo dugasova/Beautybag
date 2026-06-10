@@ -24,12 +24,12 @@ export default function Button({
 
   return (
     <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={props.disabled ? undefined : { scale: 1.02 }}
+      whileTap={props.disabled ? undefined : { scale: 0.98 }}
       className={`button ${variantClass} ${sizeClass} ${pillClass} ${className}`.trim()}
       {...props}
     >
-      {text || children}
+      {children || text}
     </motion.button>
   );
 }

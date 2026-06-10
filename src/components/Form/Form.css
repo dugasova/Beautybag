@@ -9,23 +9,7 @@
     flex-direction: column;
     gap: 1.5rem;
     margin: 2rem auto;
-}
-
-.form-title {
-    font-size: 2.5rem;
-    color: var(--color-text);
-    margin-top: 3rem;
-    margin-bottom: 0.5rem;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
-}
-
-.form-subtitle {
-    color: #777;
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    text-align: center;
+    animation: formSlideUp 0.6s ease-out;
 }
 
 .form-field {
@@ -41,11 +25,19 @@
     padding-left: 0.5rem;
 }
 
-/* Animations */
-.base-form {
-    animation: formSlideUp 0.6s ease-out;
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
+/* Animations */
 @keyframes formSlideUp {
     from {
         opacity: 0;
@@ -62,10 +54,6 @@
     .base-form {
         padding: 1.5rem;
         box-shadow: none;
-        border: 1px solid #eee;
-    }
-
-    .form-title {
-        font-size: 2rem;
+        border: 1px solid var(--color-border);
     }
 }

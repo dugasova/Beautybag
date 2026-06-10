@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 const schema = (t: (key: string) => string) => z.object({
   email: z.string().email(t('login.validation.invalidEmail') || 'Invalid email'),
-  password: z.string().min(6, t('login.validation.passwordMin') || 'Password must be at least 6 characters long').max(16, t('login.validation.passwordMax') || 'Password must be at most 12 characters long'),
+  password: z.string().min(6, t('login.validation.passwordMin') || 'Password must be at least 6 characters long').max(12, t('login.validation.passwordMax') || 'Password must be at most 12 characters long'),
 })
 export type FormSchema = {
   email: string;
@@ -42,50 +42,56 @@ export default function Form({
   })
 
   return (
-    <div className="container">
-      <form className={`base-form ${formClassName}`} onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-field">
-          <Controller
-            name="email"
-            control={control}
-            render={({ field }) => (
-              <Input
-                {...field}
-                type="email"
-                placeholder={t('login.form.email') || 'Email'}
-                className={`${inputClassName} ${errors.email ? 'has-error' : ''}`}
-              />
-            )}
-          />
-          {errors.email && <span className="error-message">{errors.email.message}</span>}
-        </div>
+    <form className={`base-form ${formClassName}`} onSubmit={handleSubmit(onSubmit)}>
+      <div className="form-field">
+        <label htmlFor="email" className="sr-only">{t('login.form.email') || 'Email'}</label>
+        <Controller
+          name="email"
+          control={control}
+          render={({ field }) => (
+            <Input
+              {...field}
+              id="email"
+              type="email"
+              placeholder={t('login.form.email') || 'Email'}
+              className={`${inputClassName} ${errors.email ? 'has-error' : ''}`}
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? 'email-error' : undefined}
+            />
+          )}
+        />
+        {errors.email && <span id="email-error" className="error-message" role="alert">{errors.email.message}</span>}
+      </div>
 
-        <div className="form-field">
-          <Controller
-            name="password"
-            control={control}
-            render={({ field }) => (
-              <Input
-                {...field}
-                type="password"
-                placeholder={t('login.form.password') || 'Password'}
-                className={`${inputClassName} ${errors.password ? 'has-error' : ''}`}
-              />
-            )}
-          />
-          {errors.password && <span className="error-message">{errors.password.message}</span>}
-        </div>
+      <div className="form-field">
+        <label htmlFor="password" className="sr-only">{t('login.form.password') || 'Password'}</label>
+        <Controller
+          name="password"
+          control={control}
+          render={({ field }) => (
+            <Input
+              {...field}
+              id="password"
+              type="password"
+              placeholder={t('login.form.password') || 'Password'}
+              className={`${inputClassName} ${errors.password ? 'has-error' : ''}`}
+              aria-invalid={!!errors.password}
+              aria-describedby={errors.password ? 'password-error' : undefined}
+            />
+          )}
+        />
+        {errors.password && <span id="password-error" className="error-message" role="alert">{errors.password.message}</span>}
+      </div>
 
-        <Button
-          type="submit"
-          variant="purple"
-          size="lg"
-          disabled={!isValid || isLoading}
-          className={submitClassName}
-        >
-          {isLoading ? '...' : submitText}
-        </Button>
-      </form>
-    </div>
+      <Button
+        type="submit"
+        variant="purple"
+        size="lg"
+        disabled={!isValid || isLoading}
+        className={submitClassName}
+      >
+        {isLoading ? '...' : submitText}
+      </Button>
+    </form>
   )
 }
