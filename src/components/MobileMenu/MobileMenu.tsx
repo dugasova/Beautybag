@@ -1,4 +1,3 @@
-import React from 'react';
 import './MobileMenu.css';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, NavLink } from 'react-router-dom';

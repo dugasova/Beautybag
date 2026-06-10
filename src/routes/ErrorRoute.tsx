@@ -1,4 +1,3 @@
-import React from 'react'
 import ErrorElement from '../components/ErrorElement/ErrorElement'
 
 export default function ErrorRoute() {
