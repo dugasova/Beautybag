@@ -11,7 +11,9 @@
         "signup": "Sign Up",
         "account": "Account",
         "logout": "Logout",
-        "openMenu": "Open menu"
+        "openMenu": "Open menu",
+        "darkMode": "Switch to dark mode",
+        "lightMode": "Switch to light mode"
     },
     "contact": {
         "title": "Contact Us",

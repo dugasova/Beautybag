@@ -28,6 +28,12 @@
     width: 24px;
     height: 24px;
     cursor: pointer;
+    transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] .subheader-icons img,
+[data-theme="dark"] .search-icon {
+    filter: invert(1);
 }
 
 .subheader-message {

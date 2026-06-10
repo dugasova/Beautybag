@@ -6,9 +6,11 @@ import { useTranslation } from 'react-i18next';
 import Button from '../ui/Button/Button';
 import { UserAuth } from '../../context/AuthContext';
 import { useState } from 'react';
-import { FiAlignLeft } from "react-icons/fi";
+import { FiAlignLeft, FiSun, FiMoon } from "react-icons/fi";
 import MobileMenu from '../MobileMenu/MobileMenu';
 import { useHeaderNav } from '../../hooks/useHeaderNav';
+import { useTheme } from '../../context/ThemeContext';
+import { motion } from 'framer-motion';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -16,6 +18,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useTranslation();
   const { navItems, handleNavigate, toggleLanguage, langLabel } = useHeaderNav();
+  const { theme, toggleTheme } = useTheme();
 
   const handleLogout = async () => {
     try {
@@ -56,6 +59,21 @@ export default function Header() {
           </ul>
         </div>
         <div className='actions'>
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={t(theme === 'dark' ? 'header.lightMode' : 'header.darkMode')}
+            aria-pressed={theme === 'dark'}
+          >
+            <motion.span
+              className="theme-toggle-thumb"
+              animate={{ x: theme === 'dark' ? 22 : 0 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+            >
+              {theme === 'dark' ? <FiMoon /> : <FiSun />}
+            </motion.span>
+          </button>
           <Button
             className='language-btn-custom'
             variant="secondary"

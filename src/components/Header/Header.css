@@ -55,7 +55,33 @@
 
  .actions {
    display: flex;
+   align-items: center;
    gap: 1rem;
+ }
+
+ .theme-toggle {
+   display: flex;
+   align-items: center;
+   width: 48px;
+   height: 26px;
+   padding: 3px;
+   border: none;
+   border-radius: 999px;
+   background: linear-gradient(135deg, var(--color-purple-300), var(--color-purple-500));
+   cursor: pointer;
+   transition: background 0.3s ease;
+ }
+
+ .theme-toggle-thumb {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   background-color: var(--color-white);
+   color: var(--color-purple-500);
+   font-size: 14px;
  }
 
  .mobile-menu-button {

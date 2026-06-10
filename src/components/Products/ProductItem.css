@@ -135,6 +135,10 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+[data-theme="dark"] .product-favorite {
+    background-color: rgba(30, 30, 46, 0.8);
+}
+
 .product-favorite:hover {
     transform: scale(1.1);
     background-color: var(--color-white);
@@ -149,12 +153,12 @@
     width: 20px;
     height: 20px;
     fill: transparent;
-    stroke: #888;
+    stroke: var(--color-text-muted);
     transition: all 0.3s ease;
 }
 
 .product-favorite:hover .favorite-icon-svg {
-    stroke: #555;
+    stroke: var(--color-text);
 }
 
 .star {

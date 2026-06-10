@@ -1,5 +1,4 @@
 import { lazy } from 'react';
-import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './pages/Layout';
 import ErrorRoute from './routes/ErrorRoute';
@@ -12,6 +11,7 @@ import { AuthContextProvider } from './context/AuthContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthGuard from './HOC/AuthGuard';
+import { ThemeProvider } from './context/ThemeContext';
 
 
 const DeliveryRouteLazy = lazy(() => import('./pages/Delivery/Delivery'));
@@ -61,10 +61,12 @@ export default function App() {
   ])
   return (
     <>
-      <AuthContextProvider>
-        <ToastContainer position="bottom-right" />
-        <RouterProvider router={router} />
-      </AuthContextProvider>
+      <ThemeProvider>
+        <AuthContextProvider>
+          <ToastContainer position="bottom-right" />
+          <RouterProvider router={router} />
+        </AuthContextProvider>
+      </ThemeProvider>
     </>
   )
 }
