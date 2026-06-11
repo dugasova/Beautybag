@@ -41,7 +41,7 @@ const ReviewStep = () => {
       dispatch(setOrderId(generatedOrderId));
       dispatch(clearCart());
       navigate('/order-success');
-    }, "Order placed successfully!", "Failed to place order");
+    }, t('cart.orderSuccess'), t('cart.orderError'));
 
     dispatch(setIsProcessing(false));
   };
