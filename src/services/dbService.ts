@@ -63,17 +63,17 @@ export const dbService = {
   // Addresses
   async addAddress(email: string, address: Omit<IAddress, 'id'>) {
     const newAddress: IAddress = { ...address, id: Date.now().toString() };
-    const userData = await this.getUserData(email);
-    const existing: IAddress[] = userData?.addresses || [];
-    await setDoc(this.getUserRef(email), { addresses: [...existing, newAddress] }, { merge: true });
+    await this.updateUserDataTransaction(email, (data) => {
+      const existing: IAddress[] = data?.addresses || [];
+      return { addresses: [...existing, newAddress] };
+    });
   },
 
   async deleteAddress(email: string, addressId: string) {
-    const userData = await this.getUserData(email);
-    const existing: IAddress[] = userData?.addresses || [];
-    await setDoc(this.getUserRef(email), {
-      addresses: existing.filter(a => a.id !== addressId)
-    }, { merge: true });
+    await this.updateUserDataTransaction(email, (data) => {
+      const existing: IAddress[] = data?.addresses || [];
+      return { addresses: existing.filter(a => a.id !== addressId) };
+    });
   },
 
   // Real-time listener for User Data
@@ -93,7 +93,7 @@ export const dbService = {
     });
   },
 
-  subscribeToOrders(email: string, callback: (orders: IOrder[]) => void) {
+  subscribeToOrders(email: string, callback: (orders: IOrder[]) => void, onError?: (error: Error) => void) {
     const ordersRef = collection(db, USERS, email, ORDERS);
     const q = query(ordersRef, orderBy('createdAt', 'desc'));
 
@@ -103,7 +103,7 @@ export const dbService = {
         ...doc.data()
       })) as IOrder[];
       callback(orders);
-    });
+    }, onError);
   },
 
   // Goods/Products

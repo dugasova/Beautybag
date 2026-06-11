@@ -1,11 +1,10 @@
-import UseOrders from "../../hooks/UseOrders";
+import useOrders from "../../hooks/useOrders";
 import './userDetails.css'
 import { useTranslation } from "react-i18next";
 
-
 export default function UserDetails() {
   const { t } = useTranslation();
-  const orders = UseOrders();
+  const { orders } = useOrders();
 
   return (
     <div className="user-info">

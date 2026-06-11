@@ -17,7 +17,7 @@ export default function Header() {
   const { user, logOut } = UserAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useTranslation();
-  const { navItems, handleNavigate, toggleLanguage, langLabel } = useHeaderNav();
+  const { navItems, toggleLanguage, langLabel } = useHeaderNav();
   const { theme, toggleTheme } = useTheme();
 
   const handleLogout = async () => {
@@ -87,7 +87,7 @@ export default function Header() {
               <Button
                 variant="primary"
                 size="sm"
-                onClick={() => handleNavigate('/account')}
+                onClick={() => navigate('/account')}
               >
                 {t('header.account')}
               </Button>
@@ -104,14 +104,14 @@ export default function Header() {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => handleNavigate('/login')}
+                onClick={() => navigate('/login')}
               >
                 {t('header.login')}
               </Button>
               <Button
                 variant="primary"
                 size="sm"
-                onClick={() => handleNavigate('/register')}
+                onClick={() => navigate('/register')}
               >
                 {t('header.signup')}
               </Button>

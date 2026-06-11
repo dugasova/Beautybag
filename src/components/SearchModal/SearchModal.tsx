@@ -2,7 +2,7 @@ import './SearchModal.css';
 import closeIcon from '../../assets/icons/close.svg';
 import searchIcon from '../../assets/icons/search.svg';
 import { useDispatch } from 'react-redux';
-import { setIsSearchModalOpen, clearSearch } from '../../store/features/search/slice';
+import { setIsSearchModalOpen } from '../../store/features/search/slice';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import SearchResultItem from './SearchResultItem';
@@ -12,10 +12,10 @@ export default function SearchModal() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { query, setQuery, searchResults } = useProductSearch();
+  const { query, setQuery, searchResults, resetSearch } = useProductSearch();
 
   const handleCloseSearch = () => {
-    dispatch(clearSearch());
+    resetSearch();
     dispatch(setIsSearchModalOpen(false));
   }
 

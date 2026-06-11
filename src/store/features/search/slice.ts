@@ -1,9 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { IProduct } from "../../../types";
 
 interface SearchState {
-  search: string;
-  searchList: IProduct[];
   isSearchModalOpen: boolean;
   categoryFilter: string;
   sortBy: string;
@@ -13,8 +10,6 @@ interface SearchState {
 }
 
 const initialState: SearchState = {
-  search: "",
-  searchList: [],
   isSearchModalOpen: false,
   categoryFilter: "",
   sortBy: "default",
@@ -27,12 +22,6 @@ const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {
-    setSearch: (state, action) => {
-      state.search = action.payload;
-    },
-    setSearchList: (state, action) => {
-      state.searchList = action.payload;
-    },
     setIsSearchModalOpen: (state, action) => {
       state.isSearchModalOpen = action.payload;
     },
@@ -55,10 +44,6 @@ const searchSlice = createSlice({
       const rating = action.payload;
       state.minRating = state.minRating === rating ? 0 : rating;
     },
-    clearSearch: (state) => {
-      state.search = "";
-      state.searchList = [];
-    },
     clearCategoryFilter: (state) => {
       state.categoryFilter = "";
     },
@@ -71,12 +56,9 @@ const searchSlice = createSlice({
   },
 });
 
-export const { 
-  setSearch, 
-  setSearchList, 
-  clearSearch, 
-  setIsSearchModalOpen, 
-  setCategoryFilter, 
+export const {
+  setIsSearchModalOpen,
+  setCategoryFilter,
   clearCategoryFilter,
   setSortBy,
   setPriceRange,

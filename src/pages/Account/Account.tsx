@@ -4,8 +4,9 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useTranslation } from 'react-i18next';
 import { UserAuth } from '../../context/AuthContext';
 import { storage } from '../../firebase';
-import UseOrders from '../../hooks/UseOrders';
+import useOrders from '../../hooks/useOrders';
 import useUserProfile from '../../hooks/useUserProfile';
+import PageLoader from '../../components/ui/PageLoader/PageLoader';
 import type { IAddress } from '../../types';
 import './Account.css';
 
@@ -25,7 +26,7 @@ const emptyAddr: Omit<IAddress, 'id'> = {
 export default function Account() {
   const { user } = UserAuth();
   const { t } = useTranslation();
-  const orders = UseOrders();
+  const { orders, loading: ordersLoading } = useOrders();
   const { profile, updateProfile, addAddress, deleteAddress } = useUserProfile();
 
   const [tab, setTab] = useState<'orders' | 'profile' | 'addresses'>('orders');
@@ -128,7 +129,9 @@ export default function Account() {
         {/* ══════════════ ORDERS TAB ══════════════ */}
         {tab === 'orders' && (
           <div className="orders-section">
-            {orders.length > 0 ? (
+            {ordersLoading ? (
+              <PageLoader />
+            ) : orders.length > 0 ? (
               <div className="orders-list">
                 {orders.map((order) => {
                   const cfg = statusConfig[order.status || 'pending'];

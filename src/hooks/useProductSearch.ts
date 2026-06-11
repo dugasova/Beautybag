@@ -1,43 +1,35 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState, useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { setSearch, setSearchList } from '../store/features/search/slice';
 import type { RootState } from '../store/store';
 
 export function useProductSearch() {
-  const dispatch = useDispatch();
   const { t } = useTranslation();
-  const initialSearch = useSelector((state: RootState) => state.search.search);
-  const searchResults = useSelector((state: RootState) => state.search.searchList);
   const goods = useSelector((state: RootState) => state.goods.items);
-  const [query, setQuery] = useState(initialSearch);
+  const [query, setQuery] = useState('');
 
-  useEffect(() => {
-    setQuery(initialSearch);
-  }, [initialSearch]);
+  const searchResults = useMemo(() => {
+    if (query.trim().length < 3) return [];
 
-  useEffect(() => {
-    if (query.trim().length >= 3) {
-      const filteredResults = goods.filter((product) => {
-        const productName = t(product.name).toLowerCase();
-        const productDescription = t(product.description).toLowerCase();
-        const productCategory = product.category.toLowerCase();
-        const productSubCategory = product.subCategory.toLowerCase();
-        const searchTerm = query.toLowerCase();
+    const searchTerm = query.trim().toLowerCase();
+    return goods.filter((product) => {
+      const productName = t(product.name).toLowerCase();
+      const productDescription = t(product.description).toLowerCase();
+      const productCategory = product.category.toLowerCase();
+      const productSubCategory = product.subCategory.toLowerCase();
 
-        return (
-          productName.includes(searchTerm) ||
-          productDescription.includes(searchTerm) ||
-          productCategory.includes(searchTerm) ||
-          productSubCategory.includes(searchTerm)
-        );
-      });
-      dispatch(setSearchList(filteredResults));
-    } else {
-      dispatch(setSearchList([]));
-    }
-    dispatch(setSearch(query));
-  }, [query, dispatch, t, goods]);
+      return (
+        productName.includes(searchTerm) ||
+        productDescription.includes(searchTerm) ||
+        productCategory.includes(searchTerm) ||
+        productSubCategory.includes(searchTerm)
+      );
+    });
+  }, [query, t, goods]);
 
-  return { query, setQuery, searchResults };
+  const resetSearch = () => {
+    setQuery('');
+  };
+
+  return { query, setQuery, searchResults, resetSearch };
 }
