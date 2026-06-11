@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './pages/Layout';
 import ErrorRoute from './routes/ErrorRoute';
@@ -12,6 +12,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthGuard from './HOC/AuthGuard';
 import { ThemeProvider } from './context/ThemeContext';
+import PageLoader from './components/ui/PageLoader/PageLoader';
 
 
 const DeliveryRouteLazy = lazy(() => import('./pages/Delivery/Delivery'));
@@ -64,7 +65,9 @@ export default function App() {
       <ThemeProvider>
         <AuthContextProvider>
           <ToastContainer position="bottom-right" />
-          <RouterProvider router={router} />
+          <Suspense fallback={<PageLoader />}>
+            <RouterProvider router={router} />
+          </Suspense>
         </AuthContextProvider>
       </ThemeProvider>
     </>

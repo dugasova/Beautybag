@@ -1,4 +1,7 @@
 {
+    "common": {
+        "loading": "Завантаження..."
+    },
     "navigation": {
         "promotions": "Акції",
         "delivery": "Доставка та оплата",

@@ -42,7 +42,7 @@ export default function ProductGrid({
       >
         {status === 'loading' && 
           Array(skeletonCount).fill(null).map((_, idx) => (
-            <Skeleton key={idx} variant="product" />
+            <Skeleton key={idx} />
           ))
         }
         

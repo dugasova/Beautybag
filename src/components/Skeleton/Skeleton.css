@@ -1,21 +1,3 @@
-.skeleton {
-  background-color: var(--color-border);
-  border-radius: 8px;
-  display: inline-block;
-  overflow: hidden;
-  position: relative;
-}
-
-.skeleton.circle {
-  border-radius: 50%;
-}
-
-.skeleton.text {
-  height: 1rem;
-  width: 100%;
-  margin-bottom: 0.5rem;
-}
-
 .skeleton-product-card {
   background: var(--color-white);
   border-radius: 20px;
@@ -24,7 +6,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 480px; /* Matching your product card height */
+  height: 480px;
   border: 1px solid var(--color-border);
 }
 
@@ -75,28 +57,25 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent);
   animation: shimmer-animation 1.5s infinite;
 }
 
 [data-theme="dark"] .shimmer::after {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.08),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.08),
+      transparent);
 }
 
 @keyframes shimmer-animation {
   0% {
     transform: translateX(-100%);
   }
+
   100% {
     transform: translateX(100%);
   }

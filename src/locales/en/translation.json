@@ -1,4 +1,7 @@
 {
+    "common": {
+        "loading": "Loading..."
+    },
     "navigation": {
         "promotions": "Promotions",
         "delivery": "Delivery and payments",
