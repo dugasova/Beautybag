@@ -1,6 +1,8 @@
 {
     "common": {
-        "loading": "Loading..."
+        "loading": "Loading...",
+        "breadcrumb": "Breadcrumb",
+        "homeIcon": "Home"
     },
     "navigation": {
         "promotions": "Promotions",

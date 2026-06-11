@@ -13,11 +13,11 @@ export default function Breadcrumbs() {
   if (pathnames.length === 0) return null;
 
   return (
-    <nav className="breadcrumbs container">
+    <nav className="breadcrumbs container" aria-label={t('common.breadcrumb')}>
       <ul className="breadcrumbs-list">
         <li className="breadcrumbs-item">
-          <Link to="/" className="breadcrumbs-link home-icon">
-            <MdHome size={20} />
+          <Link to="/" className="breadcrumbs-link home-icon" aria-label={t('common.homeIcon')}>
+            <MdHome size={20} aria-hidden="true" />
           </Link>
         </li>
 
@@ -30,9 +30,9 @@ export default function Breadcrumbs() {
 
           return (
             <li key={to} className="breadcrumbs-item">
-              <MdChevronRight className="separator" />
+              <MdChevronRight className="separator" aria-hidden="true" />
               {last ? (
-                <span className="breadcrumbs-current">
+                <span className="breadcrumbs-current" aria-current="page">
                   {t(`navigation.${displayName.toLowerCase()}`, displayName)}
                 </span>
               ) : (
@@ -46,6 +46,4 @@ export default function Breadcrumbs() {
       </ul>
     </nav>
   );
-};
-
-
+}
