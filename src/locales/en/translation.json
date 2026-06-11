@@ -2,7 +2,8 @@
     "common": {
         "loading": "Loading...",
         "breadcrumb": "Breadcrumb",
-        "homeIcon": "Home"
+        "homeIcon": "Home",
+        "scrollToTop": "Scroll to top"
     },
     "navigation": {
         "promotions": "Promotions",

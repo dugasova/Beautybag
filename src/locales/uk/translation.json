@@ -2,7 +2,8 @@
     "common": {
         "loading": "Завантаження...",
         "breadcrumb": "Хлібні крихти",
-        "homeIcon": "Головна"
+        "homeIcon": "Головна",
+        "scrollToTop": "Прокрутити вгору"
     },
     "navigation": {
         "promotions": "Акції",
