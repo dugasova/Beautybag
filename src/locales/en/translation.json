@@ -68,6 +68,7 @@
         "emptyMessage": "Add some products to your favorites to see them here!",
         "clear": "Clear WishList",
         "addToCart": "Add to cart",
+        "addToWishList": "Add to wishlist",
         "removeFromWishList": "Remove from wishlist",
         "backToProducts": "Back to products"
     },
@@ -180,7 +181,10 @@
         "priceDesc": "Price: High to Low",
         "ratingDesc": "Top Rated",
         "priceRange": "Price Range",
+        "minPrice": "Minimum price",
+        "maxPrice": "Maximum price",
         "minRating": "Min Rating",
+        "ratingAndUp": "{{count}} stars & up",
         "reset": "Reset Filters",
         "apply": "Apply Filters"
     },

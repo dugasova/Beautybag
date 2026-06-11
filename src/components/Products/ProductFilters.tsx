@@ -23,31 +23,42 @@ export default function ProductFilters() {
     dispatch(setMinRating(rating));
   };
 
+  const handleRatingKeyDown = (e: React.KeyboardEvent, rating: number) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleRatingChange(rating);
+    }
+  };
+
   return (
     <div className="product-filters">
       <div className="filter-group">
-        <label>{t('filters.sortBy') || 'Sort By'}</label>
-        <select value={sortBy} onChange={handleSortChange} className="filter-select">
-          <option value="default">{t('filters.default') || 'Default'}</option>
-          <option value="price-asc">{t('filters.priceAsc') || 'Price: Low to High'}</option>
-          <option value="price-desc">{t('filters.priceDesc') || 'Price: High to Low'}</option>
-          <option value="rating-desc">{t('filters.ratingDesc') || 'Top Rated'}</option>
+        <label htmlFor="sort-by">{t('filters.sortBy')}</label>
+        <select id="sort-by" value={sortBy} onChange={handleSortChange} className="filter-select">
+          <option value="default">{t('filters.default')}</option>
+          <option value="price-asc">{t('filters.priceAsc')}</option>
+          <option value="price-desc">{t('filters.priceDesc')}</option>
+          <option value="rating-desc">{t('filters.ratingDesc')}</option>
         </select>
       </div>
 
       <div className="filter-group">
-        <label>{t('filters.priceRange') || 'Price Range'}</label>
-        <div className="price-inputs">
+        <label id="price-range-label">{t('filters.priceRange')}</label>
+        <div className="price-inputs" role="group" aria-labelledby="price-range-label">
           <input
             type="number"
+            min="0"
             placeholder="Min"
+            aria-label={t('filters.minPrice')}
             value={minPrice ?? ''}
             onChange={(e) => handlePriceChange('min', e.target.value)}
           />
           <span>-</span>
           <input
             type="number"
+            min="0"
             placeholder="Max"
+            aria-label={t('filters.maxPrice')}
             value={maxPrice ?? ''}
             onChange={(e) => handlePriceChange('max', e.target.value)}
           />
@@ -55,13 +66,18 @@ export default function ProductFilters() {
       </div>
 
       <div className="filter-group">
-        <label>{t('filters.minRating') || 'Min Rating'}</label>
-        <div className="rating-filter">
+        <label id="min-rating-label">{t('filters.minRating')}</label>
+        <div className="rating-filter" role="group" aria-labelledby="min-rating-label">
           {[1, 2, 3, 4, 5].map((star) => (
             <span
               key={star}
+              role="button"
+              tabIndex={0}
+              aria-pressed={star <= minRating}
+              aria-label={t('filters.ratingAndUp', { count: star })}
               className={`star ${star <= minRating ? 'active' : ''}`}
               onClick={() => handleRatingChange(star)}
+              onKeyDown={(e) => handleRatingKeyDown(e, star)}
             >
               ★
             </span>
@@ -70,7 +86,7 @@ export default function ProductFilters() {
       </div>
 
       <Button variant="secondary" size="sm" onClick={() => dispatch(resetFilters())}>
-        {t('filters.reset') || 'Reset Filters'}
+        {t('filters.reset')}
       </Button>
     </div>
   );

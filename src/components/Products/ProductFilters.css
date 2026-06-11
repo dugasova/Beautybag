@@ -20,15 +20,16 @@
 .filter-group label {
     font-size: 14px;
     font-weight: 600;
-    color: #4b5563;
+    color: var(--color-text-muted);
 }
 
 .filter-select {
     padding: 8px 12px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--color-border);
     border-radius: 6px;
     outline: none;
-    background: #f9fafb;
+    background: var(--color-chip-bg);
+    color: var(--color-text);
     cursor: pointer;
     transition: border-color 0.2s;
 }
@@ -46,10 +47,11 @@
 .price-inputs input {
     width: 80px;
     padding: 8px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--color-border);
     border-radius: 6px;
     outline: none;
-    background: #f9fafb;
+    background: var(--color-chip-bg);
+    color: var(--color-text);
 }
 
 .price-inputs input:focus {
@@ -63,13 +65,13 @@
 
 .rating-filter .star {
     font-size: 20px;
-    color: #d1d5db;
+    color: var(--color-star-empty);
     cursor: pointer;
     transition: color 0.2s;
 }
 
 .rating-filter .star.active {
-    color: #f59e0b;
+    color: var(--color-star-fill);
 }
 
 @media (max-width: 768px) {

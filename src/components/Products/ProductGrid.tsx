@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import ProductItem from './ProductItem';
 import Skeleton from '../Skeleton/Skeleton';
 import './ProductGrid.css';
@@ -21,12 +22,14 @@ const containerVariants = {
   }
 };
 
-export default function ProductGrid({ 
-  products, 
-  status, 
-  title, 
-  skeletonCount = 8 
+export default function ProductGrid({
+  products,
+  status,
+  title,
+  skeletonCount = 8
 }: ProductGridProps) {
+  const { t } = useTranslation();
+
   return (
     <div className="product-grid-container">
       {title && <h2 className="grid-title">{title}</h2>}
@@ -55,7 +58,7 @@ export default function ProductGrid({
             animate={{ opacity: 1 }}
             className="no-products"
           >
-            No products found.
+            {t('search.noResults')}
           </motion.div>
         )}
       </motion.ul>

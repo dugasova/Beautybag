@@ -21,6 +21,14 @@
     width: 100%;
 }
 
+.no-products {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--space-xl) 0;
+    font-size: var(--font-size-lg);
+    color: var(--color-text-light);
+}
+
 /* Responsive Columns */
 @media screen and (max-width: 1024px) {
     .products-list {
