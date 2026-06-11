@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { dbService } from "../services/dbService";
 import { UserAuth } from "../context/AuthContext";
-import { setWishList } from "../store/features/wishList/slice";
-import { setCartList } from "../store/features/cartList/slice";
+import { setWishList, clearWishList } from "../store/features/wishList/slice";
+import { setCartList, clearCart } from "../store/features/cartList/slice";
 
 export default function useFirestoreSync() {
   const { user } = UserAuth();
@@ -17,5 +17,8 @@ export default function useFirestoreSync() {
       });
       return () => unsubscribe();
     }
+
+    dispatch(clearWishList());
+    dispatch(clearCart());
   }, [user, dispatch]);
 }

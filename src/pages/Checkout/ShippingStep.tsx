@@ -5,18 +5,9 @@ import { UserAuth } from '../../context/AuthContext';
 import useUserProfile from '../../hooks/useUserProfile';
 import type { IAddress } from '../../types';
 import Button from '../../components/ui/Button/Button';
-import { ShippingStepSchema } from '../../hooks/useCheckout';
+import { ShippingStepSchema, type ShippingFormValues } from '../../hooks/useCheckout';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-
-type ContactsFormValues = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  address: string;
-  city: string;
-  phone: string;
-}
 
 export default function ShippingStep() {
   const dispatch = useDispatch();
@@ -24,7 +15,7 @@ export default function ShippingStep() {
   const { profile } = useUserProfile();
   const shippingAddress = useSelector((state: RootState) => state.checkout.shippingAddress);
 
-  const { control, handleSubmit, formState: { errors }, setValue } = useForm<ContactsFormValues>({
+  const { control, handleSubmit, formState: { errors }, setValue } = useForm<ShippingFormValues>({
     resolver: zodResolver(ShippingStepSchema),
     defaultValues: {
       firstName: shippingAddress.firstName || '',
@@ -37,7 +28,7 @@ export default function ShippingStep() {
   });
 
   // This is the key: called ONLY when validation passes
-  const onSubmit = (data: ContactsFormValues) => {
+  const onSubmit = (data: ShippingFormValues) => {
     dispatch(setShippingAddress(data)); // Save validated data to Redux
     dispatch(nextStep());               // Then move to the next step
   };
@@ -184,5 +175,3 @@ export default function ShippingStep() {
     </div>
   );
 }
-
-

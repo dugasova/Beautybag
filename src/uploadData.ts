@@ -1,6 +1,6 @@
 import { collection, doc, setDoc } from 'firebase/firestore';
 import { db } from './firebase';
-import { goods } from './mockedData';
+// import { goods } from './mockedData';
 
 export const uploadDataToFirebase = async () => {
   try {

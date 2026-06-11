@@ -9,9 +9,9 @@ import {
   query,
   orderBy,
   getDocs,
-  type DocumentData
+  runTransaction,
 } from "firebase/firestore";
-import type { IProduct, IOrder, IAddress, IUserProfile } from "../types";
+import type { IProduct, IOrder, IAddress, IUserProfile, IUserDocument } from "../types";
 
 // Collection Names
 const USERS = "users";
@@ -21,13 +21,24 @@ export const dbService = {
   // User Document
   getUserRef: (email: string) => doc(db, USERS, email),
 
-  async getUserData(email: string) {
+  async getUserData(email: string): Promise<IUserDocument | null> {
     const userDoc = await getDoc(this.getUserRef(email));
-    return userDoc.exists() ? userDoc.data() : null;
+    return userDoc.exists() ? (userDoc.data() as IUserDocument) : null;
   },
 
   async updateUserData(email: string, data: object) {
     await setDoc(this.getUserRef(email), data, { merge: true });
+  },
+
+  // Atomically read the current user document and write back the result of `updater`,
+  // avoiding lost updates from concurrent read-modify-write calls.
+  async updateUserDataTransaction(email: string, updater: (data: IUserDocument | undefined) => object) {
+    const ref = this.getUserRef(email);
+    await runTransaction(db, async (transaction) => {
+      const snap = await transaction.get(ref);
+      const data = snap.exists() ? (snap.data() as IUserDocument) : undefined;
+      transaction.set(ref, updater(data), { merge: true });
+    });
   },
 
   // Profile
@@ -66,9 +77,9 @@ export const dbService = {
   },
 
   // Real-time listener for User Data
-  subscribeToUser(email: string, callback: (data: DocumentData) => void) {
+  subscribeToUser(email: string, callback: (data: IUserDocument) => void) {
     return onSnapshot(this.getUserRef(email), (doc) => {
-      if (doc.exists()) callback(doc.data());
+      if (doc.exists()) callback(doc.data() as IUserDocument);
     });
   },
 

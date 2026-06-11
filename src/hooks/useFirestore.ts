@@ -1,73 +1,88 @@
 import { dbService } from "../services/dbService";
 import { UserAuth } from "../context/AuthContext";
-import type { IProduct, IOrder, ICartItem } from "../types";
+import type { IProduct, IOrder, IUserDocument } from "../types";
+import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
+
+const getList = <K extends 'wishList' | 'savedProducts'>(
+  data: IUserDocument | undefined,
+  field: K
+): NonNullable<IUserDocument[K]> => {
+  return (data?.[field] || []) as NonNullable<IUserDocument[K]>;
+};
 
 export default function useFirestore() {
   const { user } = UserAuth();
+  const { t } = useTranslation();
+
+  const withErrorHandling = async (action: () => Promise<void>) => {
+    try {
+      await action();
+    } catch (error) {
+      console.error("Firestore Error:", error);
+      toast.error(t('common.error'));
+    }
+  };
 
   const updateWishList = async (product: IProduct, isFavorite: boolean) => {
     if (!user?.email) return;
 
-    if (isFavorite) {
-      const data = await dbService.getUserData(user.email);
-      const currentWishList = data?.wishList || [];
-      const filteredList = currentWishList.filter((item: IProduct) => item.id !== product.id);
-      await dbService.updateUserData(user.email, { wishList: filteredList });
-    } else {
-      const data = await dbService.getUserData(user.email);
-      const currentWishList = data?.wishList || [];
-      await dbService.updateUserData(user.email, { wishList: [...currentWishList, product] });
-    }
+    await withErrorHandling(() => dbService.updateUserDataTransaction(user.email!, (data) => {
+      const currentWishList = getList(data, 'wishList');
+
+      if (isFavorite) {
+        return { wishList: currentWishList.filter((item) => item.id !== product.id) };
+      }
+      return { wishList: [...currentWishList, product] };
+    }));
   };
 
   const updateCartList = async (product: IProduct, isInCart: boolean) => {
     if (!user?.email) return;
 
-    if (isInCart) {
-      const data = await dbService.getUserData(user.email);
-      const currentCart = data?.savedProducts || [];
-      const filteredList = currentCart.filter((item: IProduct) => item.id !== product.id);
-      await dbService.updateUserData(user.email, { savedProducts: filteredList });
-    } else {
-      const data = await dbService.getUserData(user.email);
-      const currentCart = data?.savedProducts || [];
-      await dbService.updateUserData(user.email, { 
-        savedProducts: [...currentCart, { ...product, totalQuantity: 1 }] 
-      });
-    }
+    await withErrorHandling(() => dbService.updateUserDataTransaction(user.email!, (data) => {
+      const currentCart = getList(data, 'savedProducts');
+
+      if (isInCart) {
+        return { savedProducts: currentCart.filter((item) => item.id !== product.id) };
+      }
+      return { savedProducts: [...currentCart, { ...product, totalQuantity: 1 }] };
+    }));
   };
 
   const moveFromCartToWishList = async (product: IProduct) => {
     if (!user?.email) return;
 
-    const data = await dbService.getUserData(user.email);
-    const currentCart = data?.savedProducts || [];
-    const currentWish = data?.wishList || [];
-    
-    const filteredCart = currentCart.filter((item: IProduct) => item.id !== product.id);
-    
-    await dbService.updateUserData(user.email, {
-      savedProducts: filteredCart,
-      wishList: [...currentWish, product]
-    });
+    await withErrorHandling(() => dbService.updateUserDataTransaction(user.email!, (data) => {
+      const currentCart = getList(data, 'savedProducts');
+      const currentWish = getList(data, 'wishList');
+
+      return {
+        savedProducts: currentCart.filter((item) => item.id !== product.id),
+        wishList: [...currentWish, product],
+      };
+    }));
   };
 
   const sendOrder = async (order: Omit<IOrder, 'userId' | 'createdAt'>) => {
     if (!user?.email) return;
 
-    await dbService.createOrder(user.email, order);
-    await dbService.updateUserData(user.email, { savedProducts: [] });
+    await withErrorHandling(async () => {
+      await dbService.createOrder(user.email!, order);
+      await dbService.updateUserDataTransaction(user.email!, () => ({ savedProducts: [] }));
+    });
   };
 
   const updateCartQuantity = async (productId: number, newQuantity: number) => {
     if (!user?.email) return;
 
-    const data = await dbService.getUserData(user.email);
-    const currentCart = data?.savedProducts || [];
-    const updatedCart = currentCart.map((item: ICartItem) => 
-      item.id === productId ? { ...item, totalQuantity: newQuantity } : item
-    );
-    await dbService.updateUserData(user.email, { savedProducts: updatedCart });
+    await withErrorHandling(() => dbService.updateUserDataTransaction(user.email!, (data) => {
+      const currentCart = getList(data, 'savedProducts');
+      const updatedCart = currentCart.map((item) =>
+        item.id === productId ? { ...item, totalQuantity: newQuantity } : item
+      );
+      return { savedProducts: updatedCart };
+    }));
   };
 
   return { updateWishList, updateCartList, moveFromCartToWishList, sendOrder, updateCartQuantity };

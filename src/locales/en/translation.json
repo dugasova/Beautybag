@@ -3,7 +3,8 @@
         "loading": "Loading...",
         "breadcrumb": "Breadcrumb",
         "homeIcon": "Home",
-        "scrollToTop": "Scroll to top"
+        "scrollToTop": "Scroll to top",
+        "error": "Something went wrong. Please try again."
     },
     "navigation": {
         "promotions": "Promotions",

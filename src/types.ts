@@ -47,6 +47,11 @@ export interface IUserProfile {
   addresses?: IAddress[];
 }
 
+export interface IUserDocument extends IUserProfile {
+  wishList?: IProduct[];
+  savedProducts?: ICartItem[];
+}
+
 export interface IShippingAddress {
   firstName: string;
   lastName: string;

@@ -3,7 +3,8 @@
         "loading": "Завантаження...",
         "breadcrumb": "Хлібні крихти",
         "homeIcon": "Головна",
-        "scrollToTop": "Прокрутити вгору"
+        "scrollToTop": "Прокрутити вгору",
+        "error": "Щось пішло не так. Спробуйте ще раз."
     },
     "navigation": {
         "promotions": "Акції",
