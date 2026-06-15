@@ -3,7 +3,7 @@
 ═══════════════════════════════════════ */
 
 .account-page {
-  background-color: #f8fafc;
+  background-color: var(--color-bg);
   min-height: 100vh;
   padding: 60px 20px;
 }
@@ -11,7 +11,7 @@
 .account-container {
   max-width: 860px;
   margin: 0 auto;
-  background: white;
+  background: var(--color-white);
   padding: 40px;
   border-radius: 24px;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
@@ -25,7 +25,7 @@
   gap: 24px;
   padding-bottom: 30px;
   margin-bottom: 30px;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .account-avatar-wrap {
@@ -62,7 +62,7 @@
 
 .account-email {
   font-size: 0.9rem;
-  color: #94a3b8;
+  color: var(--color-text-light);
   margin: 0;
 }
 
@@ -71,7 +71,7 @@
 .account-tabs {
   display: flex;
   gap: 4px;
-  background: #f1f5f9;
+  background: var(--color-chip-bg);
   border-radius: 14px;
   padding: 5px;
   margin-bottom: 32px;
@@ -85,7 +85,7 @@
   background: transparent;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #64748b;
+  color: var(--color-text-muted);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -95,7 +95,7 @@
 }
 
 .acc-tab.active {
-  background: white;
+  background: var(--color-white);
   color: var(--color-purple-300);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
@@ -132,14 +132,14 @@
 
 .order-id {
   font-family: monospace;
-  color: #94a3b8;
+  color: var(--color-text-light);
   font-size: 0.85rem;
   flex: 1;
 }
 
 .order-date {
   font-weight: 600;
-  color: #64748b;
+  color: var(--color-text-muted);
   font-size: 0.85rem;
 }
 
@@ -175,7 +175,7 @@
   display: flex;
   justify-content: space-between;
   padding: 4px 0;
-  color: #334155;
+  color: var(--color-text);
   font-size: 0.9rem;
 }
 
@@ -184,12 +184,12 @@
   font-size: 1rem;
   color: var(--color-purple-300);
   padding-top: 12px;
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid var(--color-border);
 }
 
 .no-orders {
   text-align: center;
-  color: #94a3b8;
+  color: var(--color-text-light);
   padding: 50px 0;
   font-style: italic;
 }
@@ -241,7 +241,7 @@
 
 .avatar-hint {
   font-size: 0.8rem;
-  color: #94a3b8;
+  color: var(--color-text-light);
 }
 
 .profile-form {
@@ -260,7 +260,7 @@
 .profile-field label {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #475569;
+  color: var(--color-text-muted);
 }
 
 .profile-field input {
@@ -271,15 +271,25 @@
   outline: none;
   transition: border-color 0.2s;
   color: var(--color-heading);
+  background: var(--color-white);
 }
 
 .profile-field input:focus {
   border-color: var(--color-purple-300);
 }
 
+.profile-field input.error {
+  border-color: #dc2626;
+}
+
+.error-text {
+  font-size: 0.8rem;
+  color: #dc2626;
+}
+
 .readonly-field {
-  background: #f8fafc !important;
-  color: #94a3b8 !important;
+  background: var(--color-bg) !important;
+  color: var(--color-text-light) !important;
   cursor: not-allowed;
 }
 
@@ -344,7 +354,7 @@
 
 .address-card p {
   font-size: 0.9rem;
-  color: #475569;
+  color: var(--color-text-muted);
   margin: 2px 0;
 }
 
@@ -368,7 +378,7 @@
 .add-addr-btn {
   align-self: flex-start;
   padding: 10px 20px;
-  background: white;
+  background: var(--color-white);
   border: 2px dashed var(--color-purple-300);
   border-radius: 12px;
   color: var(--color-purple-300);
@@ -379,11 +389,11 @@
 }
 
 .add-addr-btn:hover {
-  background: #f5f3ff;
+  background: var(--color-chip-bg);
 }
 
 .address-form {
-  background: #f8fafc;
+  background: var(--color-bg);
   border-radius: 16px;
   padding: 24px;
   border: 1px solid var(--color-border);
@@ -414,18 +424,44 @@
 
 .cancel-btn {
   padding: 10px 24px;
-  background: white;
+  background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: 10px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #64748b;
+  color: var(--color-text-muted);
   cursor: pointer;
   transition: border-color 0.2s;
 }
 
 .cancel-btn:hover {
-  border-color: #94a3b8;
+  border-color: var(--color-text-light);
+}
+
+/* ─── Dark theme ─────────────────────── */
+
+[data-theme="dark"] .status-pending {
+  background: rgba(217, 119, 6, 0.18);
+  color: #fbbf24;
+}
+
+[data-theme="dark"] .status-shipped {
+  background: rgba(37, 99, 235, 0.18);
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .status-delivered {
+  background: rgba(22, 163, 74, 0.18);
+  color: #4ade80;
+}
+
+[data-theme="dark"] .delete-addr-btn {
+  background: rgba(220, 38, 38, 0.18);
+  color: #f87171;
+}
+
+[data-theme="dark"] .delete-addr-btn:hover {
+  background: rgba(220, 38, 38, 0.28);
 }
 
 /* ─── Responsive ─────────────────────── */
