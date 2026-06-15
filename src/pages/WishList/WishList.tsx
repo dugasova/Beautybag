@@ -8,20 +8,30 @@ import { removeFromWishList, clearWishList } from '../../store/features/wishList
 import { addToCartList } from '../../store/features/cartList/slice';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { UserAuth } from '../../context/AuthContext';
+import useFirestore from '../../hooks/useFirestore';
 
 export default function WishList() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { user } = UserAuth();
+  const { updateWishList, clearWishList: clearWishListInFirestore } = useFirestore();
   const wishList = useSelector((state: RootState) => state.wishList.wishList);
   const dispatch = useDispatch();
-  const handleRemoveFromWishList = (product: IProduct) => {
+  const handleRemoveFromWishList = async (product: IProduct) => {
     dispatch(removeFromWishList(product));
+    if (user) {
+      await updateWishList(product, true);
+    }
   }
   const handleAddToCart = (product: IProduct) => {
     dispatch(addToCartList(product));
   }
-  const handleClearWishList = () => {
+  const handleClearWishList = async () => {
     dispatch(clearWishList());
+    if (user) {
+      await clearWishListInFirestore();
+    }
   }
 
   return (

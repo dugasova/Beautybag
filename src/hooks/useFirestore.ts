@@ -37,6 +37,12 @@ export default function useFirestore() {
     }));
   };
 
+  const clearWishList = async () => {
+    if (!user?.email) return;
+
+    await withErrorHandling(() => dbService.updateUserDataTransaction(user.email!, () => ({ wishList: [] })));
+  };
+
   const updateCartList = async (product: IProduct, isInCart: boolean) => {
     if (!user?.email) return;
 
@@ -85,5 +91,5 @@ export default function useFirestore() {
     }));
   };
 
-  return { updateWishList, updateCartList, moveFromCartToWishList, sendOrder, updateCartQuantity };
+  return { updateWishList, clearWishList, updateCartList, moveFromCartToWishList, sendOrder, updateCartQuantity };
 }
