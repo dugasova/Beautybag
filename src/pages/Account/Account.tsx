@@ -47,11 +47,11 @@ export default function Account() {
           </button>
           <button className={`acc-tab ${tab === 'profile' ? 'active' : ''}`}
             onClick={() => setTab('profile')}>
-            Profile
+            {t('account.tabs.profile')}
           </button>
           <button className={`acc-tab ${tab === 'addresses' ? 'active' : ''}`}
             onClick={() => setTab('addresses')}>
-            Addresses
+            {t('account.tabs.addresses')}
           </button>
         </div>
 

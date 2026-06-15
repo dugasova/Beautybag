@@ -51,7 +51,56 @@
         "title": "Акаунт",
         "orders": "Ваші замовлення",
         "noOrders": "Замовлень не знайдено.",
-        "name": "Ім'я"
+        "name": "Ім'я",
+        "tabs": {
+            "profile": "Профіль",
+            "addresses": "Адреси"
+        },
+        "orderStatus": {
+            "pending": "В обробці",
+            "shipped": "Відправлено",
+            "delivered": "Доставлено"
+        },
+        "profile": {
+            "displayName": "Ім'я для показу",
+            "displayNamePlaceholder": "Ваше ім'я",
+            "phone": "Телефон",
+            "phonePlaceholder": "+380...",
+            "email": "Email",
+            "avatarHint": "Натисніть, щоб змінити фото",
+            "changeAvatar": "Змінити фото профілю",
+            "save": "Зберегти зміни",
+            "saving": "Збереження...",
+            "validation": {
+                "displayNameMin": "Ім'я має містити щонайменше 2 символи",
+                "phoneInvalid": "Телефон має містити від 10 до 15 цифр"
+            }
+        },
+        "addresses": {
+            "empty": "Збережених адрес немає.",
+            "addNew": "+ Додати нову адресу",
+            "newAddress": "Нова адреса",
+            "defaultLabel": "Адреса",
+            "remove": "Видалити",
+            "cancel": "Скасувати",
+            "save": "Зберегти адресу",
+            "fields": {
+                "label": "Назва",
+                "firstName": "Ім'я",
+                "lastName": "Прізвище",
+                "address": "Адреса",
+                "city": "Місто",
+                "phone": "Телефон"
+            },
+            "labelPlaceholder": "напр. Дім, Робота",
+            "validation": {
+                "firstNameMin": "Ім'я має містити щонайменше 2 символи",
+                "lastNameMin": "Прізвище має містити щонайменше 2 символи",
+                "addressMin": "Адреса має містити щонайменше 5 символів",
+                "cityMin": "Місто має містити щонайменше 2 символи",
+                "phoneInvalid": "Телефон має містити від 10 до 15 цифр"
+            }
+        }
     },
     "register": {
         "title": "Зареєструватися",

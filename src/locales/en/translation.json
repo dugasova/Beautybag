@@ -67,7 +67,56 @@
         "title": "Account",
         "orders": "Your Orders",
         "noOrders": "No orders found.",
-        "name": "Name"
+        "name": "Name",
+        "tabs": {
+            "profile": "Profile",
+            "addresses": "Addresses"
+        },
+        "orderStatus": {
+            "pending": "Processing",
+            "shipped": "Shipped",
+            "delivered": "Delivered"
+        },
+        "profile": {
+            "displayName": "Display Name",
+            "displayNamePlaceholder": "Your name",
+            "phone": "Phone",
+            "phonePlaceholder": "+380...",
+            "email": "Email",
+            "avatarHint": "Click to change photo",
+            "changeAvatar": "Change profile photo",
+            "save": "Save Changes",
+            "saving": "Saving...",
+            "validation": {
+                "displayNameMin": "Display name must be at least 2 characters",
+                "phoneInvalid": "Phone must be 10-15 digits"
+            }
+        },
+        "addresses": {
+            "empty": "No saved addresses yet.",
+            "addNew": "+ Add New Address",
+            "newAddress": "New Address",
+            "defaultLabel": "Address",
+            "remove": "Remove",
+            "cancel": "Cancel",
+            "save": "Save Address",
+            "fields": {
+                "label": "Label",
+                "firstName": "First Name",
+                "lastName": "Last Name",
+                "address": "Address",
+                "city": "City",
+                "phone": "Phone"
+            },
+            "labelPlaceholder": "e.g. Home, Work",
+            "validation": {
+                "firstNameMin": "First name must be at least 2 characters",
+                "lastNameMin": "Last name must be at least 2 characters",
+                "addressMin": "Address must be at least 5 characters",
+                "cityMin": "City must be at least 2 characters",
+                "phoneInvalid": "Phone must be 10-15 digits"
+            }
+        }
     },
     "wishlist": {
         "title": "Your Favorites",

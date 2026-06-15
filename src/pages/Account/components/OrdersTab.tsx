@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import PageLoader from '../../../components/ui/PageLoader/PageLoader';
 import type { IOrder } from '../../../types';
 
-const statusConfig: Record<string, { label: string; cls: string }> = {
-  pending: { label: 'Processing', cls: 'status-pending' },
-  processing: { label: 'Processing', cls: 'status-pending' },
-  shipped: { label: 'Shipped', cls: 'status-shipped' },
-  delivered: { label: 'Delivered', cls: 'status-delivered' },
+const statusConfig: Record<string, { key: string; cls: string }> = {
+  pending: { key: 'pending', cls: 'status-pending' },
+  processing: { key: 'pending', cls: 'status-pending' },
+  shipped: { key: 'shipped', cls: 'status-shipped' },
+  delivered: { key: 'delivered', cls: 'status-delivered' },
 };
 
 interface OrdersTabProps {
@@ -38,7 +38,8 @@ export default function OrdersTab({ orders, loading }: OrdersTabProps) {
     <div className="orders-section">
       <div className="orders-list">
         {orders.map(({ id, status, createdAt, items, totalPrice }) => {
-          const { label, cls } = statusConfig[status || 'pending'];
+          const { key, cls } = statusConfig[status || 'pending'];
+          const label = t(`account.orderStatus.${key}`);
           return (
             <div key={id!} className="order-card">
               <div className="order-header">
