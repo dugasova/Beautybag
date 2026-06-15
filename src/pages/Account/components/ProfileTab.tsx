@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -26,13 +26,17 @@ export default function ProfileTab({ user, profile, updateProfile }: ProfileTabP
   const [saving, setSaving] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
-  const { control, handleSubmit, formState: { errors } } = useForm<ProfileFormValues>({
+  const { control, handleSubmit, reset, formState: { errors } } = useForm<ProfileFormValues>({
     resolver: zodResolver(profileFormSchema),
     defaultValues: {
       displayName: profile.displayName || '',
       phone: profile.phone || '',
     },
   });
+
+  useEffect(() => {
+    reset({ displayName: profile.displayName || '', phone: profile.phone || '' });
+  }, [profile.displayName, profile.phone, reset]);
 
   const avatarSrc = avatarPreview || profile.avatarUrl;
 
