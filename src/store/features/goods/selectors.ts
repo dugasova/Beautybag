@@ -11,25 +11,21 @@ export const selectFilteredProducts = createSelector(
 
     return [...goods]
       .filter((product) => {
-        // Category filter
-        const matchesCategory = !categoryFilter || 
-          product.category === categoryFilter || 
+        const effectivePrice = product.discountPrice ?? product.price;
+        const matchesCategory = !categoryFilter ||
+          product.category === categoryFilter ||
           product.subCategory === categoryFilter;
-        
-        // Price filter
-        const matchesMinPrice = minPrice === null || product.price >= minPrice;
-        const matchesMaxPrice = maxPrice === null || product.price <= maxPrice;
-        
-        // Rating filter
+        const matchesMinPrice = minPrice === null || effectivePrice >= minPrice;
+        const matchesMaxPrice = maxPrice === null || effectivePrice <= maxPrice;
         const matchesRating = product.raiting >= minRating;
 
         return matchesCategory && matchesMinPrice && matchesMaxPrice && matchesRating;
       })
       .sort((a, b) => {
-        if (sortBy === 'price-asc') return a.price - b.price;
-        if (sortBy === 'price-desc') return b.price - a.price;
+        if (sortBy === 'price-asc') return (a.discountPrice ?? a.price) - (b.discountPrice ?? b.price);
+        if (sortBy === 'price-desc') return (b.discountPrice ?? b.price) - (a.discountPrice ?? a.price);
         if (sortBy === 'rating-desc') return b.raiting - a.raiting;
-        return 0; // Default
+        return 0;
       });
   }
 );

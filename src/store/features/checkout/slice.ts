@@ -23,10 +23,10 @@ const checkoutSlice = createSlice({
   initialState,
   reducers: {
     nextStep: (state) => {
-      state.currentStep += 1;
+      if (state.currentStep < 3) state.currentStep += 1;
     },
     prevStep: (state) => {
-      state.currentStep -= 1;
+      if (state.currentStep > 1) state.currentStep -= 1;
     },
     setShippingAddress: (state, action: PayloadAction<IShippingAddress>) => {
       state.shippingAddress = action.payload;

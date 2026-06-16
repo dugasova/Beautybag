@@ -1,18 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../../firebase';
+import { dbService } from '../../../services/dbService';
 import type { IProduct } from '../../../types';
 
-export const fetchGoods = createAsyncThunk(
-  'goods/fetchGoods',
-  async () => {
-    const querySnapshot = await getDocs(collection(db, 'goods'));
-    const goods: IProduct[] = [];
-    querySnapshot.forEach((doc) => {
-      goods.push(doc.data() as IProduct);
-    });
-    return goods;
-  }
+export const fetchGoods = createAsyncThunk('goods/fetchGoods', () =>
+  dbService.fetchAllProducts()
 );
 
 interface GoodsState {
