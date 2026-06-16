@@ -1,7 +1,8 @@
 import './WishList.css';
 import { useSelector } from 'react-redux';
-import type { RootState } from '../../store/store';
+import { selectWishList } from '../../store/features/wishList/selectors';
 import type { IProduct } from '../../types';
+
 import Button from '../../components/ui/Button/Button';
 import { useDispatch } from 'react-redux';
 import { removeFromWishList, clearWishList } from '../../store/features/wishList/slice';
@@ -16,7 +17,7 @@ export default function WishList() {
   const navigate = useNavigate();
   const { user } = UserAuth();
   const { updateWishList, clearWishList: clearWishListInFirestore } = useFirestore();
-  const wishList = useSelector((state: RootState) => state.wishList.wishList);
+  const wishList = useSelector(selectWishList);
   const dispatch = useDispatch();
   const handleRemoveFromWishList = async (product: IProduct) => {
     dispatch(removeFromWishList(product));

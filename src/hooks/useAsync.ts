@@ -19,8 +19,6 @@ export default function useAsync() {
       }
       return result;
     } catch (error) {
-      console.error("Async Error:", error);
-
       const message = errorMessage || t('common.error');
       toast.error(message);
 

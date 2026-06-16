@@ -4,10 +4,10 @@ import PageLoader from '../../../components/ui/PageLoader/PageLoader';
 import type { IOrder } from '../../../types';
 
 const statusConfig: Record<string, { key: string; cls: string }> = {
-  pending: { key: 'pending', cls: 'status-pending' },
-  processing: { key: 'pending', cls: 'status-pending' },
-  shipped: { key: 'shipped', cls: 'status-shipped' },
-  delivered: { key: 'delivered', cls: 'status-delivered' },
+  pending:    { key: 'pending',    cls: 'status-pending' },
+  processing: { key: 'processing', cls: 'status-processing' },
+  shipped:    { key: 'shipped',    cls: 'status-shipped' },
+  delivered:  { key: 'delivered',  cls: 'status-delivered' },
 };
 
 interface OrdersTabProps {
@@ -60,7 +60,7 @@ export default function OrdersTab({ orders, loading }: OrdersTabProps) {
                 ))}
               </div>
               <div className="order-footer">
-                <strong>{t('cart.totalPrice') || 'Total'}: {Number(totalPrice) || 0} UAH</strong>
+                <strong>{t('cart.totalPrice')}: {Number(totalPrice) || 0} UAH</strong>
               </div>
             </div>
           );

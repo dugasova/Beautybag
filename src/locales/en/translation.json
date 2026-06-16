@@ -86,7 +86,8 @@
             "addresses": "Addresses"
         },
         "orderStatus": {
-            "pending": "Processing",
+            "pending": "Pending",
+            "processing": "Processing",
             "shipped": "Shipped",
             "delivered": "Delivered"
         },

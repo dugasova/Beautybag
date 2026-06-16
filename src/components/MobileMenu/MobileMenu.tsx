@@ -1,6 +1,7 @@
 import './MobileMenu.css';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Button from '../ui/Button/Button';
 import logo from '../../assets/icons/logo.jpg';
 import { IoCloseSharp } from "react-icons/io5";
@@ -33,8 +34,8 @@ export default function MobileMenu({ onClose }: MobileMenuProps) {
       await logOut();
       navigate('/');
       onClose();
-    } catch (error) {
-      console.error(error);
+    } catch {
+      toast.error(t('common.error'));
     }
   }
   return (
@@ -123,7 +124,6 @@ export default function MobileMenu({ onClose }: MobileMenuProps) {
               onClick={onClose}
             />
           </div>
-          {/* social icons */}
           <div className='social-icons'>
             <a href="https://www.instagram.com/"><SlSocialInstagram className='social-icon' size={24} /></a>
             <a href="https://www.facebook.com/"><SlSocialFacebook className='social-icon' size={24} /></a>

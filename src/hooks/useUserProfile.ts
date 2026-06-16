@@ -28,7 +28,6 @@ export default function useUserProfile() {
     try {
       await action();
     } catch (error) {
-      console.error("Firestore Error:", error);
       toast.error(t('common.error'));
     }
   };

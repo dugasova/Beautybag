@@ -26,7 +26,6 @@ export default function useOrders() {
         setLoading(false);
       },
       (error) => {
-        console.error('Orders subscription error:', error);
         toast.error(t('common.error'));
         setLoading(false);
       }

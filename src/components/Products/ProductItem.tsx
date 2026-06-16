@@ -7,7 +7,9 @@ import Button from '../ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToWishList, removeFromWishList } from '../../store/features/wishList/slice';
 import { addToCartList, removeFromCartList } from '../../store/features/cartList/slice';
-import type { RootState } from '../../store/store';
+import { selectWishList } from '../../store/features/wishList/selectors';
+import { selectCartList } from '../../store/features/cartList/selectors';
+
 import { useTranslation } from 'react-i18next';
 import { UserAuth } from '../../context/AuthContext';
 import useFirestore from '../../hooks/useFirestore';
@@ -29,8 +31,8 @@ export default function ProductItem({ product }: { product: IProduct }) {
   const { t } = useTranslation();
   const [isHovered, setIsHovered] = useState(false);
   const dispatch = useDispatch();
-  const wishList = useSelector((state: RootState) => state.wishList.wishList);
-  const cartList = useSelector((state: RootState) => state.cartList.cartList);
+  const wishList = useSelector(selectWishList);
+  const cartList = useSelector(selectCartList);
   const isFavorite = wishList.some((item: IProduct) => item.id === product.id);
   const isInCart = cartList.some((item: IProduct) => item.id === product.id);
 

@@ -70,7 +70,8 @@
             "addresses": "Адреси"
         },
         "orderStatus": {
-            "pending": "В обробці",
+            "pending": "Очікує",
+            "processing": "В обробці",
             "shipped": "Відправлено",
             "delivered": "Доставлено"
         },

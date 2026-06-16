@@ -3,6 +3,7 @@ import logo from '../../assets/icons/logo.jpg';
 import Subheader from './Subheader';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 import Button from '../ui/Button/Button';
 import { UserAuth } from '../../context/AuthContext';
 import { useState } from 'react';
@@ -24,8 +25,8 @@ export default function Header() {
     try {
       await logOut();
       navigate('/');
-    } catch (error) {
-      console.error(error);
+    } catch {
+      toast.error(t('common.error'));
     }
   }
 
