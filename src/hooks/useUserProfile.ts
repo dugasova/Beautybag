@@ -35,7 +35,7 @@ export default function useUserProfile() {
 
   const updateProfile = async (data: IUserProfile) => {
     if (!user?.email) return;
-    await withErrorHandling(() => dbService.updateProfile(user.email!, data));
+    await withErrorHandling(() => dbService.updateUserData(user.email!, data));
   };
 
   const addAddress = async (address: Omit<IAddress, 'id'>) => {

@@ -41,11 +41,6 @@ export const dbService = {
     });
   },
 
-  // Profile
-  async updateProfile(email: string, profile: IUserProfile) {
-    await setDoc(dbService.getUserRef(email), profile, { merge: true });
-  },
-
   subscribeToProfile(email: string, callback: (data: IUserProfile) => void) {
     return onSnapshot(dbService.getUserRef(email), (snap) => {
       if (snap.exists()) {
