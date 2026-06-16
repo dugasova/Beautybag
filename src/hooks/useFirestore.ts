@@ -70,13 +70,11 @@ export default function useFirestore() {
     }));
   };
 
-  const sendOrder = async (order: Omit<IOrder, 'userId' | 'createdAt'>) => {
-    if (!user?.email) return;
-
-    await withErrorHandling(async () => {
-      await dbService.createOrder(user.email!, order);
-      await dbService.updateUserDataTransaction(user.email!, () => ({ savedProducts: [] }));
-    });
+  const sendOrder = async (order: Omit<IOrder, 'userId' | 'createdAt'>): Promise<string | null> => {
+    if (!user?.email) return null;
+    const docRef = await dbService.createOrder(user.email!, order);
+    await dbService.updateUserDataTransaction(user.email!, () => ({ savedProducts: [] }));
+    return docRef.id;
   };
 
   const updateCartQuantity = async (productId: number, newQuantity: number) => {

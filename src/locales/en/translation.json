@@ -148,6 +148,50 @@
         "discount": "Your discount",
         "totalDiscount": "Total discount"
     },
+    "checkout": {
+        "back": "Back",
+        "steps": {
+            "shipping": "1. Shipping",
+            "payment": "2. Payment",
+            "review": "3. Review"
+        },
+        "shipping": {
+            "title": "Shipping Address",
+            "savedAddress": "Use saved address:",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "address": "Address",
+            "city": "City",
+            "phone": "Phone",
+            "continue": "Continue to Payment"
+        },
+        "payment": {
+            "title": "Payment Method",
+            "card": "Credit / Debit Card",
+            "paypal": "PayPal",
+            "cash": "Cash on Delivery",
+            "reviewOrder": "Review Order"
+        },
+        "review": {
+            "title": "Review Your Order",
+            "shippingTo": "Shipping to:",
+            "paymentMethod": "Payment Method:",
+            "items": "Items:",
+            "total": "Total",
+            "processing": "Processing...",
+            "placeOrder": "Place Order"
+        },
+        "orderSuccess": {
+            "title": "Thank You for Your Order!",
+            "titleFallback": "Order Placed!",
+            "orderId": "Order ID:",
+            "message": "We've received your order and we're getting it ready for shipment. A confirmation email has been sent to your inbox.",
+            "messageFallback": "Your order was received. Check your account page for details.",
+            "continueShopping": "Continue Shopping",
+            "goHome": "Go to Home"
+        }
+    },
     "products": {
         "shampoo": {
             "name": "Shampoo",

@@ -32,14 +32,13 @@ const ReviewStep = () => {
         shippingAddress,
         paymentMethod,
         createdAt: new Date().toISOString(),
-        status: 'pending'
+        status: 'pending' as const
       };
 
-      await sendOrder(orderData);
-      // Assuming sendOrder returns something with an id or we can generate one
-      const generatedOrderId = Math.random().toString(36).substr(2, 9).toUpperCase();
+      const orderId = await sendOrder(orderData);
+      if (!orderId) return;
 
-      dispatch(setOrderId(generatedOrderId));
+      dispatch(setOrderId(orderId));
       dispatch(clearCart());
       navigate('/order-success');
     }, t('cart.orderSuccess'), t('cart.orderError'));
@@ -49,31 +48,31 @@ const ReviewStep = () => {
 
   return (
     <div className="checkout-step-content">
-      <h2>Review Your Order</h2>
+      <h2>{t('checkout.review.title')}</h2>
 
       <div className="review-summary">
         <div className="review-section">
-          <h3>Shipping to:</h3>
+          <h3>{t('checkout.review.shippingTo')}</h3>
           <p>{shippingAddress.firstName} {shippingAddress.lastName}</p>
           <p>{shippingAddress.address}, {shippingAddress.city}</p>
           <p>{shippingAddress.phone}</p>
         </div>
 
         <div className="review-section">
-          <h3>Payment Method:</h3>
+          <h3>{t('checkout.review.paymentMethod')}</h3>
           <p>{paymentMethod.charAt(0).toUpperCase() + paymentMethod.slice(1)}</p>
         </div>
 
         <div className="review-items">
-          <h3>Items:</h3>
+          <h3>{t('checkout.review.items')}</h3>
           {cartList.map(item => (
             <div key={item.id} className="review-item">
               <span>{t(item.name)} x {item.totalQuantity}</span>
-              <span>{item.price * item.totalQuantity} UAH</span>
+              <span>{(item.discountPrice ?? item.price) * item.totalQuantity} UAH</span>
             </div>
           ))}
           <div className="total-row">
-            <span>Total</span>
+            <span>{t('checkout.review.total')}</span>
             <span>{totalPrice} UAH</span>
           </div>
         </div>
@@ -81,10 +80,10 @@ const ReviewStep = () => {
 
       <div className="checkout-actions">
         <Button onClick={() => dispatch(prevStep())} variant="secondary" size="md" disabled={isProcessing}>
-          Back
+          {t('checkout.back')}
         </Button>
         <Button onClick={handlePlaceOrder} variant="purple" size="md" disabled={isProcessing}>
-          {isProcessing ? 'Processing...' : 'Place Order'}
+          {isProcessing ? t('checkout.review.processing') : t('checkout.review.placeOrder')}
         </Button>
       </div>
     </div>

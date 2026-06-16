@@ -4,17 +4,19 @@ import ShippingStep from './ShippingStep';
 import PaymentStep from './PaymentStep';
 import ReviewStep from './ReviewStep';
 import './Checkout.css';
+import { useTranslation } from 'react-i18next';
 
 const Checkout = () => {
+  const { t } = useTranslation();
   const currentStep = useSelector((state: RootState) => state.checkout.currentStep);
 
   return (
     <div className="checkout-page">
       <div className="checkout-container">
         <div className="checkout-steps-indicator">
-          <div className={`step ${currentStep >= 1 ? 'active' : ''}`}>1. Shipping</div>
-          <div className={`step ${currentStep >= 2 ? 'active' : ''}`}>2. Payment</div>
-          <div className={`step ${currentStep >= 3 ? 'active' : ''}`}>3. Review</div>
+          <div className={`step ${currentStep >= 1 ? 'active' : ''}`}>{t('checkout.steps.shipping')}</div>
+          <div className={`step ${currentStep >= 2 ? 'active' : ''}`}>{t('checkout.steps.payment')}</div>
+          <div className={`step ${currentStep >= 3 ? 'active' : ''}`}>{t('checkout.steps.review')}</div>
         </div>
 
         {currentStep === 1 && <ShippingStep />}
