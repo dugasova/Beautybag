@@ -4,6 +4,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
+import { SlSocialInstagram, SlSocialFacebook } from 'react-icons/sl';
+import { TiSocialPinterest } from 'react-icons/ti';
+import type { IconType } from 'react-icons';
 import Button from '../../components/ui/Button/Button';
 import FormField from '../../components/ui/FormField/FormField';
 
@@ -16,10 +19,10 @@ const ContactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof ContactSchema>;
 
-const SOCIAL_LINKS = [
-  { label: 'Instagram', href: 'https://instagram.com' },
-  { label: 'Facebook',  href: 'https://facebook.com' },
-  { label: 'Pinterest', href: 'https://pinterest.com' },
+const SOCIAL_LINKS: { label: string; href: string; Icon: IconType }[] = [
+  { label: 'Instagram', href: 'https://instagram.com', Icon: SlSocialInstagram },
+  { label: 'Facebook',  href: 'https://facebook.com',  Icon: SlSocialFacebook },
+  { label: 'Pinterest', href: 'https://pinterest.com', Icon: TiSocialPinterest },
 ];
 
 export default function Contact() {
@@ -58,9 +61,9 @@ export default function Contact() {
             <div className="info-item">
               <h3>{t('contact.followUs')}</h3>
               <div className="social-links">
-                {SOCIAL_LINKS.map(({ label, href }) => (
-                  <a key={label} href={href} target="_blank" rel="noopener noreferrer">
-                    {label}
+                {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+                    <Icon size={24} />
                   </a>
                 ))}
               </div>
