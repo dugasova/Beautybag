@@ -1,9 +1,9 @@
 import './Cart.css';
 import { useSelector, useDispatch } from 'react-redux';
-import type { RootState } from '../../store/store';
 import type { ICartItem, IProduct } from '../../types';
 import Button from '../../components/ui/Button/Button';
 import { removeFromCartList, plusQuantity, minusQuantity, clearCart } from '../../store/features/cartList/slice';
+import { selectCartList, selectTotalPrice, selectTotalQuantity } from '../../store/features/cartList/selectors';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { UserAuth } from '../../context/AuthContext';
@@ -17,9 +17,9 @@ export default function Cart() {
   const { execute } = useAsync();
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const cartList = useSelector((state: RootState) => state.cartList.cartList);
-  const totalPrice = useSelector((state: RootState) => state.cartList.totalPrice);
-  const totalQuantity = useSelector((state: RootState) => state.cartList.totalQuantity);
+  const cartList = useSelector(selectCartList);
+  const totalPrice = useSelector(selectTotalPrice);
+  const totalQuantity = useSelector(selectTotalQuantity);
   const dispatch = useDispatch();
 
   const handlePlus = async (product: ICartItem) => {

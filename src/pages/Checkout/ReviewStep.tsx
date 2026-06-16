@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import type { RootState } from '../../store/store';
+import { selectCartList, selectTotalPrice, selectTotalQuantity } from '../../store/features/cartList/selectors';
 import { prevStep, setIsProcessing, setOrderId } from '../../store/features/checkout/slice';
 import { clearCart } from '../../store/features/cartList/slice';
 import Button from '../../components/ui/Button/Button';
@@ -16,9 +17,9 @@ const ReviewStep = () => {
   const { t } = useTranslation();
 
   const { shippingAddress, paymentMethod, isProcessing } = useSelector((state: RootState) => state.checkout);
-  const cartList = useSelector((state: RootState) => state.cartList.cartList);
-  const totalPrice = useSelector((state: RootState) => state.cartList.totalPrice);
-  const totalQuantity = useSelector((state: RootState) => state.cartList.totalQuantity);
+  const cartList = useSelector(selectCartList);
+  const totalPrice = useSelector(selectTotalPrice);
+  const totalQuantity = useSelector(selectTotalQuantity);
 
   const handlePlaceOrder = async () => {
     dispatch(setIsProcessing(true));
