@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslation } from 'react-i18next';
 
 const schema = (t: (key: string) => string) => z.object({
-  email: z.string().email(t('login.validation.invalidEmail') || 'Invalid email'),
+  email: z.email({ error: t('login.validation.invalidEmail') || 'Invalid email' }),
   password: z.string().min(6, t('login.validation.passwordMin') || 'Password must be at least 6 characters long').max(12, t('login.validation.passwordMax') || 'Password must be at most 12 characters long'),
 })
 export type FormSchema = {

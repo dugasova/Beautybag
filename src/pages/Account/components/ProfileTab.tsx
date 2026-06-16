@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import FormField from '../../../components/ui/FormField/FormField';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useTranslation } from 'react-i18next';
@@ -88,42 +89,24 @@ export default function ProfileTab({ user, profile, updateProfile }: ProfileTabP
       </div>
 
       <form className="profile-form" onSubmit={handleSubmit(onSubmit)}>
-        <div className="profile-field">
-          <label htmlFor="profile-displayName">{t('account.profile.displayName')}</label>
-          <Controller
-            name="displayName"
-            control={control}
-            render={({ field }) => (
-              <input
-                {...field}
-                id="profile-displayName"
-                placeholder={t('account.profile.displayNamePlaceholder')}
-                className={errors.displayName ? 'error' : ''}
-                aria-invalid={!!errors.displayName}
-                aria-describedby={errors.displayName ? 'profile-displayName-error' : undefined}
-              />
-            )}
-          />
-          {errors.displayName && <span id="profile-displayName-error" className="error-text" role="alert">{errors.displayName.message}</span>}
-        </div>
-        <div className="profile-field">
-          <label htmlFor="profile-phone">{t('account.profile.phone')}</label>
-          <Controller
-            name="phone"
-            control={control}
-            render={({ field }) => (
-              <input
-                {...field}
-                id="profile-phone"
-                placeholder={t('account.profile.phonePlaceholder')}
-                className={errors.phone ? 'error' : ''}
-                aria-invalid={!!errors.phone}
-                aria-describedby={errors.phone ? 'profile-phone-error' : undefined}
-              />
-            )}
-          />
-          {errors.phone && <span id="profile-phone-error" className="error-text" role="alert">{errors.phone.message}</span>}
-        </div>
+        <FormField
+          name="displayName"
+          control={control}
+          label={t('account.profile.displayName')}
+          error={errors.displayName}
+          id="profile-displayName"
+          placeholder={t('account.profile.displayNamePlaceholder')}
+          wrapperClassName="profile-field"
+        />
+        <FormField
+          name="phone"
+          control={control}
+          label={t('account.profile.phone')}
+          error={errors.phone}
+          id="profile-phone"
+          placeholder={t('account.profile.phonePlaceholder')}
+          wrapperClassName="profile-field"
+        />
         <div className="profile-field">
           <label htmlFor="profile-email">{t('account.profile.email')}</label>
           <input id="profile-email" value={user?.email || ''} readOnly className="readonly-field" />

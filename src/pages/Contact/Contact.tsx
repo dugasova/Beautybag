@@ -1,59 +1,79 @@
 import './Contact.css';
-import Button from '../../components/ui/Button/Button';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
+import Button from '../../components/ui/Button/Button';
+import FormField from '../../components/ui/FormField/FormField';
+
+const ContactSchema = z.object({
+  name:    z.string().min(2),
+  email:   z.email(),
+  subject: z.string().optional(),
+  message: z.string().min(10),
+});
+
+type ContactFormValues = z.infer<typeof ContactSchema>;
+
+const SOCIAL_LINKS = [
+  { label: 'Instagram', href: 'https://instagram.com' },
+  { label: 'Facebook',  href: 'https://facebook.com' },
+  { label: 'Pinterest', href: 'https://pinterest.com' },
+];
 
 export default function Contact() {
   const { t } = useTranslation();
+
+  const { control, handleSubmit, formState: { errors }, reset } = useForm<ContactFormValues>({
+    resolver: zodResolver(ContactSchema),
+    defaultValues: { name: '', email: '', subject: '', message: '' },
+  });
+
+  const onSubmit = () => {
+    toast.success(t('contact.form.success'));
+    reset();
+  };
 
   return (
     <div className="contact-page">
       <section className="container">
         <div className="contact-header">
-          <h1 className="contact-title">{t('navigation.contact', 'Contact Us')}</h1>
-          <p className="contact-subtitle">We would love to hear from you. Send us a message!</p>
+          <h1 className="contact-title">{t('contact.title')}</h1>
+          <p className="contact-subtitle">{t('contact.subtitle')}</p>
         </div>
 
         <div className="contact-content">
           <div className="contact-info">
             <div className="info-item">
-              <h3>Our Boutique</h3>
-              <p>123 Beauty Lane, Glow City, 10101</p>
+              <h3>{t('contact.boutique')}</h3>
+              <p>{t('contact.boutiqueAddress')}</p>
             </div>
             <div className="info-item">
-              <h3>Customer Support</h3>
-              <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+              <h3>{t('contact.support')}</h3>
+              <p>{t('contact.supportHours')}</p>
               <p>+380 (44) 123-45-67</p>
               <p>support@beautybag.com</p>
             </div>
             <div className="info-item">
-              <h3>Follow Us</h3>
+              <h3>{t('contact.followUs')}</h3>
               <div className="social-links">
-                <span>Instagram</span>
-                <span>Facebook</span>
-                <span>Pinterest</span>
+                {SOCIAL_LINKS.map(({ label, href }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer">
+                    {label}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-            <div className="form-group">
-              <label htmlFor="name">Full Name</label>
-              <input type="text" id="name" placeholder="Enter your name" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
-              <input type="email" id="email" placeholder="Enter your email" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="subject">Subject</label>
-              <input type="text" id="subject" placeholder="What is this about?" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea id="message" rows={5} placeholder="Write your message here..." required></textarea>
-            </div>
+          <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
+            <FormField name="name"    control={control} label={t('contact.form.name')}    error={errors.name}    placeholder={t('contact.form.namePlaceholder')} />
+            <FormField name="email"   control={control} label={t('contact.form.email')}   error={errors.email}   placeholder={t('contact.form.emailPlaceholder')} type="email" />
+            <FormField name="subject" control={control} label={t('contact.form.subject')}                        placeholder={t('contact.form.subjectPlaceholder')} />
+            <FormField name="message" control={control} label={t('contact.form.message')} error={errors.message} placeholder={t('contact.form.messagePlaceholder')} type="textarea" rows={5} />
             <Button type="submit" variant="purple" size="lg">
-              Send Message
+              {t('contact.form.send')}
             </Button>
           </form>
         </div>

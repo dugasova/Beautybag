@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import FormField from '../../../components/ui/FormField/FormField';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useTranslation } from 'react-i18next';
@@ -75,30 +76,18 @@ export default function AddressesTab({ addresses, onDelete, onAdd }: AddressesTa
         <form className="address-form" onSubmit={handleSubmit(onSubmit)}>
           <h3>{t('account.addresses.newAddress')}</h3>
           <div className="addr-form-grid">
-            {addressFields.map(field => {
-              const fieldId = `address-${field}`;
-              const errorId = `${fieldId}-error`;
-              return (
-                <div key={field} className={`profile-field ${['address', 'label'].includes(field) ? 'full' : ''}`}>
-                  <label htmlFor={fieldId}>{t(`account.addresses.fields.${field}`)}</label>
-                  <Controller
-                    name={field}
-                    control={control}
-                    render={({ field: controllerField }) => (
-                      <input
-                        {...controllerField}
-                        id={fieldId}
-                        placeholder={field === 'label' ? t('account.addresses.labelPlaceholder') : ''}
-                        className={errors[field] ? 'error' : ''}
-                        aria-invalid={!!errors[field]}
-                        aria-describedby={errors[field] ? errorId : undefined}
-                      />
-                    )}
-                  />
-                  {errors[field] && <span id={errorId} className="error-text" role="alert">{errors[field]?.message}</span>}
-                </div>
-              );
-            })}
+            {addressFields.map(field => (
+              <FormField
+                key={field}
+                name={field}
+                control={control}
+                label={t(`account.addresses.fields.${field}`)}
+                error={errors[field]}
+                id={`address-${field}`}
+                placeholder={field === 'label' ? t('account.addresses.labelPlaceholder') : ''}
+                wrapperClassName={`profile-field${['address', 'label'].includes(field) ? ' full' : ''}`}
+              />
+            ))}
           </div>
           <div className="addr-form-actions">
             <button type="button" className="cancel-btn" onClick={handleCancel}>{t('account.addresses.cancel')}</button>

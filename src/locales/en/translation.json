@@ -25,12 +25,22 @@
     "contact": {
         "title": "Contact Us",
         "subtitle": "We would love to hear from you. Send us a message!",
+        "boutique": "Our Boutique",
+        "boutiqueAddress": "123 Beauty Lane, Glow City, 10101",
+        "support": "Customer Support",
+        "supportHours": "Mon - Fri: 9:00 AM - 6:00 PM",
+        "followUs": "Follow Us",
         "form": {
             "name": "Full Name",
+            "namePlaceholder": "Enter your name",
             "email": "Email Address",
+            "emailPlaceholder": "Enter your email",
             "subject": "Subject",
+            "subjectPlaceholder": "What is this about?",
             "message": "Message",
-            "send": "Send Message"
+            "messagePlaceholder": "Write your message here...",
+            "send": "Send Message",
+            "success": "Your message has been sent successfully!"
         }
     },
     "login": {

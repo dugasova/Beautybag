@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslation } from 'react-i18next';
 import SavedAddressSelector from './SavedAddressSelector';
-import FormField from './FormField';
+import FormField from '../../components/ui/FormField/FormField';
 
 export default function ShippingStep() {
   const { t } = useTranslation();
@@ -55,10 +55,10 @@ export default function ShippingStep() {
       <form onSubmit={handleSubmit(onSubmit)} className="checkout-form">
         <FormField name="firstName" control={control} label={t('checkout.shipping.firstName')} error={errors.firstName} />
         <FormField name="lastName"  control={control} label={t('checkout.shipping.lastName')}  error={errors.lastName} />
-        <FormField name="email"     control={control} label={t('checkout.shipping.email')}     type="email" readOnly wrapperClassName="full-width" />
-        <FormField name="address"   control={control} label={t('checkout.shipping.address')}   error={errors.address} wrapperClassName="full-width" />
-        <FormField name="city"      control={control} label={t('checkout.shipping.city')}      error={errors.city}    wrapperClassName="full-width" />
-        <FormField name="phone"     control={control} label={t('checkout.shipping.phone')}     error={errors.phone}   wrapperClassName="full-width" />
+        <FormField name="email"     control={control} label={t('checkout.shipping.email')}     type="email" readOnly wrapperClassName="form-group full-width" />
+        <FormField name="address"   control={control} label={t('checkout.shipping.address')}   error={errors.address} wrapperClassName="form-group full-width" />
+        <FormField name="city"      control={control} label={t('checkout.shipping.city')}      error={errors.city}    wrapperClassName="form-group full-width" />
+        <FormField name="phone"     control={control} label={t('checkout.shipping.phone')}     error={errors.phone}   wrapperClassName="form-group full-width" />
         <div className="checkout-actions">
           <Button type="submit" variant="purple" size="md" style={{ marginLeft: 'auto' }}>
             {t('checkout.shipping.continue')}
