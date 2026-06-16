@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import './Products.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearCategoryFilter, setCategoryFilter } from '../../store/features/search/slice';
+import { setCategoryFilter } from '../../store/features/search/slice';
 import type { RootState } from '../../store/store';
 import { selectFilteredProducts } from '../../store/features/goods/selectors';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -29,7 +29,7 @@ export default function Products() {
     if (categoryName) {
       dispatch(setCategoryFilter(categoryName));
     } else {
-      dispatch(clearCategoryFilter());
+      dispatch(setCategoryFilter(''));
     }
   }, [categoryName, dispatch]);
 

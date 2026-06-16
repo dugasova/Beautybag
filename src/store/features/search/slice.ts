@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+type SortBy = 'default' | 'price-asc' | 'price-desc' | 'rating-desc';
+
 interface SearchState {
   isSearchModalOpen: boolean;
   categoryFilter: string;
-  sortBy: string;
+  sortBy: SortBy;
   minPrice: number | null;
   maxPrice: number | null;
   minRating: number;
@@ -28,7 +30,7 @@ const searchSlice = createSlice({
     setCategoryFilter: (state, action) => {
       state.categoryFilter = action.payload;
     },
-    setSortBy: (state, action) => {
+    setSortBy: (state, action: { payload: SortBy }) => {
       state.sortBy = action.payload;
     },
     setPriceRange: (state, action: { payload: { type: 'min' | 'max', value: string } }) => {
@@ -44,9 +46,6 @@ const searchSlice = createSlice({
       const rating = action.payload;
       state.minRating = state.minRating === rating ? 0 : rating;
     },
-    clearCategoryFilter: (state) => {
-      state.categoryFilter = "";
-    },
     resetFilters: (state) => {
       state.sortBy = "default";
       state.minPrice = null;
@@ -59,7 +58,6 @@ const searchSlice = createSlice({
 export const {
   setIsSearchModalOpen,
   setCategoryFilter,
-  clearCategoryFilter,
   setSortBy,
   setPriceRange,
   setMinRating,

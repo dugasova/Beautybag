@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import type { ICartItem, IProduct } from '../../types';
 import Button from '../../components/ui/Button/Button';
 import { removeFromCartList, plusQuantity, minusQuantity, clearCart } from '../../store/features/cartList/slice';
+import { dbService } from '../../services/dbService';
 import { selectCartList, selectTotalPrice, selectTotalQuantity } from '../../store/features/cartList/selectors';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -66,11 +67,7 @@ export default function Cart() {
     await execute(async () => {
       dispatch(clearCart());
       if (user?.email) {
-        const { doc, updateDoc } = await import('firebase/firestore');
-        const { db } = await import('../../firebase');
-        await updateDoc(doc(db, 'users', user.email), {
-          savedProducts: []
-        });
+        await dbService.updateUserData(user.email, { savedProducts: [] });
       }
     });
   }
@@ -105,8 +102,8 @@ export default function Cart() {
                     <h3 className='cart-name'>{t(item.name)}</h3>
                     <p className='cart-description'>{t(item.description)}</p>
                     <div className='cart-price-info'>
-                      <span className='unit-price'>{Number(item.price) || 0} UAH / {t('cart.unit')}  </span>
-                      <span className='total-item-price'>{t('cart.subtotal')}: {(Number(item.totalQuantity) || 1) * (Number(item.price) || 0)} UAH</span>
+                      <span className='unit-price'>{item.discountPrice ?? item.price} UAH / {t('cart.unit')}</span>
+                      <span className='total-item-price'>{t('cart.subtotal')}: {(item.discountPrice ?? item.price) * item.totalQuantity} UAH</span>
                     </div>
                     <p className='cart-raiting'>{item.raiting}</p>
                     <div className='cart-item-actions'>
