@@ -1,9 +1,11 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import './Products.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { setCategoryFilter } from '../../store/features/search/slice';
-import type { RootState } from '../../store/store';
+import { selectCategoryFilter } from '../../store/features/search/selectors';
 import { selectFilteredProducts } from '../../store/features/goods/selectors';
+import type { RootState } from '../../store/store';
 import { useParams, useNavigate } from 'react-router-dom';
 import Button from '../ui/Button/Button';
 import ProductGrid from './ProductGrid';
@@ -13,24 +15,20 @@ const INITIAL_COUNT = 8;
 const LOAD_MORE_COUNT = 4;
 
 export default function Products() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { categoryName } = useParams<{ categoryName: string }>();
 
   const productsToDisplay = useSelector(selectFilteredProducts);
-  const { categoryFilter } = useSelector((state: RootState) => state.search);
+  const categoryFilter = useSelector(selectCategoryFilter);
   const status = useSelector((state: RootState) => state.goods.status);
 
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const observerTarget = useRef<HTMLDivElement | null>(null);
 
-  // Sync URL param with Redux state
   useEffect(() => {
-    if (categoryName) {
-      dispatch(setCategoryFilter(categoryName));
-    } else {
-      dispatch(setCategoryFilter(''));
-    }
+    dispatch(setCategoryFilter(categoryName ?? ''));
   }, [categoryName, dispatch]);
 
   const currentProducts = productsToDisplay.slice(0, visibleCount);
@@ -63,7 +61,6 @@ export default function Products() {
 
   const [prevCategory, setPrevCategory] = useState(categoryFilter);
 
-  // Adjust state during render when category changes
   if (categoryFilter !== prevCategory) {
     setPrevCategory(categoryFilter);
     setVisibleCount(INITIAL_COUNT);
@@ -79,10 +76,10 @@ export default function Products() {
         {categoryFilter && (
           <div className="filter-info">
             <h2 className="search-results-title">
-              Category: {categoryFilter}
+              {t('filters.activeCategory', { name: categoryFilter })}
             </h2>
             <Button variant='secondary' size='sm' className="clear-filter-btn" onClick={handleClearFilter}>
-              Show all products
+              {t('filters.showAll')}
             </Button>
           </div>
         )}
@@ -91,8 +88,7 @@ export default function Products() {
           products={currentProducts}
           status={status}
         />
-        
-        {/* Intersection Observer Target */}
+
         {productsToDisplay.length > visibleCount && (
           <div ref={observerTarget} className="infinite-scroll-trigger">
             <div className="loading-dots">
@@ -102,5 +98,5 @@ export default function Products() {
         )}
       </div>
     </div>
-  )
+  );
 }

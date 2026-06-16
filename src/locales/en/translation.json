@@ -1,4 +1,7 @@
 {
+    "banner": {
+        "ariaLabel": "Promotional video banner"
+    },
     "common": {
         "loading": "Loading...",
         "breadcrumb": "Breadcrumb",
@@ -297,6 +300,8 @@
         "maxPrice": "Maximum price",
         "minRating": "Min Rating",
         "ratingAndUp": "{{count}} stars & up",
+        "activeCategory": "Category: {{name}}",
+        "showAll": "Show all products",
         "reset": "Reset Filters",
         "apply": "Apply Filters"
     },
