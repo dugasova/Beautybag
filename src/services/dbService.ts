@@ -57,7 +57,7 @@ export const dbService = {
 
   // Addresses
   async addAddress(email: string, address: Omit<IAddress, 'id'>) {
-    const newAddress: IAddress = { ...address, id: Date.now().toString() };
+    const newAddress: IAddress = { ...address, id: crypto.randomUUID() };
     await dbService.updateUserDataTransaction(email, (data) => {
       const existing: IAddress[] = data?.addresses || [];
       return { addresses: [...existing, newAddress] };
