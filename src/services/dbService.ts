@@ -22,18 +22,18 @@ export const dbService = {
   getUserRef: (email: string) => doc(db, USERS, email),
 
   async getUserData(email: string): Promise<IUserDocument | null> {
-    const userDoc = await getDoc(this.getUserRef(email));
+    const userDoc = await getDoc(dbService.getUserRef(email));
     return userDoc.exists() ? (userDoc.data() as IUserDocument) : null;
   },
 
   async updateUserData(email: string, data: object) {
-    await setDoc(this.getUserRef(email), data, { merge: true });
+    await setDoc(dbService.getUserRef(email), data, { merge: true });
   },
 
   // Atomically read the current user document and write back the result of `updater`,
   // avoiding lost updates from concurrent read-modify-write calls.
   async updateUserDataTransaction(email: string, updater: (data: IUserDocument | undefined) => object) {
-    const ref = this.getUserRef(email);
+    const ref = dbService.getUserRef(email);
     await runTransaction(db, async (transaction) => {
       const snap = await transaction.get(ref);
       const data = snap.exists() ? (snap.data() as IUserDocument) : undefined;
@@ -43,11 +43,11 @@ export const dbService = {
 
   // Profile
   async updateProfile(email: string, profile: IUserProfile) {
-    await setDoc(this.getUserRef(email), profile, { merge: true });
+    await setDoc(dbService.getUserRef(email), profile, { merge: true });
   },
 
   subscribeToProfile(email: string, callback: (data: IUserProfile) => void) {
-    return onSnapshot(this.getUserRef(email), (snap) => {
+    return onSnapshot(dbService.getUserRef(email), (snap) => {
       if (snap.exists()) {
         const data = snap.data();
         callback({
@@ -63,14 +63,14 @@ export const dbService = {
   // Addresses
   async addAddress(email: string, address: Omit<IAddress, 'id'>) {
     const newAddress: IAddress = { ...address, id: Date.now().toString() };
-    await this.updateUserDataTransaction(email, (data) => {
+    await dbService.updateUserDataTransaction(email, (data) => {
       const existing: IAddress[] = data?.addresses || [];
       return { addresses: [...existing, newAddress] };
     });
   },
 
   async deleteAddress(email: string, addressId: string) {
-    await this.updateUserDataTransaction(email, (data) => {
+    await dbService.updateUserDataTransaction(email, (data) => {
       const existing: IAddress[] = data?.addresses || [];
       return { addresses: existing.filter(a => a.id !== addressId) };
     });
