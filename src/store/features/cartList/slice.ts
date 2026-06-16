@@ -13,6 +13,11 @@ const initialState: CartState = {
   totalQuantity: 0,
 };
 
+function recalcTotals(state: CartState) {
+  state.totalPrice = state.cartList.reduce((acc, i) => acc + i.price * i.totalQuantity, 0);
+  state.totalQuantity = state.cartList.reduce((acc, i) => acc + i.totalQuantity, 0);
+}
+
 const cartListSlice = createSlice({
   name: "cartList",
   initialState,
@@ -26,35 +31,26 @@ const cartListSlice = createSlice({
       } else {
         state.cartList.push({ ...action.payload, totalQuantity: 1 });
       }
-      state.totalPrice += Number(action.payload.price) || 0;
-      state.totalQuantity += 1;
+      recalcTotals(state);
     },
     removeFromCartList: (state, action) => {
-      const itemToRemove = state.cartList.find(
-        (item) => item.id === action.payload.id,
+      state.cartList = state.cartList.filter(
+        (item) => item.id !== action.payload.id,
       );
-      if (itemToRemove) {
-        state.totalPrice -= (Number(itemToRemove.price) || 0) * (Number(itemToRemove.totalQuantity) || 1);
-        state.totalQuantity -= (Number(itemToRemove.totalQuantity) || 0);
-        state.cartList = state.cartList.filter(
-          (item) => item.id !== action.payload.id,
-        );
-      }
+      recalcTotals(state);
     },
     plusQuantity: (state, action) => {
       const item = state.cartList.find((item) => item.id === action.payload.id);
       if (item) {
         item.totalQuantity += 1;
-        state.totalPrice += Number(item.price) || 0;
-        state.totalQuantity += 1;
+        recalcTotals(state);
       }
     },
     minusQuantity: (state, action) => {
       const item = state.cartList.find((item) => item.id === action.payload.id);
       if (item && item.totalQuantity > 1) {
         item.totalQuantity -= 1;
-        state.totalPrice -= Number(item.price) || 0;
-        state.totalQuantity -= 1;
+        recalcTotals(state);
       }
     },
     clearCart: (state) => {
@@ -63,15 +59,12 @@ const cartListSlice = createSlice({
       state.totalQuantity = 0;
     },
     setCartList: (state, action) => {
-      const sanitizedList = action.payload.map((item: ICartItem) => ({
+      state.cartList = action.payload.map((item: ICartItem) => ({
         ...item,
         totalQuantity: Number(item.totalQuantity) || 1,
         price: Number(item.price) || 0
       }));
-
-      state.cartList = sanitizedList;
-      state.totalPrice = sanitizedList.reduce((acc: number, item: ICartItem) => acc + (item.price * item.totalQuantity), 0);
-      state.totalQuantity = sanitizedList.reduce((acc: number, item: ICartItem) => acc + item.totalQuantity, 0);
+      recalcTotals(state);
     },
   },
 });
