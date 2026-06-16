@@ -144,7 +144,9 @@
         "loginToOrder": "Please login to place an order",
         "orderSuccess": "Order placed successfully!",
         "orderError": "Failed to place order",
-        "totalPrice": "Total Price"
+        "totalPrice": "Total Price",
+        "discount": "Your discount",
+        "totalDiscount": "Total discount"
     },
     "products": {
         "shampoo": {

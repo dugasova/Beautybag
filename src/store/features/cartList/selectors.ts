@@ -12,3 +12,11 @@ export const selectTotalQuantity = createSelector(
   selectCartList,
   (cartList) => cartList.reduce((acc, i) => acc + i.totalQuantity, 0)
 );
+
+export const selectTotalDiscount = createSelector(
+  selectCartList,
+  (cartList) => cartList.reduce((acc, i) => {
+    if (!i.discountPrice) return acc;
+    return acc + (i.price - i.discountPrice) * i.totalQuantity;
+  }, 0)
+);
