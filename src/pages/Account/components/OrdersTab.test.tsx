@@ -42,7 +42,7 @@ describe('OrdersTab', () => {
     render(<OrdersTab orders={[makeOrder()]} loading={false} />);
 
     expect(screen.getByText('#order-12')).toBeInTheDocument();
-    expect(screen.getByText('Processing')).toBeInTheDocument();
+    expect(screen.getByText('Pending')).toBeInTheDocument();
     expect(screen.getByText(/Total Price.*200 UAH/)).toBeInTheDocument();
   });
 
