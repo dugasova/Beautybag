@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import reducer, {
+  setIsSearchModalOpen,
   setCategoryFilter,
   setSortBy,
   setPriceRange,
@@ -8,6 +9,19 @@ import reducer, {
 } from './slice';
 
 describe('search reducer', () => {
+  describe('setIsSearchModalOpen', () => {
+    it('opens the search modal', () => {
+      const state = reducer(undefined, setIsSearchModalOpen(true));
+      expect(state.isSearchModalOpen).toBe(true);
+    });
+
+    it('closes the search modal', () => {
+      let state = reducer(undefined, setIsSearchModalOpen(true));
+      state = reducer(state, setIsSearchModalOpen(false));
+      expect(state.isSearchModalOpen).toBe(false);
+    });
+  });
+
   describe('setCategoryFilter', () => {
     it('updates categoryFilter', () => {
       const state = reducer(undefined, setCategoryFilter('Hair'));
@@ -83,6 +97,12 @@ describe('search reducer', () => {
       let state = reducer(undefined, setCategoryFilter('Hair'));
       state = reducer(state, resetFilters());
       expect(state.categoryFilter).toBe('Hair');
+    });
+
+    it('does NOT reset isSearchModalOpen', () => {
+      let state = reducer(undefined, setIsSearchModalOpen(true));
+      state = reducer(state, resetFilters());
+      expect(state.isSearchModalOpen).toBe(true);
     });
   });
 });
