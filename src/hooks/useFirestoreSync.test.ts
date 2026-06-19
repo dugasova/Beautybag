@@ -47,7 +47,7 @@ function createStore() {
 
 function createWrapper(store: ReturnType<typeof createStore>) {
   return ({ children }: { children: ReactNode }) =>
-    createElement(Provider, { store }, children);
+    createElement(Provider, { store, children });
 }
 
 beforeEach(() => {

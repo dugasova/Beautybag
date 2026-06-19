@@ -6,6 +6,8 @@ import { addToWishList, removeFromWishList } from '../../store/features/wishList
 import { selectWishList } from '../../store/features/wishList/selectors';
 import { selectCartList } from '../../store/features/cartList/selectors';
 import Button from '../../components/ui/Button/Button';
+import type { RootState } from '../../store/store';
+import type { IProduct } from '../../types';
 import './ProductPage.css';
 
 export default function ProductPage() {
@@ -16,7 +18,7 @@ export default function ProductPage() {
 
   const wishList = useSelector(selectWishList);
   const cartList = useSelector(selectCartList);
-  const goods = useSelector((state: RootState) => state.goods.items);
+  const goods: IProduct[] = useSelector((state: RootState) => state.goods.items);
 
   const product = goods.find(item => item.id === Number(id));
 

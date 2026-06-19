@@ -25,7 +25,7 @@ export default function useOrders() {
         setOrders(fetchedOrders);
         setLoading(false);
       },
-      (error) => {
+      () => {
         toast.error(t('common.error'));
         setLoading(false);
       }
