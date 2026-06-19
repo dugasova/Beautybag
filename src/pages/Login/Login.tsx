@@ -3,14 +3,16 @@ import './Login.css';
 import Form from '../../components/Form/Form';
 import type { FormSchema } from '../../components/Form/Form';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { auth } from '../../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
 
 export default function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { t } = useTranslation();
+  const redirectTo = (location.state as { prevPath?: string })?.prevPath || '/';
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -20,7 +22,7 @@ export default function Login() {
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
       toast.success("Successfully logged in!");
-      navigate('/');
+      navigate(redirectTo, { replace: true });
     } catch (err: unknown) {
       console.error(err);
       toast.error("Invalid email or password");
