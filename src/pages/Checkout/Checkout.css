@@ -1,13 +1,13 @@
 .checkout-page {
     padding: 40px 20px;
-    background-color: #f8fafc;
+    background-color: var(--color-bg);
     min-height: 80vh;
 }
 
 .checkout-container {
     max-width: 800px;
     margin: 0 auto;
-    background: white;
+    background: var(--color-white);
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -23,7 +23,7 @@
 
 .checkout-steps-indicator .step {
     font-weight: 600;
-    color: #94a3b8;
+    color: var(--color-text-light);
     position: relative;
 }
 
@@ -45,7 +45,7 @@
 
 .saved-addresses-selector h3 {
     font-size: 14px;
-    color: #64748b;
+    color: var(--color-text-muted);
     margin-bottom: 12px;
 }
 
@@ -61,7 +61,7 @@
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.2s ease;
-    background: #f8fafc;
+    background: var(--color-chip-bg);
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -69,7 +69,7 @@
 
 .saved-address-chip:hover {
     border-color: var(--color-purple-300);
-    background: #f5f3ff;
+    background: var(--color-chip-bg);
 }
 
 .saved-address-chip strong {
@@ -80,7 +80,7 @@
 
 .saved-address-chip span {
     font-size: 13px;
-    color: #475569;
+    color: var(--color-text-muted);
 }
 
 .checkout-form {
@@ -102,7 +102,7 @@
 .form-group label {
     font-size: 14px;
     font-weight: 600;
-    color: #4b5563;
+    color: var(--color-text-muted);
 }
 
 .form-group input {
@@ -111,12 +111,14 @@
     border-radius: 8px;
     outline: none;
     transition: border-color 0.2s;
+    background-color: var(--color-white);
+    color: var(--color-text);
 }
 
 .form-group__email {
     opacity: 0.7;
     cursor: not-allowed;
-    background-color: #f3f4f6;
+    background-color: var(--color-chip-bg) !important;
 }
 
 .checkout-actions {
@@ -145,11 +147,11 @@
 
 .payment-option.active {
     border-color: var(--color-purple-300);
-    background-color: #f5f3ff;
+    background-color: var(--color-chip-bg);
 }
 
 .review-summary {
-    background: #f8fafc;
+    background: var(--color-chip-bg);
     padding: 24px;
     border-radius: 8px;
     margin-bottom: 24px;
@@ -162,7 +164,7 @@
 .review-section h3 {
     font-size: 16px;
     margin-bottom: 8px;
-    color: #64748b;
+    color: var(--color-text-muted);
 }
 
 .review-items {

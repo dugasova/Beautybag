@@ -18,6 +18,8 @@
   --color-accent: #e18888;
   --color-accent-hover: #d17777;
   --color-danger: #ef4444;
+  --color-danger-bg: #fef2f2;
+  --color-danger-border: #fee2e2;
   --color-chip-bg: #f0f0f0;
   --color-star-empty: #d1d5db;
   --color-star-fill: #f59e0b;
@@ -49,6 +51,8 @@
   --color-text-light: #7d869c;
   --color-chip-bg: #2a2a3d;
   --color-star-empty: #44495a;
+  --color-danger-bg: #3b1c1c;
+  --color-danger-border: #5c2a2a;
 }
 
 *,

@@ -1,6 +1,6 @@
 .order-success-page {
     padding: 60px 20px;
-    background-color: #f8fafc;
+    background-color: var(--color-bg);
     min-height: 80vh;
     display: flex;
     justify-content: center;
@@ -10,7 +10,7 @@
 .order-success-container {
     max-width: 500px;
     width: 100%;
-    background: white;
+    background: var(--color-white);
     padding: 60px 40px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -20,7 +20,7 @@
 .success-icon {
     width: 80px;
     height: 80px;
-    background-color: #f5f3ff;
+    background-color: var(--color-chip-bg);
     color: var(--color-purple-300);
     font-size: 40px;
     display: flex;
@@ -38,7 +38,7 @@
 
 .order-id {
     font-size: 18px;
-    color: #64748b;
+    color: var(--color-text-muted);
     margin-bottom: 24px;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .success-msg {
-    color: #4b5563;
+    color: var(--color-text-muted);
     line-height: 1.6;
     margin-bottom: 40px;
 }
