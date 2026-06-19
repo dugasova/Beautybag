@@ -72,7 +72,7 @@ export default function WishList() {
             </svg>
           </p>
           <p>{t('wishlist.emptyMessage')}</p>
-          <Button onClick={() => navigate('/')} variant="purple" size="md" className="clear-wishlist-btn">
+          <Button onClick={() => navigate('/')} variant="purple" size="md">
             {t('wishlist.backToProducts')}
           </Button>
         </div>

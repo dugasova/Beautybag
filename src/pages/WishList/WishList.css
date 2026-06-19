@@ -81,7 +81,7 @@
 .wishlist-name {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--color-heading);
   margin: 0;
 }
 
@@ -138,9 +138,8 @@
 .wishlist-empty {
   text-align: center;
   padding: 80px 20px;
-  background: #fdfbff;
+  background: var(--color-white);
   border-radius: 20px;
-  border: 2px dashed #eee;
 }
 
 .wishlist-empty h1 {
@@ -152,6 +151,7 @@
 .wishlist-empty p {
   color: #888;
   font-size: 1.1rem;
+  margin-bottom: 15px;
 }
 
 .wishlist-actions {
