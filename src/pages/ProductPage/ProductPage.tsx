@@ -6,6 +6,7 @@ import { addToWishList, removeFromWishList } from '../../store/features/wishList
 import { selectWishList } from '../../store/features/wishList/selectors';
 import { selectCartList } from '../../store/features/cartList/selectors';
 import Button from '../../components/ui/Button/Button';
+import StarRating from '../../components/ui/StarRating/StarRating';
 import type { RootState } from '../../store/store';
 import type { IProduct } from '../../types';
 import './ProductPage.css';
@@ -72,7 +73,7 @@ export default function ProductPage() {
 
           <div className="product-meta">
             <div className="product-rating">
-              <span className="stars">★★★★★</span>
+              <StarRating rating={product.raiting} />
               <span className="rating-value">{product.raiting}</span>
             </div>
             <span className="product-status">In Stock</span>

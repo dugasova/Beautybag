@@ -76,7 +76,7 @@ test.describe('Product page (/product/:id)', () => {
     await expect(page.locator('.product-title')).toBeVisible({ timeout: 10000 });
     await expect(page.locator('.product-status')).toHaveText('In Stock');
     await expect(page.locator('.current-price')).toContainText('UAH');
-    await expect(page.locator('.stars')).toBeVisible();
+    await expect(page.locator('.star-rating')).toBeVisible();
     await expect(page.locator('.rating-value')).toBeVisible();
     await expect(page.locator('.product-description-long')).toBeVisible();
     await expect(page.locator('.product-image-main img')).toBeVisible();

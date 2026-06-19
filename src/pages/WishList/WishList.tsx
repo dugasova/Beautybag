@@ -4,6 +4,7 @@ import { selectWishList } from '../../store/features/wishList/selectors';
 import type { IProduct } from '../../types';
 
 import Button from '../../components/ui/Button/Button';
+import StarRating from '../../components/ui/StarRating/StarRating';
 import { useDispatch } from 'react-redux';
 import { removeFromWishList, clearWishList } from '../../store/features/wishList/slice';
 import { addToCartList } from '../../store/features/cartList/slice';
@@ -49,7 +50,7 @@ export default function WishList() {
                   <h3 className='wishlist-name'>{t(item.name)}</h3>
                   <p className='wishlist-description'>{t(item.description)}</p>
                   <p className='wishlist-price'>{item.price} UAH</p>
-                  <p className='wishlist-raiting'>{item.raiting}</p>
+                  <p className='wishlist-raiting'><StarRating rating={item.raiting} /></p>
                   <Button onClick={() => handleAddToCart(item)} variant="purple" size="md" className="product-button-custom">{t('wishlist.addToCart')}</Button>
                   <Button onClick={() => handleRemoveFromWishList(item)} variant="purple" size="md" className="product-button-custom">{t('wishlist.removeFromWishList')}</Button>
                 </div>

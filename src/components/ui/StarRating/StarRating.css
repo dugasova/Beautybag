@@ -1,0 +1,33 @@
+.star-rating {
+    display: inline-flex;
+    gap: 1px;
+}
+
+.star {
+    font-size: 15px;
+    display: inline-block;
+    color: var(--color-star-empty);
+}
+
+.star.filled {
+    color: var(--color-star-fill);
+}
+
+.star.star-half {
+    position: relative;
+    display: inline-block;
+    font-size: 15px;
+    color: var(--color-star-empty);
+}
+
+.star.star-half::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-star-fill);
+    width: 50%;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+}

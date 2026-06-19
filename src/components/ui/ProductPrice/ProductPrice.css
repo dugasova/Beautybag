@@ -1,0 +1,25 @@
+.product-price-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.product-price {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.product-price.old {
+    text-decoration: line-through;
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.product-price.current {
+    color: var(--color-accent);
+    font-size: 1.3rem;
+    font-weight: 800;
+}

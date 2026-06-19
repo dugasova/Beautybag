@@ -1,4 +1,5 @@
 import Button from '../../components/ui/Button/Button'
+import StarRating from '../../components/ui/StarRating/StarRating'
 import type { ICartItem, IProduct } from '../../types'
 import { useTranslation } from 'react-i18next';
 
@@ -31,7 +32,7 @@ export default function CartItem({ item, onPlus, onMinus, onRemove, onMoveToWish
             <span className='cart-item-discount'>{t('cart.discount')}: -{(item.price - item.discountPrice) * item.totalQuantity} UAH ({item.discount}%)</span>
           )}
         </div>
-        <p className='cart-raiting'>{item.raiting}</p>
+        <p className='cart-raiting'><StarRating rating={item.raiting} /></p>
         <div className='cart-item-actions'>
           <Button onClick={() => onMoveToWishlist(item)} variant="purple" size="md" className="product-button-custom move-to-wishlist">
             {t('cart.moveToWishlist')}
