@@ -12,7 +12,7 @@ export default function ProductFilters() {
   const { sortBy, minPrice, maxPrice, minRating } = useSelector((state: RootState) => state.search);
 
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    dispatch(setSortBy(e.target.value as 'default' | 'price-asc' | 'price-desc' | 'rating-desc'));
+    dispatch(setSortBy(e.target.value));
   };
 
   const handlePriceChange = (type: 'min' | 'max', value: string) => {

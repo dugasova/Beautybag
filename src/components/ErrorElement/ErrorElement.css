@@ -30,7 +30,7 @@
 }
 
 .error-text {
-  color: #777;
+  color: var(--color-text-muted);
   margin-bottom: 2rem;
   line-height: 1.6;
 }

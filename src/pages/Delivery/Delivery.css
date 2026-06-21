@@ -23,7 +23,7 @@
 }
 
 .delivery-subtitle {
-    color: #666;
+    color: var(--color-text-muted);
     font-size: 1.1rem;
 }
 
@@ -53,7 +53,7 @@
     padding: 2.5rem;
     border-radius: 20px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
-    border: 1px solid #f0f0f0;
+    border: 1px solid var(--color-border);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -78,7 +78,7 @@
 }
 
 .card-description {
-    color: #666;
+    color: var(--color-text-muted);
     line-height: 1.6;
     margin-bottom: 1.5rem;
     flex-grow: 1;
@@ -89,7 +89,7 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 1rem;
-    border-top: 1px dashed #eee;
+    border-top: 1px dashed var(--color-border);
 }
 
 .card-time {

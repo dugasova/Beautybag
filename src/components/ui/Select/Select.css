@@ -12,13 +12,13 @@
 .dropdown-trigger {
     padding: 0.5rem;
     border-radius: 0.5rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-border);
     cursor: pointer;
-    background-color: white;
+    background-color: var(--color-white);
 }
 
 .dropdown-trigger:hover {
-    background-color: #f9f9f9;
+    background-color: var(--color-chip-bg);
 }
 
 .dropdown-options {
@@ -30,9 +30,9 @@
     margin-top: 4px;
     padding: 0;
     list-style: none;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-border);
     border-radius: 0.5rem;
-    background-color: white;
+    background-color: var(--color-white);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: none;
     z-index: 10;
@@ -55,7 +55,7 @@
 }
 
 .dropdown-options li:hover {
-    background-color: #f0f0f0;
+    background-color: var(--color-chip-bg);
 }
 
 .dropdown-options li:first-child {
@@ -77,9 +77,9 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-border);
     border-radius: 0.5rem;
-    background-color: white;
+    background-color: var(--color-white);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: none;
     z-index: 20;
@@ -97,7 +97,7 @@
 }
 
 .dropdown-options-nested li:hover {
-    background-color: #f0f0f0;
+    background-color: var(--color-chip-bg);
 }
 
 .dropdown-options-nested li:first-child {

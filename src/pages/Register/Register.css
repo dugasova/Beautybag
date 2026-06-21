@@ -19,7 +19,7 @@
 }
 
 .register-subtitle {
-    color: #777;
+    color: var(--color-text-muted);
     font-size: 1rem;
     margin-bottom: 2rem;
     text-align: center;
@@ -35,7 +35,7 @@
 }
 
 .register-link:hover {
-    color: #0c0303;
+    color: var(--color-heading);
     font-size: 1rem;
     margin-bottom: 2rem;
     text-align: center;

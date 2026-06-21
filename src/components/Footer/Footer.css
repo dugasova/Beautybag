@@ -46,7 +46,7 @@
 }
 
 .footer-top-actions input::placeholder {
-    color: #94a3b8;
+    color: var(--color-text-light);
 }
 
 .footer-top-actions input:focus {
@@ -158,7 +158,7 @@
 .footer-section-copyright {
     margin: 0;
     font-size: 0.85rem;
-    color: #94a3b8;
+    color: var(--color-text-light);
 }
 
 .footer-section-copyright .footer-link {

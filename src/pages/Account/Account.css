@@ -279,12 +279,12 @@
 }
 
 .profile-field input.error {
-  border-color: #dc2626;
+  border-color: var(--color-danger);
 }
 
 .error-text {
   font-size: 0.8rem;
-  color: #dc2626;
+  color: var(--color-danger);
 }
 
 .readonly-field {
@@ -361,8 +361,8 @@
 .delete-addr-btn {
   margin-top: 12px;
   padding: 5px 14px;
-  background: #fee2e2;
-  color: #dc2626;
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
   border: none;
   border-radius: 8px;
   font-size: 0.8rem;
@@ -372,7 +372,7 @@
 }
 
 .delete-addr-btn:hover {
-  background: #fecaca;
+  background: var(--color-danger-border);
 }
 
 .add-addr-btn {

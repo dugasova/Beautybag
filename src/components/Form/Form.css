@@ -20,7 +20,7 @@
 
 .error-message {
     font-size: 0.75rem;
-    color: #ff4d4d;
+    color: var(--color-danger);
     margin-top: -0.5rem;
     padding-left: 0.5rem;
 }
