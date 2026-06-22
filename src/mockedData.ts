@@ -88,7 +88,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/shampoo.webp",
+    imsrcOfImg: "/goods/shampoo.webp",
   },
   {
     id: 2,
@@ -99,7 +99,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/vitamin.webp",
+    imsrcOfImg: "/goods/vitamin.webp",
   },
   {
     id: 3,
@@ -110,7 +110,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/masque.jpg",
+    imsrcOfImg: "/goods/masque.jpg",
   },
   {
     id: 4,
@@ -121,7 +121,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/rinse.jpg",
+    imsrcOfImg: "/goods/rinse.jpg",
   },
   {
     id: 5,
@@ -132,7 +132,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/lotion.jpg",
+    imsrcOfImg: "/goods/lotion.jpg",
   },
   {
     id: 6,
@@ -143,7 +143,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/oil.jpg",
+    imsrcOfImg: "/goods/oil.jpg",
   },
   {
     id: 7,
@@ -154,7 +154,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/serum.jpg",
+    imsrcOfImg: "/goods/serum.jpg",
   },
   {
     id: 8,
@@ -165,7 +165,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/vitamin.webp",
+    imsrcOfImg: "/goods/vitamin.webp",
   },
   {
     id: 9,
@@ -176,7 +176,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/spray.jpg",
+    imsrcOfImg: "/goods/spray.jpg",
   },
   {
     id: 10,
@@ -187,7 +187,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/keratin.jpg",
+    imsrcOfImg: "/goods/keratin.jpg",
   },
   {
     id: 11,
@@ -198,7 +198,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/shampoo.webp",
+    imsrcOfImg: "/goods/shampoo.webp",
   },
   {
     id: 12,
@@ -209,7 +209,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/vitamin.webp",
+    imsrcOfImg: "/goods/vitamin.webp",
   },
   {
     id: 13,
@@ -220,7 +220,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/masque.jpg",
+    imsrcOfImg: "/goods/masque.jpg",
   },
   {
     id: 14,
@@ -231,7 +231,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/rinse.jpg",
+    imsrcOfImg: "/goods/rinse.jpg",
   },
   {
     id: 15,
@@ -242,7 +242,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/lotion.jpg",
+    imsrcOfImg: "/goods/lotion.jpg",
   },
   {
     id: 16,
@@ -253,7 +253,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/oil.jpg",
+    imsrcOfImg: "/goods/oil.jpg",
   },
   {
     id: 17,
@@ -264,7 +264,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/serum.jpg",
+    imsrcOfImg: "/goods/serum.jpg",
   },
   {
     id: 18,
@@ -275,7 +275,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/vitamin.webp",
+    imsrcOfImg: "/goods/vitamin.webp",
   },
   {
     id: 19,
@@ -286,7 +286,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/spray.jpg",
+    imsrcOfImg: "/goods/spray.jpg",
   },
   {
     id: 20,
@@ -297,7 +297,7 @@ export const goods = [
     raiting: 4.5,
     volume: 200,
     price: 100,
-    imsrcOfImg: "/src/assets/goods/keratin.jpg",
+    imsrcOfImg: "/goods/keratin.jpg",
   },
 ];
 export const promoItems = [
@@ -312,7 +312,7 @@ export const promoItems = [
     price: 100,
     discount: 20,
     discountPrice: 80,
-    imsrcOfImg: "/src/assets/goods/shampoo.webp",
+    imsrcOfImg: "/goods/shampoo.webp",
   },
   {
     id: 2,
@@ -325,7 +325,7 @@ export const promoItems = [
     price: 100,
     discount: 10,
     discountPrice: 90,
-    imsrcOfImg: "/src/assets/goods/vitamin.webp",
+    imsrcOfImg: "/goods/vitamin.webp",
   },
   {
     id: 3,
@@ -338,7 +338,7 @@ export const promoItems = [
     price: 100,
     discount: 15,
     discountPrice: 85,
-    imsrcOfImg: "/src/assets/goods/masque.jpg",
+    imsrcOfImg: "/goods/masque.jpg",
   },
   {
     id: 4,
@@ -351,7 +351,7 @@ export const promoItems = [
     price: 100,
     discount: 10,
     discountPrice: 90,
-    imsrcOfImg: "/src/assets/goods/rinse.jpg",
+    imsrcOfImg: "/goods/rinse.jpg",
   },
   {
     id: 5,
@@ -364,7 +364,7 @@ export const promoItems = [
     price: 100,
     discount: 25,
     discountPrice: 75,
-    imsrcOfImg: "/src/assets/goods/lotion.jpg",
+    imsrcOfImg: "/goods/lotion.jpg",
   },
   {
     id: 6,
@@ -377,7 +377,7 @@ export const promoItems = [
     price: 100,
     discount: 10,
     discountPrice: 90,
-    imsrcOfImg: "/src/assets/goods/oil.jpg",
+    imsrcOfImg: "/goods/oil.jpg",
   },
   {
     id: 7,
@@ -390,7 +390,7 @@ export const promoItems = [
     price: 100,
     discount: 15,
     discountPrice: 85,
-    imsrcOfImg: "/src/assets/goods/serum.jpg",
+    imsrcOfImg: "/goods/serum.jpg",
   },
   {
     id: 8,
@@ -403,7 +403,7 @@ export const promoItems = [
     price: 100,
     discount: 10,
     discountPrice: 90,
-    imsrcOfImg: "/src/assets/goods/vitamin.webp",
+    imsrcOfImg: "/goods/vitamin.webp",
   },
   {
     id: 9,
@@ -416,7 +416,7 @@ export const promoItems = [
     price: 100,
     discount: 15,
     discountPrice: 85,
-    imsrcOfImg: "/src/assets/goods/spray.jpg",
+    imsrcOfImg: "/goods/spray.jpg",
   },
   {
     id: 10,
@@ -429,7 +429,7 @@ export const promoItems = [
     price: 100,
     discount: 20,
     discountPrice: 80,
-    imsrcOfImg: "/src/assets/goods/keratin.jpg",
+    imsrcOfImg: "/goods/keratin.jpg",
   },
   {
     id: 11,
@@ -442,7 +442,7 @@ export const promoItems = [
     price: 100,
     discount: 10,
     discountPrice: 90,
-    imsrcOfImg: "/src/assets/goods/shampoo.webp",
+    imsrcOfImg: "/goods/shampoo.webp",
   },
   {
     id: 12,
@@ -455,7 +455,7 @@ export const promoItems = [
     price: 100,
     discount: 15,
     discountPrice: 85,
-    imsrcOfImg: "/src/assets/goods/vitamin.webp",
+    imsrcOfImg: "/goods/vitamin.webp",
   },
   {
     id: 13,
@@ -468,7 +468,7 @@ export const promoItems = [
     price: 100,
     discount: 20,
     discountPrice: 80,
-    imsrcOfImg: "/src/assets/goods/masque.jpg",
+    imsrcOfImg: "/goods/masque.jpg",
   },
   {
     id: 14,
@@ -481,7 +481,7 @@ export const promoItems = [
     price: 100,
     discount: 10,
     discountPrice: 90,
-    imsrcOfImg: "/src/assets/goods/rinse.jpg",
+    imsrcOfImg: "/goods/rinse.jpg",
   },
   {
     id: 15,
@@ -494,7 +494,7 @@ export const promoItems = [
     price: 100,
     discount: 25,
     discountPrice: 75,
-    imsrcOfImg: "/src/assets/goods/lotion.jpg",
+    imsrcOfImg: "/goods/lotion.jpg",
   },
   {
     id: 16,
@@ -507,7 +507,7 @@ export const promoItems = [
     price: 100,
     discount: 10,
     discountPrice: 90,
-    imsrcOfImg: "/src/assets/goods/oil.jpg",
+    imsrcOfImg: "/goods/oil.jpg",
   },
   {
     id: 17,
@@ -520,7 +520,7 @@ export const promoItems = [
     price: 100,
     discount: 15,
     discountPrice: 85,
-    imsrcOfImg: "/src/assets/goods/serum.jpg",
+    imsrcOfImg: "/goods/serum.jpg",
   },
   {
     id: 18,
@@ -533,7 +533,7 @@ export const promoItems = [
     price: 100,
     discount: 10,
     discountPrice: 90,
-    imsrcOfImg: "/src/assets/goods/vitamin.webp",
+    imsrcOfImg: "/goods/vitamin.webp",
   },
   {
     id: 19,
@@ -546,7 +546,7 @@ export const promoItems = [
     price: 100,
     discount: 15,
     discountPrice: 85,
-    imsrcOfImg: "/src/assets/goods/spray.jpg",
+    imsrcOfImg: "/goods/spray.jpg",
   },
   {
     id: 20,
@@ -559,7 +559,7 @@ export const promoItems = [
     price: 100,
     discount: 20,
     discountPrice: 80,
-    imsrcOfImg: "/src/assets/goods/keratin.jpg",
+    imsrcOfImg: "/goods/keratin.jpg",
   },
   {
     id: 21,
@@ -572,7 +572,7 @@ export const promoItems = [
     price: 100,
     discount: 10,
     discountPrice: 90,
-    imsrcOfImg: "/src/assets/goods/shampoo.webp",
+    imsrcOfImg: "/goods/shampoo.webp",
   },
   {
     id: 22,
@@ -585,7 +585,7 @@ export const promoItems = [
     price: 100,
     discount: 15,
     discountPrice: 85,
-    imsrcOfImg: "/src/assets/goods/vitamin.webp",
+    imsrcOfImg: "/goods/vitamin.webp",
   },
   {
     id: 23,
@@ -598,7 +598,7 @@ export const promoItems = [
     price: 100,
     discount: 20,
     discountPrice: 80,
-    imsrcOfImg: "/src/assets/goods/masque.jpg",
+    imsrcOfImg: "/goods/masque.jpg",
   },
   {
     id: 24,
@@ -611,7 +611,7 @@ export const promoItems = [
     price: 100,
     discount: 10,
     discountPrice: 90,
-    imsrcOfImg: "/src/assets/goods/rinse.jpg",
+    imsrcOfImg: "/goods/rinse.jpg",
   },
   {
     id: 25,
@@ -624,7 +624,7 @@ export const promoItems = [
     price: 100,
     discount: 25,
     discountPrice: 75,
-    imsrcOfImg: "/src/assets/goods/lotion.jpg",
+    imsrcOfImg: "/goods/lotion.jpg",
   },
   {
     id: 26,
@@ -637,7 +637,7 @@ export const promoItems = [
     price: 100,
     discount: 10,
     discountPrice: 90,
-    imsrcOfImg: "/src/assets/goods/oil.jpg",
+    imsrcOfImg: "/goods/oil.jpg",
   },
   {
     id: 27,
@@ -650,7 +650,7 @@ export const promoItems = [
     price: 100,
     discount: 15,
     discountPrice: 85,
-    imsrcOfImg: "/src/assets/goods/serum.jpg",
+    imsrcOfImg: "/goods/serum.jpg",
   },
   {
     id: 28,
@@ -663,7 +663,7 @@ export const promoItems = [
     price: 100,
     discount: 10,
     discountPrice: 90,
-    imsrcOfImg: "/src/assets/goods/vitamin.webp",
+    imsrcOfImg: "/goods/vitamin.webp",
   },
   {
     id: 29,
@@ -676,7 +676,7 @@ export const promoItems = [
     price: 100,
     discount: 15,
     discountPrice: 85,
-    imsrcOfImg: "/src/assets/goods/spray.jpg",
+    imsrcOfImg: "/goods/spray.jpg",
   },
   {
     id: 30,
@@ -689,6 +689,6 @@ export const promoItems = [
     price: 100,
     discount: 20,
     discountPrice: 80,
-    imsrcOfImg: "/src/assets/goods/keratin.jpg",
+    imsrcOfImg: "/goods/keratin.jpg",
   },
 ];
