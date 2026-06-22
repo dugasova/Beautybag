@@ -103,10 +103,6 @@
   margin-bottom: 20px;
 }
 
-.cart-raiting::before {
-  content: "★";
-}
-
 .cart-item-actions {
   display: flex;
   flex-direction: column;

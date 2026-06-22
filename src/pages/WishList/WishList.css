@@ -106,15 +106,10 @@
 
 .wishlist-raiting {
   font-size: 0.85rem;
-  color: #fbbf24;
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 4px;
-}
-
-.wishlist-raiting::before {
-  content: '★';
 }
 
 .wishlist-details .product-button-custom {
