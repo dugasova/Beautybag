@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AuthGuard from './HOC/AuthGuard';
 import { ThemeProvider } from './context/ThemeContext';
 import PageLoader from './components/ui/PageLoader/PageLoader';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 
 const DeliveryRouteLazy = lazy(() => import('./pages/Delivery/Delivery'));
@@ -61,7 +62,7 @@ export default function App() {
     }
   ])
   return (
-    <>
+    <ErrorBoundary>
       <ThemeProvider>
         <AuthContextProvider>
           <ToastContainer position="bottom-right" />
@@ -70,6 +71,6 @@ export default function App() {
           </Suspense>
         </AuthContextProvider>
       </ThemeProvider>
-    </>
+    </ErrorBoundary>
   )
 }
