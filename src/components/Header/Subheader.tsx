@@ -47,7 +47,7 @@ export default function Subheader() {
         {isSearchOpen && <SearchModal />}
       </AnimatePresence>
       <div className='subheader-center'>
-        <p className='subheader-message'>Beauty with love</p>
+        <p className='subheader-message'>{t('subheader.slogan')}</p>
       </div>
       <div className='subheader-right'>
         <div

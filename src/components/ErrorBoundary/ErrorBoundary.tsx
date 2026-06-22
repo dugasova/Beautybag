@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import type { ErrorInfo, ReactNode } from 'react';
+import i18n from '../../i18n';
 import './ErrorBoundary.css';
 
 interface Props {
@@ -35,12 +36,10 @@ export default class ErrorBoundary extends Component<Props, State> {
         <div className="error-boundary">
           <div className="error-boundary-container">
             <div className="error-boundary-icon">!</div>
-            <h1 className="error-boundary-title">Something went wrong</h1>
-            <p className="error-boundary-text">
-              An unexpected error occurred. Please try again or return to the home page.
-            </p>
+            <h1 className="error-boundary-title">{i18n.t('errorBoundary.title')}</h1>
+            <p className="error-boundary-text">{i18n.t('errorBoundary.text')}</p>
             <button className="error-boundary-btn" onClick={this.handleReset}>
-              Back to Home
+              {i18n.t('errorBoundary.backToHome')}
             </button>
           </div>
         </div>

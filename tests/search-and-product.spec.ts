@@ -102,7 +102,7 @@ test.describe('Product page (/product/:id)', () => {
     await page.goto('/product/1');
     await expect(page.locator('.product-title')).toBeVisible({ timeout: 10000 });
 
-    await page.locator('.breadcrumb span').first().click();
+    await page.locator('.breadcrumb a').first().click();
     await expect(page).toHaveURL('/');
   });
 

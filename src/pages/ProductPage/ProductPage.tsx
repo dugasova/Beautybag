@@ -26,8 +26,8 @@ export default function ProductPage() {
   if (!product) {
     return (
       <div className="product-page-error">
-        <h1>Product Not Found</h1>
-        <Button onClick={() => navigate('/')}>Back to Home</Button>
+        <h1>{t('product.notFound')}</h1>
+        <Button onClick={() => navigate('/')}>{t('product.backToHome')}</Button>
       </div>
     );
   }
@@ -51,6 +51,13 @@ export default function ProductPage() {
     }
   };
 
+  const handleBreadcrumbKeyDown = (e: React.KeyboardEvent, path: string) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      navigate(path);
+    }
+  };
+
   return (
     <div className="product-page-container">
       <div className="product-page-wrapper">
@@ -61,12 +68,12 @@ export default function ProductPage() {
         </div>
 
         <div className="product-info-section">
-          <nav className="breadcrumb">
-            <span onClick={() => navigate('/')}>{t('navigation.home') || 'Home'}</span>
-            <span className="separator">/</span>
+          <nav className="breadcrumb" aria-label={t('common.breadcrumb')}>
+            <a role="link" tabIndex={0} onClick={() => navigate('/')} onKeyDown={(e) => handleBreadcrumbKeyDown(e, '/')}>{t('navigation.home')}</a>
+            <span className="separator" aria-hidden="true">/</span>
             <span>{product.category}</span>
-            <span className="separator">/</span>
-            <span className="current">{t(product.name)}</span>
+            <span className="separator" aria-hidden="true">/</span>
+            <span className="current" aria-current="page">{t(product.name)}</span>
           </nav>
 
           <h1 className="product-title">{t(product.name)}</h1>
@@ -76,7 +83,7 @@ export default function ProductPage() {
               <StarRating rating={product.raiting} />
               <span className="rating-value">{product.raiting}</span>
             </div>
-            <span className="product-status">In Stock</span>
+            <span className="product-status">{t('product.inStock')}</span>
           </div>
 
           <div className="product-price-section">
@@ -87,9 +94,7 @@ export default function ProductPage() {
           <p className="product-description-long">
             {t(product.description)}
             <br /><br />
-            Our premium formula is designed to deliver professional results at home.
-            Crafted with high-quality ingredients, this product ensures your hair stays healthy,
-            vibrant, and full of life.
+            {t('product.premiumDesc')}
           </p>
 
           <div className="product-actions-grid">
@@ -116,15 +121,15 @@ export default function ProductPage() {
             <div className="feature-item">
               <span className="feature-icon">🚚</span>
               <div className="feature-text">
-                <strong>Free Delivery</strong>
-                <span>On orders over 500 UAH</span>
+                <strong>{t('product.freeDelivery')}</strong>
+                <span>{t('product.freeDeliveryDesc')}</span>
               </div>
             </div>
             <div className="feature-item">
               <span className="feature-icon">🛡️</span>
               <div className="feature-text">
-                <strong>100% Genuine</strong>
-                <span>Authentic product guarantee</span>
+                <strong>{t('product.genuine')}</strong>
+                <span>{t('product.genuineDesc')}</span>
               </div>
             </div>
           </div>

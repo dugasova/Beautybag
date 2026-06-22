@@ -59,7 +59,7 @@ export default function WishList() {
           </ul>
           <div className='wishlist-actions'>
             <Button onClick={() => handleClearWishList()} variant="purple" size="md" className="clear-wishlist-btn">
-              Clear WishList
+              {t('wishlist.clear')}
             </Button>
           </div>
         </>

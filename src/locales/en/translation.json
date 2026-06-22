@@ -9,6 +9,14 @@
         "scrollToTop": "Scroll to top",
         "error": "Something went wrong. Please try again."
     },
+    "errorBoundary": {
+        "title": "Something went wrong",
+        "text": "An unexpected error occurred. Please try again or return to the home page.",
+        "backToHome": "Back to Home"
+    },
+    "subheader": {
+        "slogan": "Beauty with love"
+    },
     "navigation": {
         "promotions": "Promotions",
         "delivery": "Delivery and payments",
@@ -253,12 +261,18 @@
         "noResults": "No results found"
     },
     "product": {
-        "notFound": "Product not found",
+        "notFound": "Product Not Found",
+        "backToHome": "Back to Home",
         "backToProducts": "Back to products",
         "inStock": "In Stock",
         "addToCart": "Add to cart",
         "removeFromWishList": "Remove from wishlist",
-        "home": "Home"
+        "home": "Home",
+        "freeDelivery": "Free Delivery",
+        "freeDeliveryDesc": "On orders over 500 UAH",
+        "genuine": "100% Genuine",
+        "genuineDesc": "Authentic product guarantee",
+        "premiumDesc": "Our premium formula is designed to deliver professional results at home. Crafted with high-quality ingredients, this product ensures your hair stays healthy, vibrant, and full of life."
     },
     "promotions": {
         "title": "Promotions",
