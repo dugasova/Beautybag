@@ -18,8 +18,7 @@ export default function useFirestore() {
   const withErrorHandling = async (action: () => Promise<void>) => {
     try {
       await action();
-    } catch (error) {
-      console.error("Firestore Error:", error);
+    } catch {
       toast.error(t('common.error'));
     }
   };

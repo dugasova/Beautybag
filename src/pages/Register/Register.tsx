@@ -32,7 +32,6 @@ export default function Register() {
       toast.success("Successfully registered!");
       navigate('/');
     } catch (err: unknown) {
-      console.error(err);
       if (err instanceof Error) {
         toast.error(err.message || 'Registration failed');
         setError(err.message || 'Registration failed');

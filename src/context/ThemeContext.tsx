@@ -11,10 +11,12 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const getInitialTheme = (): Theme => {
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "light" || storedTheme === "dark") {
-        return storedTheme;
-    }
+    try {
+        const storedTheme = localStorage.getItem("theme");
+        if (storedTheme === "light" || storedTheme === "dark") {
+            return storedTheme;
+        }
+    } catch { /* private browsing or storage unavailable */ }
 
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
         return "dark";
@@ -28,7 +30,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
+        try { localStorage.setItem("theme", theme); } catch { /* storage unavailable */ }
     }, [theme]);
 
     const toggleTheme = () => {

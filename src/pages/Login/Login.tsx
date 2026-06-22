@@ -23,8 +23,7 @@ export default function Login() {
       await signInWithEmailAndPassword(auth, data.email, data.password);
       toast.success("Successfully logged in!");
       navigate(redirectTo, { replace: true });
-    } catch (err: unknown) {
-      console.error(err);
+    } catch {
       toast.error("Invalid email or password");
       setError("Invalid email or password");
     } finally {

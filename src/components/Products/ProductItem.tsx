@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import './ProductItem.css';
 import type { IProduct } from '../../types';
 import Button from '../ui/Button/Button';
@@ -27,7 +27,7 @@ const itemVariants: Variants = {
   exit: { opacity: 0, scale: 0.9, transition: { duration: 0.2 } }
 };
 
-export default function ProductItem({ product }: { product: IProduct }) {
+export default memo(function ProductItem({ product }: { product: IProduct }) {
   const { user } = UserAuth();
   const { updateWishList, updateCartList } = useFirestore();
   const { t } = useTranslation();
@@ -89,4 +89,4 @@ export default function ProductItem({ product }: { product: IProduct }) {
       </div>
     </motion.li>
   )
-}
+});

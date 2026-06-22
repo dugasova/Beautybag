@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import './StarRating.css';
 
 interface StarRatingProps {
@@ -5,7 +6,7 @@ interface StarRatingProps {
   className?: string;
 }
 
-export default function StarRating({ rating, className = '' }: StarRatingProps) {
+export default memo(function StarRating({ rating, className = '' }: StarRatingProps) {
   return (
     <span className={`star-rating ${className}`}>
       {[1, 2, 3, 4, 5].map(i => {
@@ -20,4 +21,4 @@ export default function StarRating({ rating, className = '' }: StarRatingProps) 
       })}
     </span>
   );
-}
+});

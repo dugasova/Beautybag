@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import './ProductPrice.css';
 
 interface ProductPriceProps {
@@ -6,7 +7,7 @@ interface ProductPriceProps {
   className?: string;
 }
 
-export default function ProductPrice({ price, discountPrice, className = '' }: ProductPriceProps) {
+export default memo(function ProductPrice({ price, discountPrice, className = '' }: ProductPriceProps) {
   return (
     <div className={`product-price-wrapper ${className}`}>
       {discountPrice ? (
@@ -19,4 +20,4 @@ export default function ProductPrice({ price, discountPrice, className = '' }: P
       )}
     </div>
   );
-}
+});
