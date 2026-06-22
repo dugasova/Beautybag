@@ -21,7 +21,8 @@
   --color-danger-bg: #fef2f2;
   --color-danger-border: #fee2e2;
   --color-chip-bg: #f0f0f0;
-  --color-star-empty: #d1d5db;
+  --color-surface: #f8fafc;
+  --color-star-empty: #f0f0f0;
   --color-star-fill: #f59e0b;
 
   /* Typography scale */
@@ -50,6 +51,7 @@
   --color-text-muted: #a0a0b8;
   --color-text-light: #7d869c;
   --color-chip-bg: #2a2a3d;
+  --color-surface: #252538;
   --color-star-empty: #44495a;
   --color-danger-bg: #3b1c1c;
   --color-danger-border: #5c2a2a;
