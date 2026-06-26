@@ -1,5 +1,24 @@
 export const menuItems = [
   {
+    id: "Hair",
+    label: "Hair",
+    children: [
+      { id: "Shampoos", label: "Shampoos" },
+      { id: "Hair rinse", label: "Hair rinse" },
+      { id: "Hair balm", label: "Hair balm" },
+      { id: "Conditioner", label: "Conditioner" },
+      { id: "Hair masks", label: "Hair masks" },
+      { id: "Scalp treatments", label: "Scalp treatments" },
+      { id: "Anti-dandruff", label: "Anti-dandruff" },
+      { id: "Hair lotion", label: "Hair lotion" },
+      { id: "Hair oil", label: "Hair oil" },
+      { id: "Hair serum", label: "Hair serum" },
+      { id: "Hair cream", label: "Hair cream" },
+      { id: "Hair spray", label: "Hair spray" },
+      { id: "Hair keratin", label: "Hair keratin" },
+    ],
+  },
+  {
     id: "Perfume",
     label: "Perfume",
     children: [
@@ -37,25 +56,7 @@ export const menuItems = [
       { id: "Palette", label: "Palette" },
     ],
   },
-  {
-    id: "Hair",
-    label: "Hair",
-    children: [
-      { id: "Shampoos", label: "Shampoos" },
-      { id: "Hair rinse", label: "Hair rinse" },
-      { id: "Hair balm", label: "Hair balm" },
-      { id: "Conditioner", label: "Conditioner" },
-      { id: "Hair masks", label: "Hair masks" },
-      { id: "Scalp treatments", label: "Scalp treatments" },
-      { id: "Anti-dandruff", label: "Anti-dandruff" },
-      { id: "Hair lotion", label: "Hair lotion" },
-      { id: "Hair oil", label: "Hair oil" },
-      { id: "Hair serum", label: "Hair serum" },
-      { id: "Hair cream", label: "Hair cream" },
-      { id: "Hair spray", label: "Hair spray" },
-      { id: "Hair keratin", label: "Hair keratin" },
-    ],
-  },
+
   {
     id: "Body",
     label: "Body",
