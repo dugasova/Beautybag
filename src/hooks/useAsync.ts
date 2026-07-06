@@ -18,7 +18,7 @@ export default function useAsync() {
         toast.success(successMessage);
       }
       return result;
-    } catch (error) {
+    } catch {
       const message = errorMessage || t('common.error');
       toast.error(message);
 

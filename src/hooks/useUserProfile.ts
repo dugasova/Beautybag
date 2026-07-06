@@ -27,7 +27,7 @@ export default function useUserProfile() {
   const withErrorHandling = async (action: () => Promise<void>) => {
     try {
       await action();
-    } catch (error) {
+    } catch {
       toast.error(t('common.error'));
     }
   };
