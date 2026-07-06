@@ -5,7 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { setCategoryFilter } from '../../store/features/search/slice';
 import { selectCategoryFilter } from '../../store/features/search/selectors';
 import { selectFilteredProducts } from '../../store/features/goods/selectors';
-import type { RootState } from '../../store/store';
+import { fetchGoods } from '../../store/features/goods/slice';
+import type { AppDispatch, RootState } from '../../store/store';
 import { useParams, useNavigate } from 'react-router-dom';
 import Button from '../ui/Button/Button';
 import ProductGrid from './ProductGrid';
@@ -16,7 +17,7 @@ const LOAD_MORE_COUNT = 4;
 
 export default function Products() {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const { categoryName } = useParams<{ categoryName: string }>();
 
@@ -87,6 +88,7 @@ export default function Products() {
         <ProductGrid
           products={currentProducts}
           status={status}
+          onRetry={() => dispatch(fetchGoods())}
         />
 
         {productsToDisplay.length > visibleCount && (

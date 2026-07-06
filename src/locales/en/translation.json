@@ -7,7 +7,8 @@
         "breadcrumb": "Breadcrumb",
         "homeIcon": "Home",
         "scrollToTop": "Scroll to top",
-        "error": "Something went wrong. Please try again."
+        "error": "Something went wrong. Please try again.",
+        "retry": "Retry"
     },
     "errorBoundary": {
         "title": "Something went wrong",

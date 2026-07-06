@@ -5,23 +5,39 @@ import { plusQuantity, addToCartList } from '../../store/features/cartList/slice
 import { addToWishList, removeFromWishList } from '../../store/features/wishList/slice';
 import { selectWishList } from '../../store/features/wishList/selectors';
 import { selectCartList } from '../../store/features/cartList/selectors';
+import { fetchGoods } from '../../store/features/goods/slice';
 import Button from '../../components/ui/Button/Button';
 import StarRating from '../../components/ui/StarRating/StarRating';
-import type { RootState } from '../../store/store';
+import PageLoader from '../../components/ui/PageLoader/PageLoader';
+import type { AppDispatch, RootState } from '../../store/store';
 import type { IProduct } from '../../types';
 import './ProductPage.css';
 
 export default function ProductPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { t } = useTranslation();
 
   const wishList = useSelector(selectWishList);
   const cartList = useSelector(selectCartList);
   const goods: IProduct[] = useSelector((state: RootState) => state.goods.items);
+  const goodsStatus = useSelector((state: RootState) => state.goods.status);
 
   const product = goods.find(item => item.id === Number(id));
+
+  if (goodsStatus === 'idle' || goodsStatus === 'loading') {
+    return <PageLoader />;
+  }
+
+  if (goodsStatus === 'failed') {
+    return (
+      <div className="product-page-error">
+        <h1>{t('common.error')}</h1>
+        <Button onClick={() => dispatch(fetchGoods())}>{t('common.retry')}</Button>
+      </div>
+    );
+  }
 
   if (!product) {
     return (
