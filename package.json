@@ -22,7 +22,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@hookform/resolvers": "^5.2.2",
+    "@hookform/resolvers": "^7.0.5",
     "@reduxjs/toolkit": "^2.14.0",
     "firebase": "^12.19.0",
     "framer-motion": "^12.38.0",
