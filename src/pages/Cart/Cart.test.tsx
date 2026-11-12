@@ -60,7 +60,7 @@ const renderCart = (cartList: ICartItem[]) => {
       <MemoryRouter>
         <Cart />
       </MemoryRouter>
-    </Provider>
+    </Provider>,
   );
 };
 

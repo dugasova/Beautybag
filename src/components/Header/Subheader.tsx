@@ -25,90 +25,88 @@ export default function Subheader() {
 
   const handleOpenSearch = () => {
     dispatch(setIsSearchModalOpen(!isSearchOpen));
-  }
+  };
 
   const handleNavigate = (path: string) => {
     navigate(path);
-  }
+  };
 
   const handleNavigateKeyDown = (e: React.KeyboardEvent, path: string) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       handleNavigate(path);
     }
-  }
+  };
 
   return (
-    <div className='subheader'>
-      <button className='subheader-search-btn' onClick={handleOpenSearch}>
-        <img src={searchIcon} alt="search" className='search-icon' />
+    <div className="subheader">
+      <button className="subheader-search-btn" onClick={handleOpenSearch}>
+        <img src={searchIcon} alt="search" className="search-icon" />
       </button>
-      <AnimatePresence>
-        {isSearchOpen && <SearchModal />}
-      </AnimatePresence>
-      <div className='subheader-center'>
-        <p className='subheader-message'>{t('subheader.slogan')}</p>
+      <AnimatePresence>{isSearchOpen && <SearchModal />}</AnimatePresence>
+      <div className="subheader-center">
+        <p className="subheader-message">{t('subheader.slogan')}</p>
       </div>
-      <div className='subheader-right'>
+      <div className="subheader-right">
         <div
-          className='subheader-icons'
+          className="subheader-icons"
           role="button"
           tabIndex={0}
           aria-label={user?.email ? t('header.account') : t('header.login')}
           onClick={() => handleNavigate(user?.email ? '/account' : '/login')}
           onKeyDown={(e) => handleNavigateKeyDown(e, user?.email ? '/account' : '/login')}
         >
-          <img src={authorizedIcon} alt="" className='authorized-icon' />
+          <img src={authorizedIcon} alt="" className="authorized-icon" />
         </div>
 
         <div
-          className='subheader-icons wishlist-icons'
+          className="subheader-icons wishlist-icons"
           role="button"
           tabIndex={0}
           aria-label={t('wishlist.title')}
           onClick={() => handleNavigate('/wishlist')}
           onKeyDown={(e) => handleNavigateKeyDown(e, '/wishlist')}
         >
-          <AnimatePresence mode='popLayout'>
+          <AnimatePresence mode="popLayout">
             {wishList.length > 0 && (
-              <motion.span 
+              <motion.span
                 key={wishList.length}
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.5, opacity: 0 }}
-                className='badge-count'
+                className="badge-count"
               >
                 {wishList.length}
               </motion.span>
             )}
           </AnimatePresence>
-          <img src={favoriteIcon} alt="" className='favorite-icon' />
+          <img src={favoriteIcon} alt="" className="favorite-icon" />
         </div>
 
         <div
-          className='subheader-icons cart-icons'
+          className="subheader-icons cart-icons"
           role="button"
           tabIndex={0}
           aria-label={t('cart.title')}
           onClick={() => handleNavigate('/cart')}
           onKeyDown={(e) => handleNavigateKeyDown(e, '/cart')}
         >
-          <AnimatePresence mode='popLayout'>
+          <AnimatePresence mode="popLayout">
             {cartList.length > 0 && (
-              <motion.span 
+              <motion.span
                 key={cartList.length}
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.5, opacity: 0 }}
-                className='badge-count'
+                className="badge-count"
               >
                 {cartList.length}
               </motion.span>
             )}
           </AnimatePresence>
-          <img src={cartIcon} alt="" className='cart-icon' />
+          <img src={cartIcon} alt="" className="cart-icon" />
         </div>
       </div>
-    </div >
+    </div>
   );
 }

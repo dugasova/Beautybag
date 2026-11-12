@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Header from '../components/Header/Header';
 import Menu from '../components/Menu/Menu';
@@ -32,5 +32,5 @@ export default function Layout() {
         <Footer />
       </footer>
     </>
-  )
+  );
 }

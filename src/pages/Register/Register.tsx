@@ -23,13 +23,13 @@ export default function Register() {
       const user = userCredential.user;
 
       // Store a profile record in Firestore
-      await setDoc(doc(db, "users", user.uid), {
+      await setDoc(doc(db, 'users', user.uid), {
         email: user.email,
         createdAt: new Date().toISOString(),
-        role: "customer"
+        role: 'customer',
       });
 
-      toast.success("Successfully registered!");
+      toast.success('Successfully registered!');
       navigate('/');
     } catch (err: unknown) {
       if (err instanceof Error) {
@@ -45,22 +45,26 @@ export default function Register() {
   };
 
   return (
-    <div className='register-page'>
+    <div className="register-page">
       <div className="container">
-        <h1 className='register-title'>{t('register.title')}</h1>
-        <p className='register-subtitle'>{t('register.subtitle')}</p>
+        <h1 className="register-title">{t('register.title')}</h1>
+        <p className="register-subtitle">{t('register.subtitle')}</p>
 
-        {error && <p className="error-message" style={{ color: 'red', textAlign: 'center', marginBottom: '1rem' }}>{error}</p>}
+        {error && (
+          <p className="error-message" style={{ color: 'red', textAlign: 'center', marginBottom: '1rem' }}>
+            {error}
+          </p>
+        )}
 
         <Form onSubmit={onSubmit} submitText={t('register.form.submit')} isLoading={loading} />
         <p className="register-subtitle">
           {t('register.form.redirectLink')}
-          <span onClick={() => navigate('/login')}
-            className="register-link" style={{ cursor: 'pointer' }}>
-            {" "} Log In
+          <span onClick={() => navigate('/login')} className="register-link" style={{ cursor: 'pointer' }}>
+            {' '}
+            Log In
           </span>
         </p>
       </div>
     </div>
-  )
+  );
 }

@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { ICartItem } from "../../../types";
+import { createSlice } from '@reduxjs/toolkit';
+import type { ICartItem } from '../../../types';
 
 interface CartState {
   cartList: ICartItem[];
@@ -10,13 +10,11 @@ const initialState: CartState = {
 };
 
 const cartListSlice = createSlice({
-  name: "cartList",
+  name: 'cartList',
   initialState,
   reducers: {
     addToCartList: (state, action) => {
-      const existingItem = state.cartList.find(
-        (item) => item.id === action.payload.id,
-      );
+      const existingItem = state.cartList.find((item) => item.id === action.payload.id);
       if (existingItem) {
         existingItem.totalQuantity += 1;
       } else {
@@ -24,9 +22,7 @@ const cartListSlice = createSlice({
       }
     },
     removeFromCartList: (state, action) => {
-      state.cartList = state.cartList.filter(
-        (item) => item.id !== action.payload.id,
-      );
+      state.cartList = state.cartList.filter((item) => item.id !== action.payload.id);
     },
     plusQuantity: (state, action) => {
       const item = state.cartList.find((item) => item.id === action.payload.id);
@@ -47,18 +43,12 @@ const cartListSlice = createSlice({
       state.cartList = action.payload.map((item: ICartItem) => ({
         ...item,
         totalQuantity: Number(item.totalQuantity) || 1,
-        price: Number(item.price) || 0
+        price: Number(item.price) || 0,
       }));
     },
   },
 });
 
-export const {
-  addToCartList,
-  removeFromCartList,
-  plusQuantity,
-  minusQuantity,
-  clearCart,
-  setCartList,
-} = cartListSlice.actions;
+export const { addToCartList, removeFromCartList, plusQuantity, minusQuantity, clearCart, setCartList } =
+  cartListSlice.actions;
 export default cartListSlice.reducer;

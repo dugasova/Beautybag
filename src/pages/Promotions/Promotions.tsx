@@ -8,24 +8,24 @@ const ITEMS_PER_PAGE = 8;
 
 export default function Promotions() {
   const { t } = useTranslation();
-  
+
   // States for visible items and loading
   const [visibleItems, setVisibleItems] = useState(promoItems.slice(0, ITEMS_PER_PAGE));
   const [hasMore, setHasMore] = useState(promoItems.length > ITEMS_PER_PAGE);
   const [isSyncing, setIsSyncing] = useState(false);
-  
+
   const loaderRef = useRef<HTMLDivElement>(null);
 
   const loadMore = useCallback(() => {
     if (isSyncing || !hasMore) return;
-    
+
     setIsSyncing(true);
-    
+
     // Simulate a network delay for a "Premium" feel
     setTimeout(() => {
       const nextLimit = visibleItems.length + ITEMS_PER_PAGE;
       const nextItems = promoItems.slice(0, nextLimit);
-      
+
       setVisibleItems(nextItems);
       setHasMore(nextItems.length < promoItems.length);
       setIsSyncing(false);
@@ -39,7 +39,7 @@ export default function Promotions() {
           loadMore();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (loaderRef.current) {
@@ -52,12 +52,8 @@ export default function Promotions() {
   return (
     <section className="promotions">
       <div className="container">
-        <ProductGrid 
-          products={visibleItems} 
-          status="succeeded" 
-          title={t('promotions.title')}
-        />
-        
+        <ProductGrid products={visibleItems} status="succeeded" title={t('promotions.title')} />
+
         {/* The Loader element that triggers the infinite scroll */}
         <div ref={loaderRef} className="loader-boundary">
           {hasMore && (
@@ -69,5 +65,5 @@ export default function Promotions() {
         </div>
       </div>
     </section>
-  )
+  );
 }

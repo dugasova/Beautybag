@@ -21,7 +21,7 @@ const renderShippingStep = () => {
   render(
     <Provider store={store}>
       <ShippingStep />
-    </Provider>
+    </Provider>,
   );
   return store;
 };
@@ -55,7 +55,15 @@ describe('ShippingStep', () => {
   it('fills the form from a saved address', async () => {
     mockProfile = {
       addresses: [
-        { id: 'addr-1', label: 'Home', firstName: 'Alice', lastName: 'Smith', address: '1 Main St', city: 'Kyiv', phone: '+380501234567' },
+        {
+          id: 'addr-1',
+          label: 'Home',
+          firstName: 'Alice',
+          lastName: 'Smith',
+          address: '1 Main St',
+          city: 'Kyiv',
+          phone: '+380501234567',
+        },
       ],
     };
     renderShippingStep();

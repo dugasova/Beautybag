@@ -46,7 +46,7 @@ export default function Products() {
           loadMore();
         }
       },
-      { threshold: 0.1, rootMargin: '100px' }
+      { threshold: 0.1, rootMargin: '100px' },
     );
 
     if (currentTarget) {
@@ -76,25 +76,21 @@ export default function Products() {
       <div className="container">
         {categoryFilter && (
           <div className="filter-info">
-            <h2 className="search-results-title">
-              {t('filters.activeCategory', { name: categoryFilter })}
-            </h2>
-            <Button variant='secondary' size='sm' className="clear-filter-btn" onClick={handleClearFilter}>
+            <h2 className="search-results-title">{t('filters.activeCategory', { name: categoryFilter })}</h2>
+            <Button variant="secondary" size="sm" className="clear-filter-btn" onClick={handleClearFilter}>
               {t('filters.showAll')}
             </Button>
           </div>
         )}
         <ProductFilters />
-        <ProductGrid
-          products={currentProducts}
-          status={status}
-          onRetry={() => dispatch(fetchGoods())}
-        />
+        <ProductGrid products={currentProducts} status={status} onRetry={() => dispatch(fetchGoods())} />
 
         {productsToDisplay.length > visibleCount && (
           <div ref={observerTarget} className="infinite-scroll-trigger">
             <div className="loading-dots">
-              <span>.</span><span>.</span><span>.</span>
+              <span>.</span>
+              <span>.</span>
+              <span>.</span>
             </div>
           </div>
         )}

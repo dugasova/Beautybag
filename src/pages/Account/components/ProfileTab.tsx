@@ -9,10 +9,14 @@ import type { User } from 'firebase/auth';
 import { storage } from '../../../firebase';
 import type { IUserProfile } from '../../../types';
 
-const profileFormSchema = (t: (key: string) => string) => z.object({
-  displayName: z.union([z.literal(''), z.string().min(2, t('account.profile.validation.displayNameMin'))]),
-  phone: z.union([z.literal(''), z.string().regex(/^\+?[\d\s\-()]{10,15}$/, t('account.profile.validation.phoneInvalid'))]),
-});
+const profileFormSchema = (t: (key: string) => string) =>
+  z.object({
+    displayName: z.union([z.literal(''), z.string().min(2, t('account.profile.validation.displayNameMin'))]),
+    phone: z.union([
+      z.literal(''),
+      z.string().regex(/^\+?[\d\s\-()]{10,15}$/, t('account.profile.validation.phoneInvalid')),
+    ]),
+  });
 
 type ProfileFormValues = z.infer<ReturnType<typeof profileFormSchema>>;
 
@@ -29,7 +33,12 @@ export default function ProfileTab({ user, profile, updateProfile }: ProfileTabP
   const [saving, setSaving] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
-  const { control, handleSubmit, reset, formState: { errors } } = useForm<ProfileFormValues>({
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ProfileFormValues>({
     resolver: zodResolver(profileFormSchema(t)),
     defaultValues: {
       displayName: profile.displayName || '',
@@ -80,12 +89,21 @@ export default function ProfileTab({ user, profile, updateProfile }: ProfileTabP
         onClick={() => fileRef.current?.click()}
         onKeyDown={handleAvatarKeyDown}
       >
-        {avatarSrc
-          ? <img src={avatarSrc} alt="" className="avatar-preview" />
-          : <div className="avatar-placeholder-lg">{user?.email?.[0].toUpperCase()}</div>
-        }
+        {avatarSrc ? (
+          <img src={avatarSrc} alt="" className="avatar-preview" />
+        ) : (
+          <div className="avatar-placeholder-lg">{user?.email?.[0].toUpperCase()}</div>
+        )}
         <span className="avatar-hint">{t('account.profile.avatarHint')}</span>
-        <input ref={fileRef} type="file" accept="image/*" hidden onChange={handleAvatarChange} aria-hidden="true" tabIndex={-1} />
+        <input
+          ref={fileRef}
+          type="file"
+          accept="image/*"
+          hidden
+          onChange={handleAvatarChange}
+          aria-hidden="true"
+          tabIndex={-1}
+        />
       </div>
 
       <form className="profile-form" onSubmit={handleSubmit(onSubmit)}>

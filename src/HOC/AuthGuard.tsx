@@ -1,6 +1,6 @@
 import React from 'react';
-import { UserAuth } from '../context/AuthContext'
-import { Navigate, useLocation } from 'react-router-dom'
+import { UserAuth } from '../context/AuthContext';
+import { Navigate, useLocation } from 'react-router-dom';
 
 export default function AuthGuard({ children }: { children: React.ReactNode }) {
   const { user } = UserAuth();

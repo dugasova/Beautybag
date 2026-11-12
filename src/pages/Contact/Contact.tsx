@@ -11,8 +11,8 @@ import Button from '../../components/ui/Button/Button';
 import FormField from '../../components/ui/FormField/FormField';
 
 const ContactSchema = z.object({
-  name:    z.string().min(2),
-  email:   z.email(),
+  name: z.string().min(2),
+  email: z.email(),
   subject: z.string().optional(),
   message: z.string().min(10),
 });
@@ -21,14 +21,19 @@ type ContactFormValues = z.infer<typeof ContactSchema>;
 
 const SOCIAL_LINKS: { label: string; href: string; Icon: IconType }[] = [
   { label: 'Instagram', href: 'https://instagram.com', Icon: SlSocialInstagram },
-  { label: 'Facebook',  href: 'https://facebook.com',  Icon: SlSocialFacebook },
+  { label: 'Facebook', href: 'https://facebook.com', Icon: SlSocialFacebook },
   { label: 'Pinterest', href: 'https://pinterest.com', Icon: TiSocialPinterest },
 ];
 
 export default function Contact() {
   const { t } = useTranslation();
 
-  const { control, handleSubmit, formState: { errors }, reset } = useForm<ContactFormValues>({
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<ContactFormValues>({
     resolver: zodResolver(ContactSchema),
     defaultValues: { name: '', email: '', subject: '', message: '' },
   });
@@ -71,10 +76,36 @@ export default function Contact() {
           </div>
 
           <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
-            <FormField name="name"    control={control} label={t('contact.form.name')}    error={errors.name}    placeholder={t('contact.form.namePlaceholder')} />
-            <FormField name="email"   control={control} label={t('contact.form.email')}   error={errors.email}   placeholder={t('contact.form.emailPlaceholder')} type="email" />
-            <FormField name="subject" control={control} label={t('contact.form.subject')}                        placeholder={t('contact.form.subjectPlaceholder')} />
-            <FormField name="message" control={control} label={t('contact.form.message')} error={errors.message} placeholder={t('contact.form.messagePlaceholder')} type="textarea" rows={5} />
+            <FormField
+              name="name"
+              control={control}
+              label={t('contact.form.name')}
+              error={errors.name}
+              placeholder={t('contact.form.namePlaceholder')}
+            />
+            <FormField
+              name="email"
+              control={control}
+              label={t('contact.form.email')}
+              error={errors.email}
+              placeholder={t('contact.form.emailPlaceholder')}
+              type="email"
+            />
+            <FormField
+              name="subject"
+              control={control}
+              label={t('contact.form.subject')}
+              placeholder={t('contact.form.subjectPlaceholder')}
+            />
+            <FormField
+              name="message"
+              control={control}
+              label={t('contact.form.message')}
+              error={errors.message}
+              placeholder={t('contact.form.messagePlaceholder')}
+              type="textarea"
+              rows={5}
+            />
             <Button type="submit" variant="purple" size="lg">
               {t('contact.form.send')}
             </Button>

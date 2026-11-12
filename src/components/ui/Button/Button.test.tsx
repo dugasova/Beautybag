@@ -10,7 +10,11 @@ describe('Button', () => {
   });
 
   it('renders children over text prop', () => {
-    render(<Button text="Fallback"><span>Child</span></Button>);
+    render(
+      <Button text="Fallback">
+        <span>Child</span>
+      </Button>,
+    );
     expect(screen.getByText('Child')).toBeInTheDocument();
     expect(screen.queryByText('Fallback')).not.toBeInTheDocument();
   });

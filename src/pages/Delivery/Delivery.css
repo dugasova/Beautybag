@@ -1,131 +1,131 @@
 .delivery-page {
-    width: 100%;
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 4rem 1rem;
-    animation: fadeIn 0.8s ease-out;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 4rem 1rem;
+  animation: fadeIn 0.8s ease-out;
 }
 
 .delivery-header {
-    text-align: center;
-    margin-bottom: 4rem;
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
 .delivery-title {
-    font-size: 3rem;
-    color: var(--color-text);
-    margin-bottom: 1rem;
-    font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
+  font-size: 3rem;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
 }
 
 .delivery-subtitle {
-    color: var(--color-text-muted);
-    font-size: 1.1rem;
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
 }
 
 .delivery-section {
-    margin-bottom: 5rem;
+  margin-bottom: 5rem;
 }
 
 .section-title {
-    font-size: 1.8rem;
-    color: var(--color-text);
-    margin-bottom: 2rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--color-purple-400);
-    display: inline-block;
+  font-size: 1.8rem;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-purple-400);
+  display: inline-block;
 }
 
 .delivery-grid,
 .payment-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 .delivery-card,
 .payment-card {
-    background: var(--color-white);
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
-    border: 1px solid var(--color-border);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
+  background: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .delivery-card:hover,
 .payment-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(142, 45, 226, 0.1);
-    border-color: var(--color-purple-400);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(142, 45, 226, 0.1);
+  border-color: var(--color-purple-400);
 }
 
 .card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .card-title {
-    font-size: 1.3rem;
-    color: var(--color-text);
-    margin-bottom: 1rem;
+  font-size: 1.3rem;
+  color: var(--color-text);
+  margin-bottom: 1rem;
 }
 
 .card-description {
-    color: var(--color-text-muted);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
 }
 
 .card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
-    border-top: 1px dashed var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--color-border);
 }
 
 .card-time {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--color-purple-400);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-purple-400);
 }
 
 .card-price {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .delivery-page {
-        padding: 2rem 1rem;
-    }
+  .delivery-page {
+    padding: 2rem 1rem;
+  }
 
-    .delivery-title {
-        font-size: 2.2rem;
-    }
+  .delivery-title {
+    font-size: 2.2rem;
+  }
 
-    .delivery-grid {
-        grid-template-columns: 1fr;
-    }
+  .delivery-grid {
+    grid-template-columns: 1fr;
+  }
 }

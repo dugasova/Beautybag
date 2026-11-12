@@ -65,7 +65,7 @@ const renderReviewStep = () => {
       <MemoryRouter>
         <ReviewStep />
       </MemoryRouter>
-    </Provider>
+    </Provider>,
   );
   return store;
 };
@@ -112,7 +112,11 @@ describe('ReviewStep', () => {
 
   it('disables the actions while processing', async () => {
     let resolveOrder: (value: string) => void = () => {};
-    mockSendOrder.mockReturnValue(new Promise((resolve) => { resolveOrder = resolve; }));
+    mockSendOrder.mockReturnValue(
+      new Promise((resolve) => {
+        resolveOrder = resolve;
+      }),
+    );
     renderReviewStep();
 
     await userEvent.click(screen.getByRole('button', { name: 'Place Order' }));

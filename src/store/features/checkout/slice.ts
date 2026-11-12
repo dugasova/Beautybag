@@ -46,14 +46,7 @@ const checkoutSlice = createSlice({
   },
 });
 
-export const {
-  nextStep,
-  prevStep,
-  setShippingAddress,
-  setPaymentMethod,
-  setOrderId,
-  resetCheckout,
-  setIsProcessing,
-} = checkoutSlice.actions;
+export const { nextStep, prevStep, setShippingAddress, setPaymentMethod, setOrderId, resetCheckout, setIsProcessing } =
+  checkoutSlice.actions;
 
 export default checkoutSlice.reducer;

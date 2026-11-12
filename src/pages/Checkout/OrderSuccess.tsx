@@ -23,7 +23,9 @@ const OrderSuccess = () => {
         <div className="success-icon">✓</div>
         <h1>{orderId ? t('checkout.orderSuccess.title') : t('checkout.orderSuccess.titleFallback')}</h1>
         {orderId && (
-          <p className="order-id">{t('checkout.orderSuccess.orderId')} <strong>#{orderId}</strong></p>
+          <p className="order-id">
+            {t('checkout.orderSuccess.orderId')} <strong>#{orderId}</strong>
+          </p>
         )}
         <p className="success-msg">
           {orderId ? t('checkout.orderSuccess.message') : t('checkout.orderSuccess.messageFallback')}

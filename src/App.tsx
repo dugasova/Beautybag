@@ -25,25 +25,61 @@ const OrderSuccessRouteLazy = lazy(() => import('./pages/Checkout/OrderSuccess')
 
 const router = createBrowserRouter([
   {
-    path: '/', element: <Layout />,
+    path: '/',
+    element: <Layout />,
     children: [
       { path: '/', element: <Home /> },
-      { path: '/account', element: <AuthGuard><AccountRouteLazy /></AuthGuard> },
-      { path: '/cart', element: <AuthGuard><CartRouteLazy /></AuthGuard> },
-      { path: '/checkout', element: <AuthGuard><CheckoutRouteLazy /></AuthGuard> },
-      { path: '/order-success', element: <AuthGuard><OrderSuccessRouteLazy /></AuthGuard> },
+      {
+        path: '/account',
+        element: (
+          <AuthGuard>
+            <AccountRouteLazy />
+          </AuthGuard>
+        ),
+      },
+      {
+        path: '/cart',
+        element: (
+          <AuthGuard>
+            <CartRouteLazy />
+          </AuthGuard>
+        ),
+      },
+      {
+        path: '/checkout',
+        element: (
+          <AuthGuard>
+            <CheckoutRouteLazy />
+          </AuthGuard>
+        ),
+      },
+      {
+        path: '/order-success',
+        element: (
+          <AuthGuard>
+            <OrderSuccessRouteLazy />
+          </AuthGuard>
+        ),
+      },
       { path: '/delivery', element: <DeliveryRouteLazy /> },
       { path: '/promotions', element: <PromotionsRouteLazy /> },
       { path: '/contact', element: <ContactRouteLazy /> },
       { path: '/login', element: <LoginRouteLazy /> },
       { path: '/register', element: <RegisterRouteLazy /> },
-      { path: '/wishlist', element: <AuthGuard><WishListRouteLazy /></AuthGuard> },
+      {
+        path: '/wishlist',
+        element: (
+          <AuthGuard>
+            <WishListRouteLazy />
+          </AuthGuard>
+        ),
+      },
       { path: '/product/:id', element: <ProductRouteLazy /> },
       { path: '/category/:categoryName', element: <Home /> },
       { path: '*', element: <ErrorRoute /> },
     ],
-    errorElement: <ErrorRoute />
-  }
+    errorElement: <ErrorRoute />,
+  },
 ]);
 
 export default function App() {
@@ -58,5 +94,5 @@ export default function App() {
         </AuthContextProvider>
       </ThemeProvider>
     </ErrorBoundary>
-  )
+  );
 }

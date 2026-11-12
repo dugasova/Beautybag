@@ -37,7 +37,7 @@ const renderRegister = () => {
   render(
     <MemoryRouter>
       <Register />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 };
 
@@ -67,7 +67,7 @@ describe('Register', () => {
     expect(mockCreateUser).toHaveBeenCalledWith({}, 'new@example.com', 'secret1');
     expect(mockSetDoc).toHaveBeenCalledWith(
       expect.anything(),
-      expect.objectContaining({ email: 'new@example.com', role: 'customer' })
+      expect.objectContaining({ email: 'new@example.com', role: 'customer' }),
     );
     expect(mockToastSuccess).toHaveBeenCalledWith('Successfully registered!');
     expect(mockNavigate).toHaveBeenCalledWith('/');

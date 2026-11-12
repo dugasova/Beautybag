@@ -18,9 +18,8 @@ interface SelectProps {
 export default function Select({ options, value, onChange, label, placeholder = 'Select an option' }: SelectProps) {
   const [internalValue, setInternalValue] = useState(options[0]?.label ?? '');
 
-  const displayLabel = value !== undefined
-    ? (options.find(o => o.value === value)?.label ?? placeholder)
-    : internalValue;
+  const displayLabel =
+    value !== undefined ? (options.find((o) => o.value === value)?.label ?? placeholder) : internalValue;
 
   const handleSelect = (e: React.MouseEvent, option: SelectOption) => {
     e.stopPropagation();
@@ -32,18 +31,16 @@ export default function Select({ options, value, onChange, label, placeholder = 
   };
 
   return (
-    <div className='select-container'>
+    <div className="select-container">
       {label && <label>{label}</label>}
       <div className="custom-dropdown">
-        <div className="dropdown-trigger">
-          {displayLabel}
-        </div>
+        <div className="dropdown-trigger">{displayLabel}</div>
         <ul className="dropdown-options">
           {options.map((option) => (
             <li key={option.value} onClick={(e) => handleSelect(e, option)}>
               {option.label}
               {option.children && (
-                <ul className='dropdown-options-nested'>
+                <ul className="dropdown-options-nested">
                   {option.children.map((child) => (
                     <li key={child.value} onClick={(e) => handleSelect(e, child)}>
                       {child.label}

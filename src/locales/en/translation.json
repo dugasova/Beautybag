@@ -1,371 +1,371 @@
 {
-    "banner": {
-        "ariaLabel": "Promotional video banner"
-    },
-    "common": {
-        "loading": "Loading...",
-        "breadcrumb": "Breadcrumb",
-        "homeIcon": "Home",
-        "scrollToTop": "Scroll to top",
-        "error": "Something went wrong. Please try again.",
-        "retry": "Retry"
-    },
-    "errorBoundary": {
-        "title": "Something went wrong",
-        "text": "An unexpected error occurred. Please try again or return to the home page.",
-        "backToHome": "Back to Home"
-    },
-    "subheader": {
-        "slogan": "Beauty with love"
-    },
-    "navigation": {
-        "promotions": "Promotions",
-        "delivery": "Delivery and payments",
-        "contact": "Contact",
-        "home": "Home",
-        "category": "Category"
-    },
-    "header": {
-        "login": "Log In",
-        "signup": "Sign Up",
-        "account": "Account",
-        "logout": "Logout",
-        "openMenu": "Open menu",
-        "darkMode": "Switch to dark mode",
-        "lightMode": "Switch to light mode"
-    },
-    "contact": {
-        "title": "Contact Us",
-        "subtitle": "We would love to hear from you. Send us a message!",
-        "boutique": "Our Boutique",
-        "boutiqueAddress": "123 Beauty Lane, Glow City, 10101",
-        "support": "Customer Support",
-        "supportHours": "Mon - Fri: 9:00 AM - 6:00 PM",
-        "followUs": "Follow Us",
-        "form": {
-            "name": "Full Name",
-            "namePlaceholder": "Enter your name",
-            "email": "Email Address",
-            "emailPlaceholder": "Enter your email",
-            "subject": "Subject",
-            "subjectPlaceholder": "What is this about?",
-            "message": "Message",
-            "messagePlaceholder": "Write your message here...",
-            "send": "Send Message",
-            "success": "Your message has been sent successfully!"
-        }
-    },
-    "login": {
-        "title": "Log In",
-        "subtitle": "Welcome back! Please enter your details to sign in.",
-        "form": {
-            "email": "Email Address",
-            "password": "Password",
-            "submit": "Log In",
-            "redirectLink": "Don't have an account?"
-        },
-        "validation": {
-            "invalidEmail": "Invalid email",
-            "passwordMin": "Password must be at least 6 characters long",
-            "passwordMax": "Password must be at most 12 characters long"
-        }
-    },
-    "register": {
-        "title": "Sign Up",
-        "subtitle": "Welcome! Please enter your details to sign up.",
-        "form": {
-            "email": "Email Address",
-            "password": "Password",
-            "submit": "Sign Up",
-            "redirectLink": "Already have an account?"
-        },
-        "validation": {
-            "invalidEmail": "Invalid email",
-            "passwordMin": "Password must be at least 6 characters long",
-            "passwordMax": "Password must be at most 12 characters long"
-        }
-    },
-    "account": {
-        "title": "Account",
-        "orders": "Your Orders",
-        "noOrders": "No orders found.",
-        "name": "Name",
-        "tabs": {
-            "profile": "Profile",
-            "addresses": "Addresses"
-        },
-        "orderStatus": {
-            "pending": "Pending",
-            "processing": "Processing",
-            "shipped": "Shipped",
-            "delivered": "Delivered"
-        },
-        "profile": {
-            "displayName": "Display Name",
-            "displayNamePlaceholder": "Your name",
-            "phone": "Phone",
-            "phonePlaceholder": "+380...",
-            "email": "Email",
-            "avatarHint": "Click to change photo",
-            "changeAvatar": "Change profile photo",
-            "save": "Save Changes",
-            "saving": "Saving...",
-            "validation": {
-                "displayNameMin": "Display name must be at least 2 characters",
-                "phoneInvalid": "Phone must be 10-15 digits"
-            }
-        },
-        "addresses": {
-            "empty": "No saved addresses yet.",
-            "addNew": "+ Add New Address",
-            "newAddress": "New Address",
-            "defaultLabel": "Address",
-            "remove": "Remove",
-            "cancel": "Cancel",
-            "save": "Save Address",
-            "fields": {
-                "label": "Label",
-                "firstName": "First Name",
-                "lastName": "Last Name",
-                "address": "Address",
-                "city": "City",
-                "phone": "Phone"
-            },
-            "labelPlaceholder": "e.g. Home, Work",
-            "validation": {
-                "firstNameMin": "First name must be at least 2 characters",
-                "lastNameMin": "Last name must be at least 2 characters",
-                "addressMin": "Address must be at least 5 characters",
-                "cityMin": "City must be at least 2 characters",
-                "phoneInvalid": "Phone must be 10-15 digits"
-            }
-        }
-    },
-    "wishlist": {
-        "title": "Your Favorites",
-        "empty": "Your wishlist is empty",
-        "emptyMessage": "Add some products to your favorites to see them here!",
-        "clear": "Clear WishList",
-        "addToCart": "Add to cart",
-        "addToWishList": "Add to wishlist",
-        "removeFromWishList": "Remove from wishlist",
-        "backToProducts": "Back to products"
-    },
-    "cart": {
-        "title": "Your Cart",
-        "empty": "Your cart is empty",
-        "emptyMessage": "Add some products to your cart to see them here!",
-        "clear": "Clear Cart",
-        "addToCart": "Add to cart",
-        "removeFromCart": "Remove from cart",
-        "backToProducts": "Back to products",
-        "items": "items",
-        "unit": "unit",
-        "subtotal": "Subtotal",
-        "moveToWishlist": "Move to Wishlist",
-        "checkout": "Place Order",
-        "loginToOrder": "Please login to place an order",
-        "orderSuccess": "Order placed successfully!",
-        "orderError": "Failed to place order",
-        "totalPrice": "Total Price",
-        "discount": "Your discount",
-        "totalDiscount": "Total discount"
-    },
-    "checkout": {
-        "back": "Back",
-        "steps": {
-            "shipping": "1. Shipping",
-            "payment": "2. Payment",
-            "review": "3. Review"
-        },
-        "shipping": {
-            "title": "Shipping Address",
-            "savedAddress": "Use saved address:",
-            "firstName": "First Name",
-            "lastName": "Last Name",
-            "email": "Email",
-            "address": "Address",
-            "city": "City",
-            "phone": "Phone",
-            "continue": "Continue to Payment"
-        },
-        "payment": {
-            "title": "Payment Method",
-            "card": "Credit / Debit Card",
-            "paypal": "PayPal",
-            "cash": "Cash on Delivery",
-            "reviewOrder": "Review Order"
-        },
-        "review": {
-            "title": "Review Your Order",
-            "shippingTo": "Shipping to:",
-            "paymentMethod": "Payment Method:",
-            "items": "Items:",
-            "total": "Total",
-            "processing": "Processing...",
-            "placeOrder": "Place Order"
-        },
-        "orderSuccess": {
-            "title": "Thank You for Your Order!",
-            "titleFallback": "Order Placed!",
-            "orderId": "Order ID:",
-            "message": "We've received your order and we're getting it ready for shipment. A confirmation email has been sent to your inbox.",
-            "messageFallback": "Your order was received. Check your account page for details.",
-            "continueShopping": "Continue Shopping",
-            "goHome": "Go to Home"
-        }
-    },
-    "products": {
-        "shampoo": {
-            "name": "Shampoo",
-            "description": "Shampoo for all hair types"
-        },
-        "conditioner": {
-            "name": "Conditioner",
-            "description": "Conditioner for all hair types"
-        },
-        "hairMask": {
-            "name": "Hair Mask",
-            "description": "Hair mask for all hair types"
-        },
-        "hairRinse": {
-            "name": "Hair Rinse",
-            "description": "Hair rinse for all hair types"
-        },
-        "hairLotion": {
-            "name": "Hair Lotion",
-            "description": "Hair lotion for all hair types"
-        },
-        "hairOil": {
-            "name": "Hair Oil",
-            "description": "Hair oil for all hair types"
-        },
-        "hairSerum": {
-            "name": "Hair Serum",
-            "description": "Hair serum for all hair types"
-        },
-        "hairCream": {
-            "name": "Hair Cream",
-            "description": "Hair cream for all hair types"
-        },
-        "hairSpray": {
-            "name": "Hair Spray",
-            "description": "Hair spray for all hair types"
-        },
-        "hairKeratin": {
-            "name": "Hair Keratin",
-            "description": "Hair keratin for all hair types"
-        }
-    },
-    "search": {
-        "placeholder": "Search...",
-        "noResults": "No results found"
-    },
-    "product": {
-        "notFound": "Product Not Found",
-        "backToHome": "Back to Home",
-        "backToProducts": "Back to products",
-        "inStock": "In Stock",
-        "addToCart": "Add to cart",
-        "removeFromWishList": "Remove from wishlist",
-        "home": "Home",
-        "freeDelivery": "Free Delivery",
-        "freeDeliveryDesc": "On orders over 500 UAH",
-        "genuine": "100% Genuine",
-        "genuineDesc": "Authentic product guarantee",
-        "premiumDesc": "Our premium formula is designed to deliver professional results at home. Crafted with high-quality ingredients, this product ensures your hair stays healthy, vibrant, and full of life."
-    },
-    "promotions": {
-        "title": "Promotions",
-        "empty": "No promotions found",
-        "emptyMessage": "Add some products to your promotions to see them here!",
-        "clear": "Clear Promotions",
-        "addToCart": "Add to cart",
-        "removeFromWishList": "Remove from wishlist",
-        "backToProducts": "Back to products"
-    },
-    "footer": {
-        "subscribe": "Be the first to know about sales and new products!",
-        "subscribePlaceholder": "Enter your email",
-        "subscribeBtn": "Subscribe",
-        "shopTitle": "Shop",
-        "helpTitle": "Help",
-        "companyTitle": "Company",
-        "aboutDelivery": "About delivery",
-        "aboutProducts": "About products",
-        "articles": "Articles",
-        "specialOffers": "Special offers",
-        "beautybagPremium": "Beautybag PREMIUM",
-        "beautybagRewards": "Beautybag Rewards",
-        "termsOfUse": "Terms of use",
-        "returnsAndExchanges": "Returns and exchanges",
-        "aboutUs": "About us",
-        "contact": "Contact",
-        "privacyPolicy": "Privacy policy",
-        "affiliateProgram": "Affiliate program",
-        "copyright": "Beautybag. All rights reserved."
-    },
-    "filters": {
-        "sortBy": "Sort By",
-        "default": "Default",
-        "priceAsc": "Price: Low to High",
-        "priceDesc": "Price: High to Low",
-        "ratingDesc": "Top Rated",
-        "priceRange": "Price Range",
-        "minPrice": "Minimum price",
-        "maxPrice": "Maximum price",
-        "minRating": "Min Rating",
-        "ratingAndUp": "{{count}} stars & up",
-        "activeCategory": "Category: {{name}}",
-        "showAll": "Show all products",
-        "reset": "Reset Filters",
-        "apply": "Apply Filters"
-    },
-    "delivery": {
-        "title": "Delivery and Payments",
-        "subtitle": "We ensure your beauty treats arrive safely and on time.",
-        "deliveryOptions": "Delivery Options",
-        "paymentMethods": "Payment Methods",
-        "methods": {
-            "courier": {
-                "title": "Courier Delivery",
-                "description": "Quick delivery right to your doorstep. Available in major cities.",
-                "time": "1-2 business days",
-                "price": "50 UAH"
-            },
-            "postOffice": {
-                "title": "Post Office",
-                "description": "Pickup from your nearest post station at your convenience.",
-                "time": "2-4 business days",
-                "price": "30 UAH"
-            },
-            "boutique": {
-                "title": "Boutique Pickup",
-                "description": "Order online and pick up from any of our boutique locations.",
-                "time": "Same day",
-                "price": "Free"
-            }
-        },
-        "payments": {
-            "card": {
-                "title": "Credit Card",
-                "description": "Visa, MasterCard, or Apple Pay"
-            },
-            "cash": {
-                "title": "Cash on Delivery",
-                "description": "Pay when you receive your package"
-            },
-            "banking": {
-                "title": "Online Banking",
-                "description": "Direct bank transfer"
-            }
-        }
-    },
-    "details": {
-        "name": "Name",
-        "lastName": "Last Name",
-        "phone": "Phone",
-        "city": "City",
-        "address": "Address"
+  "banner": {
+    "ariaLabel": "Promotional video banner"
+  },
+  "common": {
+    "loading": "Loading...",
+    "breadcrumb": "Breadcrumb",
+    "homeIcon": "Home",
+    "scrollToTop": "Scroll to top",
+    "error": "Something went wrong. Please try again.",
+    "retry": "Retry"
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "text": "An unexpected error occurred. Please try again or return to the home page.",
+    "backToHome": "Back to Home"
+  },
+  "subheader": {
+    "slogan": "Beauty with love"
+  },
+  "navigation": {
+    "promotions": "Promotions",
+    "delivery": "Delivery and payments",
+    "contact": "Contact",
+    "home": "Home",
+    "category": "Category"
+  },
+  "header": {
+    "login": "Log In",
+    "signup": "Sign Up",
+    "account": "Account",
+    "logout": "Logout",
+    "openMenu": "Open menu",
+    "darkMode": "Switch to dark mode",
+    "lightMode": "Switch to light mode"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We would love to hear from you. Send us a message!",
+    "boutique": "Our Boutique",
+    "boutiqueAddress": "123 Beauty Lane, Glow City, 10101",
+    "support": "Customer Support",
+    "supportHours": "Mon - Fri: 9:00 AM - 6:00 PM",
+    "followUs": "Follow Us",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "subject": "Subject",
+      "subjectPlaceholder": "What is this about?",
+      "message": "Message",
+      "messagePlaceholder": "Write your message here...",
+      "send": "Send Message",
+      "success": "Your message has been sent successfully!"
     }
+  },
+  "login": {
+    "title": "Log In",
+    "subtitle": "Welcome back! Please enter your details to sign in.",
+    "form": {
+      "email": "Email Address",
+      "password": "Password",
+      "submit": "Log In",
+      "redirectLink": "Don't have an account?"
+    },
+    "validation": {
+      "invalidEmail": "Invalid email",
+      "passwordMin": "Password must be at least 6 characters long",
+      "passwordMax": "Password must be at most 12 characters long"
+    }
+  },
+  "register": {
+    "title": "Sign Up",
+    "subtitle": "Welcome! Please enter your details to sign up.",
+    "form": {
+      "email": "Email Address",
+      "password": "Password",
+      "submit": "Sign Up",
+      "redirectLink": "Already have an account?"
+    },
+    "validation": {
+      "invalidEmail": "Invalid email",
+      "passwordMin": "Password must be at least 6 characters long",
+      "passwordMax": "Password must be at most 12 characters long"
+    }
+  },
+  "account": {
+    "title": "Account",
+    "orders": "Your Orders",
+    "noOrders": "No orders found.",
+    "name": "Name",
+    "tabs": {
+      "profile": "Profile",
+      "addresses": "Addresses"
+    },
+    "orderStatus": {
+      "pending": "Pending",
+      "processing": "Processing",
+      "shipped": "Shipped",
+      "delivered": "Delivered"
+    },
+    "profile": {
+      "displayName": "Display Name",
+      "displayNamePlaceholder": "Your name",
+      "phone": "Phone",
+      "phonePlaceholder": "+380...",
+      "email": "Email",
+      "avatarHint": "Click to change photo",
+      "changeAvatar": "Change profile photo",
+      "save": "Save Changes",
+      "saving": "Saving...",
+      "validation": {
+        "displayNameMin": "Display name must be at least 2 characters",
+        "phoneInvalid": "Phone must be 10-15 digits"
+      }
+    },
+    "addresses": {
+      "empty": "No saved addresses yet.",
+      "addNew": "+ Add New Address",
+      "newAddress": "New Address",
+      "defaultLabel": "Address",
+      "remove": "Remove",
+      "cancel": "Cancel",
+      "save": "Save Address",
+      "fields": {
+        "label": "Label",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "address": "Address",
+        "city": "City",
+        "phone": "Phone"
+      },
+      "labelPlaceholder": "e.g. Home, Work",
+      "validation": {
+        "firstNameMin": "First name must be at least 2 characters",
+        "lastNameMin": "Last name must be at least 2 characters",
+        "addressMin": "Address must be at least 5 characters",
+        "cityMin": "City must be at least 2 characters",
+        "phoneInvalid": "Phone must be 10-15 digits"
+      }
+    }
+  },
+  "wishlist": {
+    "title": "Your Favorites",
+    "empty": "Your wishlist is empty",
+    "emptyMessage": "Add some products to your favorites to see them here!",
+    "clear": "Clear WishList",
+    "addToCart": "Add to cart",
+    "addToWishList": "Add to wishlist",
+    "removeFromWishList": "Remove from wishlist",
+    "backToProducts": "Back to products"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "emptyMessage": "Add some products to your cart to see them here!",
+    "clear": "Clear Cart",
+    "addToCart": "Add to cart",
+    "removeFromCart": "Remove from cart",
+    "backToProducts": "Back to products",
+    "items": "items",
+    "unit": "unit",
+    "subtotal": "Subtotal",
+    "moveToWishlist": "Move to Wishlist",
+    "checkout": "Place Order",
+    "loginToOrder": "Please login to place an order",
+    "orderSuccess": "Order placed successfully!",
+    "orderError": "Failed to place order",
+    "totalPrice": "Total Price",
+    "discount": "Your discount",
+    "totalDiscount": "Total discount"
+  },
+  "checkout": {
+    "back": "Back",
+    "steps": {
+      "shipping": "1. Shipping",
+      "payment": "2. Payment",
+      "review": "3. Review"
+    },
+    "shipping": {
+      "title": "Shipping Address",
+      "savedAddress": "Use saved address:",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "address": "Address",
+      "city": "City",
+      "phone": "Phone",
+      "continue": "Continue to Payment"
+    },
+    "payment": {
+      "title": "Payment Method",
+      "card": "Credit / Debit Card",
+      "paypal": "PayPal",
+      "cash": "Cash on Delivery",
+      "reviewOrder": "Review Order"
+    },
+    "review": {
+      "title": "Review Your Order",
+      "shippingTo": "Shipping to:",
+      "paymentMethod": "Payment Method:",
+      "items": "Items:",
+      "total": "Total",
+      "processing": "Processing...",
+      "placeOrder": "Place Order"
+    },
+    "orderSuccess": {
+      "title": "Thank You for Your Order!",
+      "titleFallback": "Order Placed!",
+      "orderId": "Order ID:",
+      "message": "We've received your order and we're getting it ready for shipment. A confirmation email has been sent to your inbox.",
+      "messageFallback": "Your order was received. Check your account page for details.",
+      "continueShopping": "Continue Shopping",
+      "goHome": "Go to Home"
+    }
+  },
+  "products": {
+    "shampoo": {
+      "name": "Shampoo",
+      "description": "Shampoo for all hair types"
+    },
+    "conditioner": {
+      "name": "Conditioner",
+      "description": "Conditioner for all hair types"
+    },
+    "hairMask": {
+      "name": "Hair Mask",
+      "description": "Hair mask for all hair types"
+    },
+    "hairRinse": {
+      "name": "Hair Rinse",
+      "description": "Hair rinse for all hair types"
+    },
+    "hairLotion": {
+      "name": "Hair Lotion",
+      "description": "Hair lotion for all hair types"
+    },
+    "hairOil": {
+      "name": "Hair Oil",
+      "description": "Hair oil for all hair types"
+    },
+    "hairSerum": {
+      "name": "Hair Serum",
+      "description": "Hair serum for all hair types"
+    },
+    "hairCream": {
+      "name": "Hair Cream",
+      "description": "Hair cream for all hair types"
+    },
+    "hairSpray": {
+      "name": "Hair Spray",
+      "description": "Hair spray for all hair types"
+    },
+    "hairKeratin": {
+      "name": "Hair Keratin",
+      "description": "Hair keratin for all hair types"
+    }
+  },
+  "search": {
+    "placeholder": "Search...",
+    "noResults": "No results found"
+  },
+  "product": {
+    "notFound": "Product Not Found",
+    "backToHome": "Back to Home",
+    "backToProducts": "Back to products",
+    "inStock": "In Stock",
+    "addToCart": "Add to cart",
+    "removeFromWishList": "Remove from wishlist",
+    "home": "Home",
+    "freeDelivery": "Free Delivery",
+    "freeDeliveryDesc": "On orders over 500 UAH",
+    "genuine": "100% Genuine",
+    "genuineDesc": "Authentic product guarantee",
+    "premiumDesc": "Our premium formula is designed to deliver professional results at home. Crafted with high-quality ingredients, this product ensures your hair stays healthy, vibrant, and full of life."
+  },
+  "promotions": {
+    "title": "Promotions",
+    "empty": "No promotions found",
+    "emptyMessage": "Add some products to your promotions to see them here!",
+    "clear": "Clear Promotions",
+    "addToCart": "Add to cart",
+    "removeFromWishList": "Remove from wishlist",
+    "backToProducts": "Back to products"
+  },
+  "footer": {
+    "subscribe": "Be the first to know about sales and new products!",
+    "subscribePlaceholder": "Enter your email",
+    "subscribeBtn": "Subscribe",
+    "shopTitle": "Shop",
+    "helpTitle": "Help",
+    "companyTitle": "Company",
+    "aboutDelivery": "About delivery",
+    "aboutProducts": "About products",
+    "articles": "Articles",
+    "specialOffers": "Special offers",
+    "beautybagPremium": "Beautybag PREMIUM",
+    "beautybagRewards": "Beautybag Rewards",
+    "termsOfUse": "Terms of use",
+    "returnsAndExchanges": "Returns and exchanges",
+    "aboutUs": "About us",
+    "contact": "Contact",
+    "privacyPolicy": "Privacy policy",
+    "affiliateProgram": "Affiliate program",
+    "copyright": "Beautybag. All rights reserved."
+  },
+  "filters": {
+    "sortBy": "Sort By",
+    "default": "Default",
+    "priceAsc": "Price: Low to High",
+    "priceDesc": "Price: High to Low",
+    "ratingDesc": "Top Rated",
+    "priceRange": "Price Range",
+    "minPrice": "Minimum price",
+    "maxPrice": "Maximum price",
+    "minRating": "Min Rating",
+    "ratingAndUp": "{{count}} stars & up",
+    "activeCategory": "Category: {{name}}",
+    "showAll": "Show all products",
+    "reset": "Reset Filters",
+    "apply": "Apply Filters"
+  },
+  "delivery": {
+    "title": "Delivery and Payments",
+    "subtitle": "We ensure your beauty treats arrive safely and on time.",
+    "deliveryOptions": "Delivery Options",
+    "paymentMethods": "Payment Methods",
+    "methods": {
+      "courier": {
+        "title": "Courier Delivery",
+        "description": "Quick delivery right to your doorstep. Available in major cities.",
+        "time": "1-2 business days",
+        "price": "50 UAH"
+      },
+      "postOffice": {
+        "title": "Post Office",
+        "description": "Pickup from your nearest post station at your convenience.",
+        "time": "2-4 business days",
+        "price": "30 UAH"
+      },
+      "boutique": {
+        "title": "Boutique Pickup",
+        "description": "Order online and pick up from any of our boutique locations.",
+        "time": "Same day",
+        "price": "Free"
+      }
+    },
+    "payments": {
+      "card": {
+        "title": "Credit Card",
+        "description": "Visa, MasterCard, or Apple Pay"
+      },
+      "cash": {
+        "title": "Cash on Delivery",
+        "description": "Pay when you receive your package"
+      },
+      "banking": {
+        "title": "Online Banking",
+        "description": "Direct bank transfer"
+      }
+    }
+  },
+  "details": {
+    "name": "Name",
+    "lastName": "Last Name",
+    "phone": "Phone",
+    "city": "City",
+    "address": "Address"
+  }
 }

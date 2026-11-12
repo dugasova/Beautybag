@@ -7,7 +7,7 @@ import type { ReactNode } from 'react';
 import wishListReducer from '../store/features/wishList/slice';
 import cartListReducer from '../store/features/cartList/slice';
 import useFirestoreSync from './useFirestoreSync';
-import type { IProduct, ICartItem, IUserDocument } from '../types';
+import type { IProduct, ICartItem } from '../types';
 
 const mockSubscribeToUser = vi.fn();
 let mockUser: { email: string } | null = { email: 'test@example.com' };
@@ -46,8 +46,7 @@ function createStore() {
 }
 
 function createWrapper(store: ReturnType<typeof createStore>) {
-  return ({ children }: { children: ReactNode }) =>
-    createElement(Provider, { store, children });
+  return ({ children }: { children: ReactNode }) => createElement(Provider, { store, children });
 }
 
 beforeEach(() => {
@@ -70,7 +69,7 @@ describe('useFirestoreSync', () => {
 
     const callback = mockSubscribeToUser.mock.calls[0][1];
     const products = [makeProduct(1), makeProduct(2)];
-    callback({ wishList: products } as IUserDocument);
+    callback({ wishList: products });
 
     expect(store.getState().wishList.wishList).toEqual(products);
   });
@@ -81,7 +80,7 @@ describe('useFirestoreSync', () => {
 
     const callback = mockSubscribeToUser.mock.calls[0][1];
     const items: ICartItem[] = [{ ...makeProduct(1), totalQuantity: 2 }];
-    callback({ savedProducts: items } as IUserDocument);
+    callback({ savedProducts: items });
 
     expect(store.getState().cartList.cartList).toHaveLength(1);
     expect(store.getState().cartList.cartList[0].totalQuantity).toBe(2);

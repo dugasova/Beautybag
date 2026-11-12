@@ -32,7 +32,10 @@ describe('useAsync', () => {
 
     it('sets loading=true while executing', async () => {
       let resolve!: (v: string) => void;
-      const asyncFn = () => new Promise<string>((r) => { resolve = r; });
+      const asyncFn = () =>
+        new Promise<string>((r) => {
+          resolve = r;
+        });
 
       const { result } = renderHook(() => useAsync());
 

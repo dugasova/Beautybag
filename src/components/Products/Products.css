@@ -1,69 +1,79 @@
 .products {
-    width: 100%;
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .infinite-scroll-trigger {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 0;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
 }
 
 .loading-dots {
-    display: flex;
-    gap: 4px;
-    font-size: var(--font-size-2xl);
-    color: var(--color-purple-200);
-    font-weight: bold;
+  display: flex;
+  gap: 4px;
+  font-size: var(--font-size-2xl);
+  color: var(--color-purple-200);
+  font-weight: bold;
 }
 
 .loading-dots span {
-    animation: bounce 1.4s infinite ease-in-out both;
+  animation: bounce 1.4s infinite ease-in-out both;
 }
 
-.loading-dots span:nth-child(1) { animation-delay: -0.32s; }
-.loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+.loading-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+.loading-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
 
 @keyframes bounce {
-    0%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
 }
 
 .filter-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-lg);
-    padding: var(--space-md) var(--space-lg);
-    background: var(--color-chip-bg);
-    border-radius: 12px;
-    border: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-chip-bg);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
 }
 
 .search-results-title {
-    font-size: var(--font-size-xl);
-    color: var(--color-text-muted);
-    font-style: italic;
-    font-family: 'Times New Roman', Times, serif;
-    margin: 0;
+  font-size: var(--font-size-xl);
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
 }
 
 .clear-filter-btn {
-    background-color: var(--color-accent);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.2s;
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
 }
 
 .clear-filter-btn:hover {
-    background-color: var(--color-accent-hover);
+  background-color: var(--color-accent-hover);
 }

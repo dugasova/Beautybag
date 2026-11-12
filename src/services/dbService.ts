@@ -1,4 +1,4 @@
-import { db } from "../firebase";
+import { db } from '../firebase';
 import {
   doc,
   setDoc,
@@ -10,12 +10,12 @@ import {
   orderBy,
   getDocs,
   runTransaction,
-} from "firebase/firestore";
-import type { IProduct, IOrder, IAddress, IUserProfile, IUserDocument } from "../types";
+} from 'firebase/firestore';
+import type { IProduct, IOrder, IAddress, IUserProfile, IUserDocument } from '../types';
 
 // Collection Names
-const USERS = "users";
-const ORDERS = "orders";
+const USERS = 'users';
+const ORDERS = 'orders';
 
 export const dbService = {
   // User Document
@@ -23,7 +23,7 @@ export const dbService = {
 
   async getUserData(email: string): Promise<IUserDocument | null> {
     const userDoc = await getDoc(dbService.getUserRef(email));
-    return userDoc.exists() ? (userDoc.data() as IUserDocument) : null;
+    return userDoc.exists() ? userDoc.data() : null;
   },
 
   async updateUserData(email: string, data: object) {
@@ -67,14 +67,14 @@ export const dbService = {
   async deleteAddress(email: string, addressId: string) {
     await dbService.updateUserDataTransaction(email, (data) => {
       const existing: IAddress[] = data?.addresses || [];
-      return { addresses: existing.filter(a => a.id !== addressId) };
+      return { addresses: existing.filter((a) => a.id !== addressId) };
     });
   },
 
   // Real-time listener for User Data
   subscribeToUser(email: string, callback: (data: IUserDocument) => void) {
     return onSnapshot(this.getUserRef(email), (doc) => {
-      if (doc.exists()) callback(doc.data() as IUserDocument);
+      if (doc.exists()) callback(doc.data());
     });
   },
 
@@ -92,22 +92,25 @@ export const dbService = {
     const ordersRef = collection(db, USERS, email, ORDERS);
     const q = query(ordersRef, orderBy('createdAt', 'desc'));
 
-    return onSnapshot(q, (snapshot) => {
-      const orders = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      })) as IOrder[];
-      callback(orders);
-    }, onError);
+    return onSnapshot(
+      q,
+      (snapshot) => {
+        const orders = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        })) as IOrder[];
+        callback(orders);
+      },
+      onError,
+    );
   },
 
   // Goods/Products
   async fetchAllProducts() {
-    const productsRef = collection(db, "goods");
+    const productsRef = collection(db, 'goods');
     const snapshot = await getDocs(productsRef);
-    return snapshot.docs.map(doc => ({
-      ...doc.data()
+    return snapshot.docs.map((doc) => ({
+      ...doc.data(),
     })) as IProduct[];
-  }
+  },
 };
-

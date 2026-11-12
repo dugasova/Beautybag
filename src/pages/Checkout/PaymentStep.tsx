@@ -37,8 +37,12 @@ const PaymentStep = () => {
       </div>
 
       <div className="checkout-actions">
-        <Button onClick={() => dispatch(prevStep())} variant="secondary" size="md">{t('checkout.back')}</Button>
-        <Button onClick={() => dispatch(nextStep())} variant="purple" size="md">{t('checkout.payment.reviewOrder')}</Button>
+        <Button onClick={() => dispatch(prevStep())} variant="secondary" size="md">
+          {t('checkout.back')}
+        </Button>
+        <Button onClick={() => dispatch(nextStep())} variant="purple" size="md">
+          {t('checkout.payment.reviewOrder')}
+        </Button>
       </div>
     </div>
   );

@@ -31,7 +31,7 @@ const renderLogin = (initialEntry: string | { pathname: string; state?: unknown 
   render(
     <MemoryRouter initialEntries={[initialEntry]}>
       <Login />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 };
 

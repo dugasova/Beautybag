@@ -30,13 +30,13 @@ export default function Menu() {
   };
 
   return (
-    <div className='navigation-container'>
-      <nav className='navigation'>
-        <ul className='navigation-list'>
+    <div className="navigation-container">
+      <nav className="navigation">
+        <ul className="navigation-list">
           {menuItems.map((item) => (
             <li
               key={item.id}
-              className='navigation-item'
+              className="navigation-item"
               tabIndex={0}
               role="button"
               aria-expanded={activeItem === item.id}
@@ -52,13 +52,13 @@ export default function Menu() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className='menu-list-nested-wrapper'
+                    className="menu-list-nested-wrapper"
                   >
-                    <ul className='menu-list-nested' role="menu">
+                    <ul className="menu-list-nested" role="menu">
                       {item.children?.map((child) => (
                         <li
                           key={child.id}
-                          className='menu-item-nested'
+                          className="menu-item-nested"
                           role="menuitem"
                           tabIndex={0}
                           onClick={() => handleSearchByLabel(child.label)}
@@ -76,5 +76,5 @@ export default function Menu() {
         </ul>
       </nav>
     </div>
-  )
+  );
 }
