@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import Button from '../ui/Button/Button';
 import { UserAuth } from '../../context/AuthContext';
 import { useState } from 'react';
-import { FiAlignLeft, FiSun, FiMoon } from "react-icons/fi";
+import { FiAlignLeft, FiSun, FiMoon } from 'react-icons/fi';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import { useHeaderNav } from '../../hooks/useHeaderNav';
 import { useTheme } from '../../context/ThemeContext';
@@ -28,38 +28,35 @@ export default function Header() {
     } catch {
       toast.error(t('common.error'));
     }
-  }
+  };
 
   const handleMenuButtonKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       setIsMenuOpen(true);
     }
-  }
+  };
 
   return (
-    <div className='header-wrapper'>
-      <header className='header container'>
-        <div className='logo'>
+    <div className="header-wrapper">
+      <header className="header container">
+        <div className="logo">
           <NavLink to="/">
-            <img src={logo} alt="logo" className='logo-img' />
+            <img src={logo} alt="logo" className="logo-img" />
           </NavLink>
         </div>
-        <div className='nav'>
-          <ul className='nav-list'>
+        <div className="nav">
+          <ul className="nav-list">
             {navItems.map((item) => (
-              <li key={item.id} className='nav-item'>
-                <NavLink
-                  to={item.path}
-                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
-                >
+              <li key={item.id} className="nav-item">
+                <NavLink to={item.path} className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
                   {item.label}
                 </NavLink>
               </li>
             ))}
           </ul>
         </div>
-        <div className='actions'>
+        <div className="actions">
           <button
             type="button"
             className="theme-toggle"
@@ -75,45 +72,24 @@ export default function Header() {
               {theme === 'dark' ? <FiMoon /> : <FiSun />}
             </motion.span>
           </button>
-          <Button
-            className='language-btn-custom'
-            variant="secondary"
-            size="sm"
-            onClick={toggleLanguage}
-          >
+          <Button className="language-btn-custom" variant="secondary" size="sm" onClick={toggleLanguage}>
             {langLabel}
           </Button>
           {user?.email ? (
             <>
-              <Button
-                variant="primary"
-                size="sm"
-                onClick={() => navigate('/account')}
-              >
+              <Button variant="primary" size="sm" onClick={() => navigate('/account')}>
                 {t('header.account')}
               </Button>
-              <Button
-                variant="primary"
-                size="sm"
-                onClick={handleLogout}
-              >
+              <Button variant="primary" size="sm" onClick={handleLogout}>
                 {t('header.logout')}
               </Button>
             </>
           ) : (
             <>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => navigate('/login')}
-              >
+              <Button variant="outline" size="sm" onClick={() => navigate('/login')}>
                 {t('header.login')}
               </Button>
-              <Button
-                variant="primary"
-                size="sm"
-                onClick={() => navigate('/register')}
-              >
+              <Button variant="primary" size="sm" onClick={() => navigate('/register')}>
                 {t('header.signup')}
               </Button>
             </>
@@ -131,5 +107,5 @@ export default function Header() {
         <Subheader />
       </header>
     </div>
-  )
+  );
 }

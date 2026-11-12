@@ -22,9 +22,9 @@ const itemVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: 'spring', stiffness: 300, damping: 24 }
+    transition: { type: 'spring', stiffness: 300, damping: 24 },
   },
-  exit: { opacity: 0, scale: 0.9, transition: { duration: 0.2 } }
+  exit: { opacity: 0, scale: 0.9, transition: { duration: 0.2 } },
 };
 
 export default memo(function ProductItem({ product }: { product: IProduct }) {
@@ -73,20 +73,30 @@ export default memo(function ProductItem({ product }: { product: IProduct }) {
     >
       <FavoriteButton isFavorite={isFavorite} onClick={handleFavoriteClick} className="product-favorite" />
       {product.discount && <div className="product-badge">-{product.discount}%</div>}
-      <div className="product-link" onClick={() => navigate(`/product/${product.id}`)} role="link" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter') navigate(`/product/${product.id}`); }}>
-        <img className='product-image' src={product.imsrcOfImg} alt={t(product.name)} />
-        <h3 className='product-name'>{t(product.name)}</h3>
-        <p className='product-description'>{t(product.description)}</p>
+      <div
+        className="product-link"
+        onClick={() => navigate(`/product/${product.id}`)}
+        role="link"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') navigate(`/product/${product.id}`);
+        }}
+      >
+        <img className="product-image" src={product.imsrcOfImg} alt={t(product.name)} />
+        <h3 className="product-name">{t(product.name)}</h3>
+        <p className="product-description">{t(product.description)}</p>
         <ProductPrice price={product.price} discountPrice={product.discountPrice} />
-        <p className='product-raiting'><StarRating rating={product.raiting} /></p>
-        <p className='product-category'>{product.category}</p>
+        <p className="product-raiting">
+          <StarRating rating={product.raiting} />
+        </p>
+        <p className="product-category">{product.category}</p>
       </div>
       <div className={`product-volume-container ${isHovered ? 'visible' : ''}`}>
-        {product.volume && <p className='product-volume'>{product.volume} ml</p>}
+        {product.volume && <p className="product-volume">{product.volume} ml</p>}
         <Button onClick={handleAddToCart} variant="purple" size="md" className="product-button-custom">
           {isInCart ? t('cart.removeFromCart') : t('cart.addToCart')}
         </Button>
       </div>
     </motion.li>
-  )
+  );
 });

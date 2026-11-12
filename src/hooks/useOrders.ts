@@ -7,12 +7,13 @@ import type { IOrder } from '../types';
 
 export default function useOrders() {
   const { user } = UserAuth();
+  const email = user?.email;
   const { t } = useTranslation();
   const [orders, setOrders] = useState<IOrder[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!user?.email) {
+    if (!email) {
       setOrders([]);
       setLoading(false);
       return;
@@ -20,7 +21,7 @@ export default function useOrders() {
 
     setLoading(true);
     const unsubscribe = dbService.subscribeToOrders(
-      user.email,
+      email,
       (fetchedOrders) => {
         setOrders(fetchedOrders);
         setLoading(false);
@@ -28,11 +29,11 @@ export default function useOrders() {
       () => {
         toast.error(t('common.error'));
         setLoading(false);
-      }
+      },
     );
 
     return () => unsubscribe();
-  }, [user, t]);
+  }, [email, t]);
 
   return { orders, loading };
 }

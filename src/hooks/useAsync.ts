@@ -6,27 +6,26 @@ export default function useAsync() {
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
 
-  const execute = useCallback(async <T>(
-    asyncFunction: () => Promise<T>,
-    successMessage?: string,
-    errorMessage?: string
-  ): Promise<T | null> => {
-    setLoading(true);
-    try {
-      const result = await asyncFunction();
-      if (successMessage) {
-        toast.success(successMessage);
-      }
-      return result;
-    } catch {
-      const message = errorMessage || t('common.error');
-      toast.error(message);
+  const execute = useCallback(
+    async <T>(asyncFunction: () => Promise<T>, successMessage?: string, errorMessage?: string): Promise<T | null> => {
+      setLoading(true);
+      try {
+        const result = await asyncFunction();
+        if (successMessage) {
+          toast.success(successMessage);
+        }
+        return result;
+      } catch {
+        const message = errorMessage || t('common.error');
+        toast.error(message);
 
-      return null;
-    } finally {
-      setLoading(false);
-    }
-  }, [t]);
+        return null;
+      } finally {
+        setLoading(false);
+      }
+    },
+    [t],
+  );
 
   return { execute, loading };
 }

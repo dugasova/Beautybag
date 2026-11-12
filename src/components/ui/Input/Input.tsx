@@ -8,7 +8,10 @@ type InputProps = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   className?: string;
-} & Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'placeholder' | 'value' | 'onChange' | 'onBlur' | 'className'>
+} & Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  'type' | 'placeholder' | 'value' | 'onChange' | 'onBlur' | 'className'
+>;
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ type, placeholder, value, onChange, onBlur, className, ...rest }, ref) => {
@@ -24,7 +27,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {...rest}
       />
     );
-  }
+  },
 );
 
 Input.displayName = 'Input';

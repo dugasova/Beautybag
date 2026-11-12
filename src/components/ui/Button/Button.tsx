@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import type { HTMLMotionProps } from 'framer-motion';
 import './Button.css';
 
-interface ButtonProps extends HTMLMotionProps<"button"> {
+interface ButtonProps extends HTMLMotionProps<'button'> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'accent' | 'purple';
   size?: 'sm' | 'md' | 'lg';
   pill?: boolean;

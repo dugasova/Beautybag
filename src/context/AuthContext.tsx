@@ -1,14 +1,14 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { auth, db } from "../firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { createContext, useContext, useEffect, useState } from 'react';
+import { auth, db } from '../firebase';
+import { doc, setDoc } from 'firebase/firestore';
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
   createUserWithEmailAndPassword,
   type User,
-  type UserCredential
-} from "firebase/auth";
+  type UserCredential,
+} from 'firebase/auth';
 
 type AuthContextType = {
   signUp: (email: string, password: string) => Promise<UserCredential>;
@@ -27,15 +27,15 @@ export function AuthContextProvider({ children }: { children: React.ReactNode })
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     await setDoc(doc(db, 'users', `${userCredential.user.email}`), {
       wishList: [],
-    })
+    });
     return userCredential;
-  }
+  };
   const logOut = () => {
     return signOut(auth);
-  }
+  };
   const logIn = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password);
-  }
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -45,11 +45,7 @@ export function AuthContextProvider({ children }: { children: React.ReactNode })
     return unsubscribe;
   }, []);
 
-  return (
-    <AuthContext.Provider value={{ signUp, user, logIn, logOut }}>
-      {!loading && children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={{ signUp, user, logIn, logOut }}>{!loading && children}</AuthContext.Provider>;
 }
 
 export function UserAuth() {

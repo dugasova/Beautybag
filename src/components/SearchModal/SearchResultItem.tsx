@@ -18,19 +18,19 @@ export default function SearchResultItem({ product, onSelect }: SearchResultItem
 
   return (
     <li
-      className='search-result-item'
+      className="search-result-item"
       role="button"
       tabIndex={0}
       aria-label={t(product.name)}
       onClick={() => onSelect(product.id)}
       onKeyDown={handleKeyDown}
     >
-      <img src={product.imsrcOfImg} alt={t(product.name)} className='result-thumb' />
-      <div className='result-info'>
-        <span className='result-name'>{t(product.name)}</span>
-        <span className='result-category'>{product.category}</span>
+      <img src={product.imsrcOfImg} alt={t(product.name)} className="result-thumb" />
+      <div className="result-info">
+        <span className="result-name">{t(product.name)}</span>
+        <span className="result-category">{product.category}</span>
       </div>
-      <span className='result-price'>{product.price} UAH</span>
+      <span className="result-price">{product.price} UAH</span>
     </li>
   );
 }

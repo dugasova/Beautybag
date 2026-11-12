@@ -24,14 +24,14 @@ export default function Account() {
   return (
     <div className="account-page">
       <div className="account-container">
-
         {/* ── Header ── */}
         <div className="account-header">
           <div className="account-avatar-wrap">
-            {avatarSrc
-              ? <img src={avatarSrc} alt="avatar" className="account-avatar" />
-              : <div className="account-avatar-placeholder">{userInitial}</div>
-            }
+            {avatarSrc ? (
+              <img src={avatarSrc} alt="avatar" className="account-avatar" />
+            ) : (
+              <div className="account-avatar-placeholder">{userInitial}</div>
+            )}
           </div>
           <div>
             <h1 className="account-title">{displayUserName}</h1>
@@ -41,40 +41,24 @@ export default function Account() {
 
         {/* ── Tabs ── */}
         <div className="account-tabs">
-          <button className={`acc-tab ${tab === 'orders' ? 'active' : ''}`}
-            onClick={() => setTab('orders')}>
+          <button className={`acc-tab ${tab === 'orders' ? 'active' : ''}`} onClick={() => setTab('orders')}>
             {t('account.orders')}
           </button>
-          <button className={`acc-tab ${tab === 'profile' ? 'active' : ''}`}
-            onClick={() => setTab('profile')}>
+          <button className={`acc-tab ${tab === 'profile' ? 'active' : ''}`} onClick={() => setTab('profile')}>
             {t('account.tabs.profile')}
           </button>
-          <button className={`acc-tab ${tab === 'addresses' ? 'active' : ''}`}
-            onClick={() => setTab('addresses')}>
+          <button className={`acc-tab ${tab === 'addresses' ? 'active' : ''}`} onClick={() => setTab('addresses')}>
             {t('account.tabs.addresses')}
           </button>
         </div>
 
-        {tab === 'orders' && (
-          <OrdersTab orders={orders} loading={ordersLoading} />
-        )}
+        {tab === 'orders' && <OrdersTab orders={orders} loading={ordersLoading} />}
 
-        {tab === 'profile' && (
-          <ProfileTab
-            user={user}
-            profile={profile}
-            updateProfile={updateProfile}
-          />
-        )}
+        {tab === 'profile' && <ProfileTab user={user} profile={profile} updateProfile={updateProfile} />}
 
         {tab === 'addresses' && (
-          <AddressesTab
-            addresses={profile.addresses || []}
-            onDelete={deleteAddress}
-            onAdd={addAddress}
-          />
+          <AddressesTab addresses={profile.addresses || []} onDelete={deleteAddress} onAdd={addAddress} />
         )}
-
       </div>
     </div>
   );

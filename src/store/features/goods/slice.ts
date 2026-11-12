@@ -2,9 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { dbService } from '../../../services/dbService';
 import type { IProduct } from '../../../types';
 
-export const fetchGoods = createAsyncThunk('goods/fetchGoods', () =>
-  dbService.fetchAllProducts()
-);
+export const fetchGoods = createAsyncThunk('goods/fetchGoods', () => dbService.fetchAllProducts());
 
 interface GoodsState {
   items: IProduct[];

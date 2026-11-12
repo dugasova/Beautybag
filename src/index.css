@@ -42,7 +42,7 @@
   --space-xl: 32px;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --color-white: #1e1e2e;
   --color-bg: #14141f;
   --color-text: #e2e2e2;
@@ -91,7 +91,6 @@ ul,
 li {
   list-style: none;
   text-decoration: none;
-
 }
 
 img {

@@ -21,33 +21,37 @@ export default function Login() {
     setError(null);
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
-      toast.success("Successfully logged in!");
+      toast.success('Successfully logged in!');
       navigate(redirectTo, { replace: true });
     } catch {
-      toast.error("Invalid email or password");
-      setError("Invalid email or password");
+      toast.error('Invalid email or password');
+      setError('Invalid email or password');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className='login-page'>
+    <div className="login-page">
       <div className="container">
         <h1 className="login-title">{t('login.title')}</h1>
         <p className="login-subtitle">{t('login.subtitle')}</p>
 
-        {error && <p className="error-message" style={{ color: 'red', textAlign: 'center', marginBottom: '1rem' }}>{error}</p>}
+        {error && (
+          <p className="error-message" style={{ color: 'red', textAlign: 'center', marginBottom: '1rem' }}>
+            {error}
+          </p>
+        )}
 
         <Form onSubmit={onSubmit} submitText={t('login.form.submit')} isLoading={loading} />
         <p className="login-subtitle">
           {t('login.form.redirectLink')}
-          <span onClick={() => navigate('/register')}
-            className="login-link" style={{ cursor: 'pointer' }}>
-            {" "} Sign Up
+          <span onClick={() => navigate('/register')} className="login-link" style={{ cursor: 'pointer' }}>
+            {' '}
+            Sign Up
           </span>
         </p>
       </div>
     </div>
-  )
+  );
 }

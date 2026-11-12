@@ -4,12 +4,12 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Button from '../ui/Button/Button';
 import logo from '../../assets/icons/logo.jpg';
-import { IoCloseSharp } from "react-icons/io5";
-import { SlSocialInstagram } from "react-icons/sl";
-import { SlSocialFacebook } from "react-icons/sl";
-import { TiSocialPinterest } from "react-icons/ti";
-import { SlSocialYoutube } from "react-icons/sl";
-import { FiSun, FiMoon } from "react-icons/fi";
+import { IoCloseSharp } from 'react-icons/io5';
+import { SlSocialInstagram } from 'react-icons/sl';
+import { SlSocialFacebook } from 'react-icons/sl';
+import { TiSocialPinterest } from 'react-icons/ti';
+import { SlSocialYoutube } from 'react-icons/sl';
+import { FiSun, FiMoon } from 'react-icons/fi';
 import { UserAuth } from '../../context/AuthContext';
 import { useHeaderNav } from '../../hooks/useHeaderNav';
 import { useTheme } from '../../context/ThemeContext';
@@ -28,7 +28,7 @@ export default function MobileMenu({ onClose }: MobileMenuProps) {
   const handleNavigate = (path: string) => {
     navigate(path);
     onClose();
-  }
+  };
   const handleLogout = async () => {
     try {
       await logOut();
@@ -37,56 +37,36 @@ export default function MobileMenu({ onClose }: MobileMenuProps) {
     } catch {
       toast.error(t('common.error'));
     }
-  }
+  };
   return (
     <>
       <div className="mobile-menu-container" onClick={onClose}>
-        <div className="mobile-menu" >
+        <div className="mobile-menu">
           <div className="mobile-menu-header">
-            <div className='logo' onClick={() => handleNavigate('/')}>
-              <img src={logo} alt="logo" className='logo-img' />
+            <div className="logo" onClick={() => handleNavigate('/')}>
+              <img src={logo} alt="logo" className="logo-img" />
             </div>
             <div>
               {user?.email ? (
                 <>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleNavigate('/account')}
-                  >
+                  <Button variant="outline" size="sm" onClick={() => handleNavigate('/account')}>
                     {t('header.account')}
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={handleLogout}
-                  >
+                  <Button variant="outline" size="sm" onClick={handleLogout}>
                     {t('header.logout')}
                   </Button>
                 </>
               ) : (
                 <>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleNavigate('/login')}
-                  >
+                  <Button variant="outline" size="sm" onClick={() => handleNavigate('/login')}>
                     {t('header.login')}
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleNavigate('/register')}
-                  >
+                  <Button variant="outline" size="sm" onClick={() => handleNavigate('/register')}>
                     {t('header.signup')}
                   </Button>
                 </>
               )}
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={toggleLanguage}
-              >
+              <Button variant="outline" size="sm" onClick={toggleLanguage}>
                 {langLabel}
               </Button>
               <button
@@ -106,32 +86,34 @@ export default function MobileMenu({ onClose }: MobileMenuProps) {
               </button>
             </div>
           </div>
-          <div className='nav-list'>
-            <ul className='nav-list'>
+          <div className="nav-list">
+            <ul className="nav-list">
               {navItems.map((item) => (
-                <li key={item.id} className='nav-item'>
-                  <NavLink
-                    to={item.path}
-                    className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
-                  >
+                <li key={item.id} className="nav-item">
+                  <NavLink to={item.path} className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
                     {item.label}
                   </NavLink>
                 </li>
               ))}
             </ul>
-            <IoCloseSharp
-              className="mobile-menu-close-btn"
-              onClick={onClose}
-            />
+            <IoCloseSharp className="mobile-menu-close-btn" onClick={onClose} />
           </div>
-          <div className='social-icons'>
-            <a href="https://www.instagram.com/"><SlSocialInstagram className='social-icon' size={24} /></a>
-            <a href="https://www.facebook.com/"><SlSocialFacebook className='social-icon' size={24} /></a>
-            <a href="https://www.pinterest.com/"><TiSocialPinterest className='social-icon' size={24} /></a>
-            <a href="https://www.youtube.com/"><SlSocialYoutube className='social-icon' size={24} /></a>
+          <div className="social-icons">
+            <a href="https://www.instagram.com/">
+              <SlSocialInstagram className="social-icon" size={24} />
+            </a>
+            <a href="https://www.facebook.com/">
+              <SlSocialFacebook className="social-icon" size={24} />
+            </a>
+            <a href="https://www.pinterest.com/">
+              <TiSocialPinterest className="social-icon" size={24} />
+            </a>
+            <a href="https://www.youtube.com/">
+              <SlSocialYoutube className="social-icon" size={24} />
+            </a>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }

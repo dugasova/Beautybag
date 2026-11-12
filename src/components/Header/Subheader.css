@@ -1,68 +1,68 @@
 .subheader {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
 }
 
 .subheader-search-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .search-icon {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .subheader-right {
-    display: flex;
-    gap: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
 }
 
 .subheader-icons img {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    transition: filter 0.3s ease;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: filter 0.3s ease;
 }
 
-[data-theme="dark"] .subheader-icons img,
-[data-theme="dark"] .search-icon {
-    filter: invert(1);
+[data-theme='dark'] .subheader-icons img,
+[data-theme='dark'] .search-icon {
+  filter: invert(1);
 }
 
 .subheader-message {
-    font-size: 1.5rem;
-    font-style: italic;
-    color: var(--color-text-muted);
-    font-family: 'Times New Roman', Times, serif;
-    letter-spacing: 0.5px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  font-family: 'Times New Roman', Times, serif;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .cart-icons,
 .wishlist-icons {
-    position: relative;
+  position: relative;
 }
 
 .badge-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 18px;
-    height: 18px;
-    padding: 0 4px;
-    background-color: var(--color-badge);
-    color: var(--color-white);
-    border-radius: 50%;
-    font-size: 0.7rem;
-    line-height: 1;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  background-color: var(--color-badge);
+  color: var(--color-white);
+  border-radius: 50%;
+  font-size: 0.7rem;
+  line-height: 1;
 }

@@ -34,7 +34,9 @@ describe('ProfileTab', () => {
 
     expect(screen.getByLabelText('Display Name')).toHaveValue('');
 
-    rerender(<ProfileTab user={user} profile={{ displayName: 'Bob', phone: '+380671112233' }} updateProfile={vi.fn()} />);
+    rerender(
+      <ProfileTab user={user} profile={{ displayName: 'Bob', phone: '+380671112233' }} updateProfile={vi.fn()} />,
+    );
 
     expect(screen.getByLabelText('Display Name')).toHaveValue('Bob');
     expect(screen.getByLabelText('Phone')).toHaveValue('+380671112233');
@@ -51,7 +53,11 @@ describe('ProfileTab', () => {
 
   it('saves valid changes via updateProfile', async () => {
     const updateProfile = vi.fn().mockResolvedValue(undefined);
-    const profile: IUserProfile = { displayName: 'Alice', phone: '+380501234567', avatarUrl: 'https://example.com/old.png' };
+    const profile: IUserProfile = {
+      displayName: 'Alice',
+      phone: '+380501234567',
+      avatarUrl: 'https://example.com/old.png',
+    };
     render(<ProfileTab user={user} profile={profile} updateProfile={updateProfile} />);
 
     await userEvent.clear(screen.getByLabelText('Display Name'));

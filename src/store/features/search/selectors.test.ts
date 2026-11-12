@@ -1,12 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import type { RootState } from '../../store';
-import {
-  selectCategoryFilter,
-  selectSortBy,
-  selectMinPrice,
-  selectMaxPrice,
-  selectMinRating,
-} from './selectors';
+import { selectCategoryFilter, selectSortBy, selectMinPrice, selectMaxPrice, selectMinRating } from './selectors';
 
 type SortBy = 'default' | 'price-asc' | 'price-desc' | 'rating-desc';
 

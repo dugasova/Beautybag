@@ -19,7 +19,12 @@ export default function ShippingStep() {
   const { profile } = useUserProfile();
   const shippingAddress = useSelector((state: RootState) => state.checkout.shippingAddress);
 
-  const { control, handleSubmit, formState: { errors }, setValue } = useForm<ShippingFormValues>({
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm<ShippingFormValues>({
     resolver: zodResolver(ShippingStepSchema),
     defaultValues: {
       firstName: shippingAddress.firstName || '',
@@ -53,12 +58,42 @@ export default function ShippingStep() {
       )}
 
       <form onSubmit={handleSubmit(onSubmit)} className="checkout-form">
-        <FormField name="firstName" control={control} label={t('checkout.shipping.firstName')} error={errors.firstName} />
-        <FormField name="lastName"  control={control} label={t('checkout.shipping.lastName')}  error={errors.lastName} />
-        <FormField name="email"     control={control} label={t('checkout.shipping.email')}     type="email" readOnly wrapperClassName="form-group full-width" />
-        <FormField name="address"   control={control} label={t('checkout.shipping.address')}   error={errors.address} wrapperClassName="form-group full-width" />
-        <FormField name="city"      control={control} label={t('checkout.shipping.city')}      error={errors.city}    wrapperClassName="form-group full-width" />
-        <FormField name="phone"     control={control} label={t('checkout.shipping.phone')}     error={errors.phone}   wrapperClassName="form-group full-width" />
+        <FormField
+          name="firstName"
+          control={control}
+          label={t('checkout.shipping.firstName')}
+          error={errors.firstName}
+        />
+        <FormField name="lastName" control={control} label={t('checkout.shipping.lastName')} error={errors.lastName} />
+        <FormField
+          name="email"
+          control={control}
+          label={t('checkout.shipping.email')}
+          type="email"
+          readOnly
+          wrapperClassName="form-group full-width"
+        />
+        <FormField
+          name="address"
+          control={control}
+          label={t('checkout.shipping.address')}
+          error={errors.address}
+          wrapperClassName="form-group full-width"
+        />
+        <FormField
+          name="city"
+          control={control}
+          label={t('checkout.shipping.city')}
+          error={errors.city}
+          wrapperClassName="form-group full-width"
+        />
+        <FormField
+          name="phone"
+          control={control}
+          label={t('checkout.shipping.phone')}
+          error={errors.phone}
+          wrapperClassName="form-group full-width"
+        />
         <div className="checkout-actions">
           <Button type="submit" variant="purple" size="md" style={{ marginLeft: 'auto' }}>
             {t('checkout.shipping.continue')}

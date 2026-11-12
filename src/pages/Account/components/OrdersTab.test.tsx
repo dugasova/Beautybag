@@ -54,7 +54,7 @@ describe('OrdersTab', () => {
           makeOrder({ id: 'order-delivr1', status: 'delivered' }),
         ]}
         loading={false}
-      />
+      />,
     );
 
     expect(screen.getByText('Shipped')).toBeInTheDocument();

@@ -30,10 +30,7 @@ const product: IProduct = {
   imsrcOfImg: '',
 };
 
-const renderProductPage = (
-  goodsStatus: 'idle' | 'loading' | 'succeeded' | 'failed',
-  productId = '1'
-) => {
+const renderProductPage = (goodsStatus: 'idle' | 'loading' | 'succeeded' | 'failed', productId = '1') => {
   const store = createTestStore({
     goods: { items: goodsStatus === 'succeeded' ? [product] : [], status: goodsStatus, error: null },
   });
@@ -44,7 +41,7 @@ const renderProductPage = (
           <Route path="/product/:id" element={<ProductPage />} />
         </Routes>
       </MemoryRouter>
-    </Provider>
+    </Provider>,
   );
   return store;
 };

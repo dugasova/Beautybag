@@ -1,64 +1,64 @@
 .order-success-page {
-    padding: 60px 20px;
-    background-color: var(--color-bg);
-    min-height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding: 60px 20px;
+  background-color: var(--color-bg);
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .order-success-container {
-    max-width: 500px;
-    width: 100%;
-    background: var(--color-white);
-    padding: 60px 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    text-align: center;
+  max-width: 500px;
+  width: 100%;
+  background: var(--color-white);
+  padding: 60px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
 }
 
 .success-icon {
-    width: 80px;
-    height: 80px;
-    background-color: var(--color-chip-bg);
-    color: var(--color-purple-300);
-    font-size: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    margin: 0 auto 30px;
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-chip-bg);
+  color: var(--color-purple-300);
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 0 auto 30px;
 }
 
 .order-success-container h1 {
-    font-size: 28px;
-    color: var(--color-heading);
-    margin-bottom: 16px;
+  font-size: 28px;
+  color: var(--color-heading);
+  margin-bottom: 16px;
 }
 
 .order-id {
-    font-size: 18px;
-    color: var(--color-text-muted);
-    margin-bottom: 24px;
+  font-size: 18px;
+  color: var(--color-text-muted);
+  margin-bottom: 24px;
 }
 
 .order-id strong {
-    color: var(--color-purple-300);
+  color: var(--color-purple-300);
 }
 
 .success-msg {
-    color: var(--color-text-muted);
-    line-height: 1.6;
-    margin-bottom: 40px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 40px;
 }
 
 .success-actions {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 @media (max-width: 640px) {
-    .order-success-container {
-        padding: 40px 20px;
-    }
+  .order-success-container {
+    padding: 40px 20px;
+  }
 }

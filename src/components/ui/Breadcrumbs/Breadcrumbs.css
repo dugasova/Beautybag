@@ -1,57 +1,57 @@
 .breadcrumbs {
-    padding: 1.5rem 0 0.5rem;
-    margin-bottom: 1rem;
+  padding: 1.5rem 0 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .breadcrumbs-list {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .breadcrumbs-item {
-    display: flex;
-    align-items: center;
-    font-size: 0.95rem;
-    color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  color: var(--color-text-light);
 }
 
 .breadcrumbs-link {
-    text-decoration: none;
-    color: var(--color-text-muted);
-    transition: color 0.2s ease;
-    display: flex;
-    align-items: center;
+  text-decoration: none;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
 }
 
 .breadcrumbs-link:hover {
-    color: var(--color-purple-200);
+  color: var(--color-purple-200);
 }
 
 .breadcrumbs-link.home-icon {
-    color: var(--color-heading);
+  color: var(--color-heading);
 }
 
 .breadcrumbs-current {
-    font-weight: 600;
-    color: var(--color-text);
+  font-weight: 600;
+  color: var(--color-text);
 }
 
 .separator {
-    margin: 0 0.25rem;
-    color: var(--color-border);
+  margin: 0 0.25rem;
+  color: var(--color-border);
 }
 
 @media screen and (max-width: 768px) {
-    .breadcrumbs {
-        padding: 1rem 1rem 0;
-    }
-    
-    .breadcrumbs-item {
-        font-size: 0.85rem;
-    }
+  .breadcrumbs {
+    padding: 1rem 1rem 0;
+  }
+
+  .breadcrumbs-item {
+    font-size: 0.85rem;
+  }
 }

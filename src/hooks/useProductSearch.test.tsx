@@ -48,9 +48,7 @@ function createWrapper(items: IProduct[]) {
     },
   });
 
-  return ({ children }: { children: ReactNode }) => (
-    <Provider store={store}>{children}</Provider>
-  );
+  return ({ children }: { children: ReactNode }) => <Provider store={store}>{children}</Provider>;
 }
 
 const products = [

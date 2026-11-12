@@ -55,10 +55,7 @@ describe('goods reducer', () => {
   describe('fetchGoods.rejected', () => {
     it('sets status to failed and stores error message', () => {
       const error = new Error('Network error');
-      const state = reducer(
-        undefined,
-        fetchGoods.rejected(error, ''),
-      );
+      const state = reducer(undefined, fetchGoods.rejected(error, ''));
       expect(state.status).toBe('failed');
       expect(state.error).toBe('Network error');
       expect(state.items).toEqual([]);

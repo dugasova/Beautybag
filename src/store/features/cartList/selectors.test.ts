@@ -16,8 +16,7 @@ const makeItem = (overrides: Partial<ICartItem> = {}): ICartItem => ({
   ...overrides,
 });
 
-const state = (items: ICartItem[]) =>
-  ({ cartList: { cartList: items } } as unknown as RootState);
+const state = (items: ICartItem[]) => ({ cartList: { cartList: items } }) as unknown as RootState;
 
 describe('selectTotalPrice', () => {
   it('returns 0 for empty cart', () => {
@@ -29,9 +28,7 @@ describe('selectTotalPrice', () => {
   });
 
   it('uses discountPrice instead of price when available', () => {
-    expect(
-      selectTotalPrice(state([makeItem({ price: 100, discountPrice: 70, totalQuantity: 2 })]))
-    ).toBe(140);
+    expect(selectTotalPrice(state([makeItem({ price: 100, discountPrice: 70, totalQuantity: 2 })]))).toBe(140);
   });
 
   it('sums multiple items correctly', () => {
@@ -49,10 +46,7 @@ describe('selectTotalQuantity', () => {
   });
 
   it('sums totalQuantity across items', () => {
-    const items = [
-      makeItem({ id: 1, totalQuantity: 3 }),
-      makeItem({ id: 2, totalQuantity: 2 }),
-    ];
+    const items = [makeItem({ id: 1, totalQuantity: 3 }), makeItem({ id: 2, totalQuantity: 2 })];
     expect(selectTotalQuantity(state(items))).toBe(5);
   });
 });
@@ -63,9 +57,7 @@ describe('selectTotalDiscount', () => {
   });
 
   it('calculates (price - discountPrice) × quantity', () => {
-    expect(
-      selectTotalDiscount(state([makeItem({ price: 100, discountPrice: 70, totalQuantity: 2 })]))
-    ).toBe(60);
+    expect(selectTotalDiscount(state([makeItem({ price: 100, discountPrice: 70, totalQuantity: 2 })]))).toBe(60);
   });
 
   it('sums discounts across multiple items, skips items without discountPrice', () => {

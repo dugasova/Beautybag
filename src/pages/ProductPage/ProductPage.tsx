@@ -24,7 +24,7 @@ export default function ProductPage() {
   const goods: IProduct[] = useSelector((state: RootState) => state.goods.items);
   const goodsStatus = useSelector((state: RootState) => state.goods.status);
 
-  const product = goods.find(item => item.id === Number(id));
+  const product = goods.find((item) => item.id === Number(id));
 
   if (goodsStatus === 'idle' || goodsStatus === 'loading') {
     return <PageLoader />;
@@ -85,11 +85,24 @@ export default function ProductPage() {
 
         <div className="product-info-section">
           <nav className="breadcrumb" aria-label={t('common.breadcrumb')}>
-            <a role="link" tabIndex={0} onClick={() => navigate('/')} onKeyDown={(e) => handleBreadcrumbKeyDown(e, '/')}>{t('navigation.home')}</a>
-            <span className="separator" aria-hidden="true">/</span>
+            <a
+              role="link"
+              tabIndex={0}
+              onClick={() => navigate('/')}
+              onKeyDown={(e) => handleBreadcrumbKeyDown(e, '/')}
+            >
+              {t('navigation.home')}
+            </a>
+            <span className="separator" aria-hidden="true">
+              /
+            </span>
             <span>{product.category}</span>
-            <span className="separator" aria-hidden="true">/</span>
-            <span className="current" aria-current="page">{t(product.name)}</span>
+            <span className="separator" aria-hidden="true">
+              /
+            </span>
+            <span className="current" aria-current="page">
+              {t(product.name)}
+            </span>
           </nav>
 
           <h1 className="product-title">{t(product.name)}</h1>
@@ -109,25 +122,22 @@ export default function ProductPage() {
 
           <p className="product-description-long">
             {t(product.description)}
-            <br /><br />
+            <br />
+            <br />
             {t('product.premiumDesc')}
           </p>
 
           <div className="product-actions-grid">
-            <Button
-              variant="purple"
-              size="lg"
-              className="add-to-cart-big"
-              onClick={handleAddToCart}
-            >
+            <Button variant="purple" size="lg" className="add-to-cart-big" onClick={handleAddToCart}>
               {isInCart ? `${t('cart.addToCart')} (${isInCart.totalQuantity})` : t('cart.addToCart')}
             </Button>
 
-            <button
-              className={`wishlist-toggle-btn ${isFavorite ? 'active' : ''}`}
-              onClick={handleToggleWishlist}
-            >
-              <svg viewBox="0 0 24 24" fill={isFavorite ? "#a855f7" : "none"} stroke={isFavorite ? "#a855f7" : "#1e293b"}>
+            <button className={`wishlist-toggle-btn ${isFavorite ? 'active' : ''}`} onClick={handleToggleWishlist}>
+              <svg
+                viewBox="0 0 24 24"
+                fill={isFavorite ? '#a855f7' : 'none'}
+                stroke={isFavorite ? '#a855f7' : '#1e293b'}
+              >
                 <path d="M12 21.35L10.55 19.9C5.58 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.42 15.36 13.45 19.9L12 21.35Z" />
               </svg>
             </button>

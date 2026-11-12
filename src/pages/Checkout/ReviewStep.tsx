@@ -24,24 +24,28 @@ const ReviewStep = () => {
   const handlePlaceOrder = async () => {
     dispatch(setIsProcessing(true));
 
-    await execute(async () => {
-      const orderData = {
-        items: cartList,
-        totalPrice,
-        totalQuantity,
-        shippingAddress,
-        paymentMethod,
-        createdAt: new Date().toISOString(),
-        status: 'pending' as const
-      };
+    await execute(
+      async () => {
+        const orderData = {
+          items: cartList,
+          totalPrice,
+          totalQuantity,
+          shippingAddress,
+          paymentMethod,
+          createdAt: new Date().toISOString(),
+          status: 'pending' as const,
+        };
 
-      const orderId = await sendOrder(orderData);
-      if (!orderId) return;
+        const orderId = await sendOrder(orderData);
+        if (!orderId) return;
 
-      dispatch(setOrderId(orderId));
-      dispatch(clearCart());
-      navigate('/order-success');
-    }, t('cart.orderSuccess'), t('cart.orderError'));
+        dispatch(setOrderId(orderId));
+        dispatch(clearCart());
+        navigate('/order-success');
+      },
+      t('cart.orderSuccess'),
+      t('cart.orderError'),
+    );
 
     dispatch(setIsProcessing(false));
   };
@@ -53,8 +57,12 @@ const ReviewStep = () => {
       <div className="review-summary">
         <div className="review-section">
           <h3>{t('checkout.review.shippingTo')}</h3>
-          <p>{shippingAddress.firstName} {shippingAddress.lastName}</p>
-          <p>{shippingAddress.address}, {shippingAddress.city}</p>
+          <p>
+            {shippingAddress.firstName} {shippingAddress.lastName}
+          </p>
+          <p>
+            {shippingAddress.address}, {shippingAddress.city}
+          </p>
           <p>{shippingAddress.phone}</p>
         </div>
 
@@ -65,9 +73,11 @@ const ReviewStep = () => {
 
         <div className="review-items">
           <h3>{t('checkout.review.items')}</h3>
-          {cartList.map(item => (
+          {cartList.map((item) => (
             <div key={item.id} className="review-item">
-              <span>{t(item.name)} x {item.totalQuantity}</span>
+              <span>
+                {t(item.name)} x {item.totalQuantity}
+              </span>
               <span>{(item.discountPrice ?? item.price) * item.totalQuantity} UAH</span>
             </div>
           ))}

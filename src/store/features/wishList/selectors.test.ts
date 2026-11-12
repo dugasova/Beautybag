@@ -14,8 +14,7 @@ const makeProduct = (id: number): IProduct => ({
   imsrcOfImg: '',
 });
 
-const state = (items: IProduct[]) =>
-  ({ wishList: { wishList: items } } as unknown as RootState);
+const state = (items: IProduct[]) => ({ wishList: { wishList: items } }) as unknown as RootState;
 
 describe('selectWishList', () => {
   it('returns empty array when wishlist is empty', () => {

@@ -1,20 +1,24 @@
 import './Delivery.css';
 import { useTranslation } from 'react-i18next';
 import {
-  MdLocalShipping, MdLocalPostOffice, MdStorefront,
-  MdCreditCard, MdPayments, MdAccountBalance,
+  MdLocalShipping,
+  MdLocalPostOffice,
+  MdStorefront,
+  MdCreditCard,
+  MdPayments,
+  MdAccountBalance,
 } from 'react-icons/md';
 import type { IconType } from 'react-icons';
 
 const DELIVERY_METHODS: { key: string; Icon: IconType }[] = [
-  { key: 'courier',    Icon: MdLocalShipping },
+  { key: 'courier', Icon: MdLocalShipping },
   { key: 'postOffice', Icon: MdLocalPostOffice },
-  { key: 'boutique',   Icon: MdStorefront },
+  { key: 'boutique', Icon: MdStorefront },
 ];
 
 const PAYMENT_METHODS: { key: string; Icon: IconType }[] = [
-  { key: 'card',    Icon: MdCreditCard },
-  { key: 'cash',    Icon: MdPayments },
+  { key: 'card', Icon: MdCreditCard },
+  { key: 'cash', Icon: MdPayments },
   { key: 'banking', Icon: MdAccountBalance },
 ];
 

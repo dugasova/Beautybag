@@ -58,13 +58,15 @@ describe('AddressesTab', () => {
 
     await userEvent.click(screen.getByRole('button', { name: 'Save Address' }));
 
-    expect(onAdd).toHaveBeenCalledWith(expect.objectContaining({
-      firstName: 'Jane',
-      lastName: 'Smith',
-      address: '456 Side Street',
-      city: 'Lviv',
-      phone: '+380671234567',
-    }));
+    expect(onAdd).toHaveBeenCalledWith(
+      expect.objectContaining({
+        firstName: 'Jane',
+        lastName: 'Smith',
+        address: '456 Side Street',
+        city: 'Lviv',
+        phone: '+380671234567',
+      }),
+    );
     expect(screen.queryByRole('button', { name: 'Save Address' })).not.toBeInTheDocument();
   });
 });

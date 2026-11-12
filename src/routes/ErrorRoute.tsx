@@ -1,7 +1,5 @@
-import ErrorElement from '../components/ErrorElement/ErrorElement'
+import ErrorElement from '../components/ErrorElement/ErrorElement';
 
 export default function ErrorRoute() {
-  return (
-    <ErrorElement />
-  )
+  return <ErrorElement />;
 }

@@ -22,7 +22,7 @@ export default function Banner() {
     videoRefs.current.forEach((video, index) => {
       if (!video) return;
       if (index === swiper.realIndex) {
-        video.play().catch(() => { });
+        video.play().catch(() => {});
       } else {
         video.pause();
       }
@@ -31,7 +31,7 @@ export default function Banner() {
 
   return (
     <div className="container">
-      <div className='hero-section' aria-label={t('banner.ariaLabel')}>
+      <div className="hero-section" aria-label={t('banner.ariaLabel')}>
         <Swiper
           modules={[Autoplay, Pagination, Navigation]}
           spaceBetween={0}
@@ -51,7 +51,9 @@ export default function Banner() {
             <SwiperSlide key={vid}>
               <div className="swiper-slide-inner">
                 <video
-                  ref={(el) => { videoRefs.current[index] = el; }}
+                  ref={(el) => {
+                    videoRefs.current[index] = el;
+                  }}
                   muted
                   loop
                   playsInline
@@ -59,7 +61,7 @@ export default function Banner() {
                   disablePictureInPicture
                   controlsList="nodownload"
                   aria-hidden="true"
-                  className='hero-video'
+                  className="hero-video"
                 >
                   <source src={`${vid}#t=0.1`} type="video/mp4" />
                 </video>

@@ -4,10 +4,10 @@ import PageLoader from '../../../components/ui/PageLoader/PageLoader';
 import type { IOrder } from '../../../types';
 
 const statusConfig: Record<string, { key: string; cls: string }> = {
-  pending:    { key: 'pending',    cls: 'status-pending' },
+  pending: { key: 'pending', cls: 'status-pending' },
   processing: { key: 'processing', cls: 'status-processing' },
-  shipped:    { key: 'shipped',    cls: 'status-shipped' },
-  delivered:  { key: 'delivered',  cls: 'status-delivered' },
+  shipped: { key: 'shipped', cls: 'status-shipped' },
+  delivered: { key: 'delivered', cls: 'status-delivered' },
 };
 
 interface OrdersTabProps {
@@ -41,7 +41,7 @@ export default function OrdersTab({ orders, loading }: OrdersTabProps) {
           const { key, cls } = statusConfig[status || 'pending'];
           const label = t(`account.orderStatus.${key}`);
           return (
-            <div key={id!} className="order-card">
+            <div key={id} className="order-card">
               <div className="order-header">
                 <span className="order-id">#{id?.slice(0, 8)}</span>
                 <span className={`order-status ${cls}`}>{label}</span>
@@ -54,13 +54,17 @@ export default function OrdersTab({ orders, loading }: OrdersTabProps) {
               <div className="order-items">
                 {items.map(({ name, totalQuantity, price }, idx) => (
                   <div key={idx} className="order-item-row">
-                    <span>{t(name)} × {totalQuantity || 1}</span>
+                    <span>
+                      {t(name)} × {totalQuantity || 1}
+                    </span>
                     <span>{(Number(price) || 0) * (Number(totalQuantity) || 1)} UAH</span>
                   </div>
                 ))}
               </div>
               <div className="order-footer">
-                <strong>{t('cart.totalPrice')}: {Number(totalPrice) || 0} UAH</strong>
+                <strong>
+                  {t('cart.totalPrice')}: {Number(totalPrice) || 0} UAH
+                </strong>
               </div>
             </div>
           );
