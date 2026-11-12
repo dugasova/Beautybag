@@ -5,6 +5,7 @@ import type { IOrder } from '../types';
 
 const mockSubscribeToOrders = vi.fn();
 const mockToastError = vi.fn();
+const mockT = (key: string) => key;
 let mockUser: { email: string } | null = { email: 'test@example.com' };
 
 vi.mock('../services/dbService', () => ({
@@ -24,7 +25,8 @@ vi.mock('react-toastify', () => ({
 }));
 
 vi.mock('react-i18next', () => ({
-  useTranslation: () => ({ t: (key: string) => key }),
+  // `t` must be referentially stable, like the real one: the hook's effect depends on it.
+  useTranslation: () => ({ t: mockT }),
 }));
 
 const mockOrder: IOrder = {
@@ -52,11 +54,7 @@ describe('useOrders', () => {
 
   it('subscribes to orders when user is logged in', () => {
     renderHook(() => useOrders());
-    expect(mockSubscribeToOrders).toHaveBeenCalledWith(
-      'test@example.com',
-      expect.any(Function),
-      expect.any(Function),
-    );
+    expect(mockSubscribeToOrders).toHaveBeenCalledWith('test@example.com', expect.any(Function), expect.any(Function));
   });
 
   it('populates orders from snapshot callback', () => {
