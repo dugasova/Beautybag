@@ -55,11 +55,22 @@ VITE_FIREBASE_APP_ID=
 ### Available Scripts
 
 ```bash
-npm run dev       # start the development server
-npm run build     # type-check and build for production
-npm run preview   # preview the production build locally
-npm run lint      # run ESLint
+npm run dev            # start the development server
+npm run build          # type-check and build for production
+npm run preview        # preview the production build locally
+npm run check          # everything CI runs: typecheck, lint, format, i18n, tests
+npm run lint           # ESLint (type-aware rules + jsx-a11y)
+npm run lint:fix       # ESLint with autofix
+npm run format         # format all files with Prettier
+npm run typecheck      # TypeScript project build without emit
+npm test               # run unit tests once (Vitest)
+npm run test:coverage  # tests + coverage report in ./coverage
+npm run i18n:check     # verify en/uk translation files have the same keys
+npm run knip           # report unused files, exports and dependencies
 ```
+
+A pre-commit hook (husky + lint-staged) runs ESLint and Prettier on staged files.
+Imports can use the `@/` alias for `src/` (e.g. `import Button from '@/components/ui/Button/Button'`).
 
 ## Project Structure
 
