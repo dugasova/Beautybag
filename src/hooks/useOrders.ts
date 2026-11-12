@@ -5,35 +5,40 @@ import { dbService } from '../services/dbService';
 import { UserAuth } from '../context/AuthContext';
 import type { IOrder } from '../types';
 
+const NO_ORDERS: IOrder[] = [];
+
+// Snapshot results are stored together with the email they belong to. "No user" and
+// "still loading for this user" are then derived during render, without setState in the effect.
+interface OrdersSnapshot {
+  email: string;
+  orders: IOrder[];
+}
+
 export default function useOrders() {
   const { user } = UserAuth();
   const email = user?.email;
   const { t } = useTranslation();
-  const [orders, setOrders] = useState<IOrder[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [snapshot, setSnapshot] = useState<OrdersSnapshot | null>(null);
 
   useEffect(() => {
-    if (!email) {
-      setOrders([]);
-      setLoading(false);
-      return;
-    }
+    if (!email) return;
 
-    setLoading(true);
     const unsubscribe = dbService.subscribeToOrders(
       email,
-      (fetchedOrders) => {
-        setOrders(fetchedOrders);
-        setLoading(false);
-      },
+      (orders) => setSnapshot({ email, orders }),
       () => {
         toast.error(t('common.error'));
-        setLoading(false);
+        // Stop loading, keep whatever was already loaded for this user.
+        setSnapshot((prev) => ({ email, orders: prev?.email === email ? prev.orders : NO_ORDERS }));
       },
     );
 
     return () => unsubscribe();
   }, [email, t]);
 
-  return { orders, loading };
+  const current = snapshot?.email === email ? snapshot : null;
+  return {
+    orders: current?.orders ?? NO_ORDERS,
+    loading: Boolean(email) && !current,
+  };
 }
