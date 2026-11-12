@@ -1,14 +1,29 @@
+# Dependency update PRs. Options: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
+# Result: at most 3 PRs a month — npm minor/patch, npm majors, GitHub Actions.
 version: 2
 updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
-    open-pull-requests-limit: 5
+      interval: monthly
+    open-pull-requests-limit: 2
+    ignore:
+      # eslint-plugin-jsx-a11y supports ESLint only up to v9 (peerDependencies). Remove once it supports v10.
+      - dependency-name: 'eslint'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@eslint/js'
+        update-types: ['version-update:semver-major']
     groups:
       minor-and-patch:
         update-types: [minor, patch]
+      # Majors may contain breaking changes: one separate PR, check the app manually before merging.
+      major:
+        update-types: [major]
+
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
+    groups:
+      github-actions:
+        patterns: ['*']
