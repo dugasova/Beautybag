@@ -30,17 +30,17 @@ export default defineConfig([
       // `onClick={async () => ...}` is the normal React pattern.
       '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: { attributes: false } }],
 
-      // Existing debt, tracked in the refactoring plan. Downgraded to warnings so CI stays green;
-      // switch each back to 'error' once the corresponding stage is done.
-      // Stage 1/2 (unhandled async, Firestore sync):
+      // Existing violations, downgraded to warnings so CI stays green.
+      // Switch each group back to 'error' once its warnings are fixed.
+      // Unhandled promises (navigate, i18n.changeLanguage, dispatch of thunks):
       '@typescript-eslint/no-floating-promises': 'warn',
-      // Stage 3 (untyped slice actions, Firestore DocumentData):
+      // Untyped slice actions and Firestore DocumentData:
       '@typescript-eslint/no-unsafe-argument': 'warn',
       '@typescript-eslint/no-unsafe-assignment': 'warn',
       '@typescript-eslint/no-unsafe-call': 'warn',
       '@typescript-eslint/no-unsafe-member-access': 'warn',
       '@typescript-eslint/no-unsafe-return': 'warn',
-      // Stage 2 (div/span/li with role="button" -> real <button>/<Link>):
+      // div/span/li with role="button" instead of real <button>/<Link>:
       'jsx-a11y/click-events-have-key-events': 'warn',
       'jsx-a11y/no-static-element-interactions': 'warn',
       'jsx-a11y/no-noninteractive-element-interactions': 'warn',
