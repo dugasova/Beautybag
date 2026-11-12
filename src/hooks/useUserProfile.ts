@@ -5,24 +5,29 @@ import { dbService } from '../services/dbService';
 import { UserAuth } from '../context/AuthContext';
 import type { IUserProfile, IAddress } from '../types';
 
+const EMPTY_PROFILE: IUserProfile = {};
+
+// Same approach as useOrders: keep the snapshot with its email and derive the rest during render.
+interface ProfileSnapshot {
+  email: string;
+  profile: IUserProfile;
+}
+
 export default function useUserProfile() {
   const { user } = UserAuth();
+  const email = user?.email;
   const { t } = useTranslation();
-  const [profile, setProfile] = useState<IUserProfile>({});
-  const [loading, setLoading] = useState(true);
+  const [snapshot, setSnapshot] = useState<ProfileSnapshot | null>(null);
 
   useEffect(() => {
-    if (!user?.email) {
-      setProfile({});
-      setLoading(false);
-      return;
-    }
-    const unsub = dbService.subscribeToProfile(user.email, (data) => {
-      setProfile(data);
-      setLoading(false);
-    });
+    if (!email) return;
+    const unsub = dbService.subscribeToProfile(email, (profile) => setSnapshot({ email, profile }));
     return () => unsub();
-  }, [user]);
+  }, [email]);
+
+  const current = snapshot?.email === email ? snapshot : null;
+  const profile = current?.profile ?? EMPTY_PROFILE;
+  const loading = Boolean(email) && !current;
 
   const withErrorHandling = async (action: () => Promise<void>) => {
     try {

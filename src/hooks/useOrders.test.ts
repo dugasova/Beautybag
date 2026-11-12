@@ -86,6 +86,23 @@ describe('useOrders', () => {
     expect(result.current.loading).toBe(false);
   });
 
+  it("does not show the previous user's orders after switching user", () => {
+    const { result, rerender } = renderHook(() => useOrders());
+    act(() => mockSubscribeToOrders.mock.calls[0][1]([mockOrder]));
+    expect(result.current.orders).toEqual([mockOrder]);
+
+    mockUser = { email: 'other@example.com' };
+    rerender();
+
+    expect(result.current.orders).toEqual([]);
+    expect(result.current.loading).toBe(true);
+    expect(mockSubscribeToOrders).toHaveBeenLastCalledWith(
+      'other@example.com',
+      expect.any(Function),
+      expect.any(Function),
+    );
+  });
+
   it('calls unsubscribe on unmount', () => {
     const unsubscribe = vi.fn();
     mockSubscribeToOrders.mockReturnValue(unsubscribe);
